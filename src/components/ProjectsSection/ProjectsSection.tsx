@@ -67,16 +67,15 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
             <div
               className="frame-14"
               style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
                 alignItems: isMobile(screenWidth)
                   ? "center"
                   : isDesktop(screenWidth)
                     ? "flex-start"
-                    : undefined,
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                gap: "16px",
-                height: "100%"
+                    : "flex-start",
+                gap: "16px"
               }}
             >
               <div
@@ -149,14 +148,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
             <div
               className="frame-15"
               style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
                 alignItems: isMobile(screenWidth)
                   ? "center"
                   : isDesktop(screenWidth)
                     ? "flex-end"
-                    : undefined,
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-between",
+                    : "flex-start",
                 gap: "16px"
               }}
             >
