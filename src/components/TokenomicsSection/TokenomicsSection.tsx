@@ -137,6 +137,324 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
           {t('tokenomics.discoverFundsDistribution')}
         </p>
       </div>
+
+      <div
+        className="display-card-2"
+        style={{
+          alignSelf: "stretch",
+          padding:
+            screenWidth < 1440
+              ? "16px 12px"
+              : screenWidth >= 1440
+                ? "24px"
+                : undefined,
+          width: "100%",
+        }}
+      >
+        {screenWidth >= 1440 && (
+          <>
+            <div className="text-13">{t('tokenomics.tokenDistribution')}</div>
+
+            <div className="frame-5">
+              <p className="legend">
+                {t('tokenomics.supplyLimited')}
+              </p>
+
+              <p className="legend">
+                {t('tokenomics.regulatedEmission')}
+              </p>
+
+              <p className="legend">
+                {t('tokenomics.transparencyReserves')}
+              </p>
+            </div>
+
+            <div className="image-6">
+              <img
+                className="donut-container"
+                alt="Donut container"
+                src="/img/donut-container-3-2.svg"
+              />
+
+              <div className="flexcontainer">
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.team')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">10%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-2">
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.reserve')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">10%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-3">
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.initialLiquidity')} <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.community')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">10%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-4">
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.presaleICO')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">10%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-5">
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.stakingUSDC')} <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.community')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">30%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-6">
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.stakingKEYCOIN')} <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">
+                    {t('tokenomics.community')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="span-wrapper">
+                  <span className="span">30%</span>
+                </p>
+              </div>
+            </div>
+          </>
+        )}
+
+        <div className="div-31">
+          {screenWidth >= 1440 && (
+            <>
+              <button className="button-6" onClick={() => window.open(PDF_LINKS.WHITEPAPER_FR, '_blank')}>
+                <div className="material-symbols">
+                  <img
+                    className="vector-12"
+                    alt="Vector"
+                    src="/img/vector-67-2.svg"
+                  />
+                </div>
+
+                <div className="text-wrapper-10">{t('tokenomics.whitepaperFR')}</div>
+              </button>
+
+              <button className="button-6" onClick={() => window.open(PDF_LINKS.WHITEPAPER_EN, '_blank')}>
+                <div className="material-symbols">
+                  <img
+                    className="vector-12"
+                    alt="Vector"
+                    src="/img/vector-68.svg"
+                  />
+                </div>
+
+                <div className="text-wrapper-10">{t('tokenomics.whitepaperEN')}</div>
+              </button>
+            </>
+          )}
+
+          {screenWidth < 1440 && (
+            <>
+              <p className="legend-2">
+                {t('tokenomics.supplyLimited')}
+              </p>
+
+              <p className="legend-3">
+                {t('tokenomics.regulatedEmission')}
+              </p>
+
+              <p className="legend-3">
+                {t('tokenomics.transparencyReserves')}
+              </p>
+            </>
+          )}
+        </div>
+
+        {screenWidth < 1440 && (
+          <>
+            <div className="image-7">
+              <img
+                className="donut-container-2"
+                alt="Donut container"
+                src="/img/donut-container-3.svg"
+              />
+
+              <div className="flexcontainer-7">
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.team')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">10%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-8">
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.reserve')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">10%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-9">
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.initialLiquidity')} <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.community')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">10%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-10">
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.presaleICO')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">10%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-11">
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.stakingUSDC')} <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.community')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">30%</span>
+                </p>
+              </div>
+
+              <div className="flexcontainer-12">
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.stakingKEYCOIN')} <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">
+                    {t('tokenomics.community')}
+                    <br />
+                  </span>
+                </p>
+
+                <p className="text-14">
+                  <span className="text-wrapper-11">30%</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="div-31">
+              <button className="button-6" onClick={() => window.open(PDF_LINKS.WHITEPAPER_FR, '_blank')}>
+                <div className="material-symbols">
+                  <img
+                    className="vector-12"
+                    alt="Vector"
+                    src="/img/vector-69-2.svg"
+                  />
+                </div>
+
+                <div className="text-wrapper-10">{t('tokenomics.whitepaperFR')}</div>
+              </button>
+
+              <button className="button-6" onClick={() => window.open(PDF_LINKS.WHITEPAPER_EN, '_blank')}>
+                <div className="material-symbols">
+                  <img
+                    className="vector-12"
+                    alt="Vector"
+                    src="/img/vector-70-2.svg"
+                  />
+                </div>
+
+                <div className="text-wrapper-10">{t('tokenomics.whitepaperEN')}</div>
+              </button>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

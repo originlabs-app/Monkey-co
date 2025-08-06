@@ -152,37 +152,46 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
         />
       </div>
       <div
-        className="heading-2"
+        className="div-30"
         style={{
           alignSelf: "stretch",
+          alignItems: "center",
+          flex: "0 0 auto",
+          flexDirection: "column" as const,
+          gap: "16px",
+          position: "relative" as const,
           display:
             screenWidth < 1440
               ? "flex"
               : screenWidth >= 1440
                 ? "inline-flex"
                 : undefined,
-          gap:
-            screenWidth < 1440
-              ? "16px"
-              : screenWidth >= 1440
-                ? "32px"
-                : undefined,
           width: screenWidth < 1440 ? "100%" : undefined,
         }}
       >
         <p
-          className="title-17"
+          className="text-11"
           style={{
             alignSelf: "stretch",
+            color: "var(--variable-collection-background-dark)",
+            fontFamily: '"Lexend Deca", Helvetica',
+            fontWeight: 600,
+            letterSpacing: "-1px",
+            marginTop: "-1px",
+            position: "relative" as const,
+            textAlign: "center" as const,
+            maxWidth: "1200px",
+            marginLeft: "auto",
+            marginRight: "auto",
             fontSize:
               screenWidth < 1440
                 ? "28px"
                 : screenWidth >= 1440
-                  ? "48px"
+                  ? "40px"
                   : undefined,
             lineHeight:
               screenWidth < 1440
-                ? "36px"
+                ? "32px"
                 : screenWidth >= 1440
                   ? "56px"
                   : undefined,
@@ -193,9 +202,14 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
         </p>
 
         <p
-          className="description-6"
+          className="description-4"
           style={{
             alignSelf: "stretch",
+            color: "var(--variable-collection-grey-300)",
+            position: "relative" as const,
+            textAlign: "center" as const,
+            maxWidth: "1200px",
+            margin: "0 auto",
             fontFamily:
               screenWidth < 1440
                 ? "var(--text-content-caption-regular-font-family)"
