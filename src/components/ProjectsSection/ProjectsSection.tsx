@@ -75,8 +75,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                alignItems: "flex-start",
-                gap: "16px"
+                gap: "16px",
+                height: "100%"
               }}
             >
               <div
@@ -122,7 +122,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                 src="/img/projets-left.png"
                 alt="Projets écologiques"
                 style={{
-                  width: "120px",
+                  width: "174px",
                   height: "auto",
                   borderRadius: "8px",
                   flexShrink: 0
@@ -157,7 +157,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "space-between",
-                alignItems: "flex-start",
                 gap: "16px"
               }}
             >
@@ -165,7 +164,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                 src="/img/projets-right.png"
                 alt="Projets écologiques"
                 style={{
-                  width: "120px",
+                  width: "174px",
                   height: "auto",
                   borderRadius: "8px",
                   flexShrink: 0
