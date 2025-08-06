@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { DisplayCard } from "@/components/DisplayCard";
 import { ArrowLeft8 } from "@/icons/ArrowLeft8";
 import { EXTERNAL_LINKS } from "@/constants/links";
 import { isMobile, isDesktop, SPACING } from "@/constants/theme";
@@ -63,89 +62,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                   : undefined,
             }}
           >
-            <div className="overlap-wrapper">
-              <div className="overlap">
-                <DisplayCard
-                  className="display-card-10"
-                  contentClassName="display-card-7"
-                  detailsClassName="display-card-8"
-                  divClassName="display-card-14"
-                  divClassName1="display-card-15"
-                  divClassName2="display-card-13"
-                  divClassName3="display-card-11"
-                  divClassNameOverride="display-card-instance"
-                  overlapGroupClassName="display-card-4"
-                  progressBackgroundClassName="display-card-9"
-                  progressFigmaClassName="display-card-5"
-                  rectangle="/img/image-19.png"
-                  rectangleClassName="display-card-6"
-                  statusesClassName="display-card-12"
-                  text={t('projects.solarPanelsNantes')}
-                  text1={`150 ${t('projects.co2Avoided')}`}
-                  text2="80%"
-                  statusText={t('projects.inProgress')}
-                  progressText={t('projects.progression')}
-                  wrapClassName="display-card-3"
-                />
-                <DisplayCard
-                  className="display-card-19"
-                  contentClassName="display-card-7"
-                  detailsClassName="display-card-18"
-                  divClassName="display-card-21"
-                  divClassName1="display-card-15"
-                  divClassName2="display-card-13"
-                  divClassName3="display-card-11"
-                  divClassNameOverride="display-card-16"
-                  overlapGroupClassName="display-card-4"
-                  progressBackgroundClassName="display-card-9"
-                  progressFigmaClassName="display-card-5"
-                  rectangle="/img/image-20.png"
-                  rectangleClassName="display-card-17"
-                  statusesClassName="display-card-20"
-                  text={t('projects.ecoDistrictLyon')}
-                  text1={`200 ${t('projects.co2Avoided')}`}
-                  text2="85%"
-                  statusText={t('projects.inProgress')}
-                  progressText={t('projects.progression')}
-                  wrapClassName="display-card-3"
-                />
-                <div className="display-card-22">
-                  <img
-                    className="image-8"
-                    alt="Image"
-                    src="/img/image-21.png"
-                  />
 
-                  <div className="content-wrapper">
-                    <div className="content-2">
-                      <div className="wrap-3">
-                        <div className="r-novation-co-2">
-                          {t('projects.socialHousingMarseille')}
-                        </div>
-
-                        <div className="statuses-2">
-                          <div className="text-wrapper-12">{t('projects.completed')}</div>
-                        </div>
-                      </div>
-
-                      <div className="element-kg-CO-vit-2">
-                        {`150 ${t('projects.co2Avoided')}`}
-                      </div>
-
-                      <div className="progress-figma-2">
-                        <div className="text-wrapper-13">{t('projects.progression')}</div>
-
-                        <div className="progress-background-wrapper">
-                          <div className="progress-background-2" />
-                        </div>
-
-                        <div className="text-wrapper-14">100%</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <div
               className="frame-14"
@@ -262,81 +179,50 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
               {isDesktop(screenWidth) && (
                 <div className="group-3">
                   <div className="overlap">
-                    <DisplayCard
-                      className="display-card-10"
-                      contentClassName="display-card-7"
-                      detailsClassName="display-card-8"
-                      divClassName="display-card-14"
-                      divClassName1="display-card-15"
-                      divClassName2="display-card-13"
-                      divClassName3="display-card-11"
-                      divClassNameOverride="display-card-instance"
-                      overlapGroupClassName="display-card-4"
-                      progressBackgroundClassName="display-card-9"
-                      progressFigmaClassName="display-card-5"
-                      rectangle="/img/image-19.png"
-                      rectangleClassName="display-card-6"
-                      statusesClassName="display-card-12"
-                      text={t('projects.solarPanelsNantes')}
-                      text1={`150 ${t('projects.co2Avoided')}`}
-                      text2="80%"
-                      statusText={t('projects.inProgress')}
-                      progressText={t('projects.progression')}
-                      wrapClassName="display-card-3"
-                    />
-                    <DisplayCard
-                      className="display-card-19"
-                      contentClassName="display-card-7"
-                      detailsClassName="display-card-18"
-                      divClassName="display-card-21"
-                      divClassName1="display-card-15"
-                      divClassName2="display-card-13"
-                      divClassName3="display-card-11"
-                      divClassNameOverride="display-card-16"
-                      overlapGroupClassName="display-card-4"
-                      progressBackgroundClassName="display-card-9"
-                      progressFigmaClassName="display-card-5"
-                      rectangle="/img/image-20.png"
-                      rectangleClassName="display-card-17"
-                      statusesClassName="display-card-20"
-                      text={t('projects.ecoDistrictLyon')}
-                      text1={`200 ${t('projects.co2Avoided')}`}
-                      text2="85%"
-                      statusText={t('projects.inProgress')}
-                      progressText={t('projects.progression')}
-                      wrapClassName="display-card-3"
-                    />
-                    <div className="display-card-22">
-                      <img
-                        className="image-8"
-                        alt="Image"
-                        src="/img/image-21.png"
-                      />
-
+                    <div className="display-card-10">
                       <div className="content-wrapper">
                         <div className="content-2">
                           <div className="wrap-3">
                             <div className="r-novation-co-2">
-                              {t('projects.socialHousingMarseille')}
+                              {t('projects.solarPanelsNantes')}
                             </div>
-
                             <div className="statuses-2">
-                              <div className="text-wrapper-12">{t('projects.completed')}</div>
+                              <div className="text-wrapper-12">{t('projects.inProgress')}</div>
                             </div>
                           </div>
-
                           <div className="element-kg-CO-vit-2">
                             {`150 ${t('projects.co2Avoided')}`}
                           </div>
-
                           <div className="progress-figma-2">
                             <div className="text-wrapper-13">{t('projects.progression')}</div>
-
                             <div className="progress-background-wrapper">
                               <div className="progress-background-2" />
                             </div>
-
-                            <div className="text-wrapper-14">100%</div>
+                            <div className="text-wrapper-14">80%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="display-card-19">
+                      <div className="content-wrapper">
+                        <div className="content-2">
+                          <div className="wrap-3">
+                            <div className="r-novation-co-2">
+                              {t('projects.ecoDistrictLyon')}
+                            </div>
+                            <div className="statuses-2">
+                              <div className="text-wrapper-12">{t('projects.inProgress')}</div>
+                            </div>
+                          </div>
+                          <div className="element-kg-CO-vit-2">
+                            {`200 ${t('projects.co2Avoided')}`}
+                          </div>
+                          <div className="progress-figma-2">
+                            <div className="text-wrapper-13">{t('projects.progression')}</div>
+                            <div className="progress-background-wrapper">
+                              <div className="progress-background-2" />
+                            </div>
+                            <div className="text-wrapper-14">85%</div>
                           </div>
                         </div>
                       </div>
