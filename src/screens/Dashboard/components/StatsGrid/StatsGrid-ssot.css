@@ -1,0 +1,88 @@
+/* Stats Grid Container - Utilise SPACING du theme */
+.stats-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl, 20px);
+}
+
+/* Stats Cards - Utilise les variables globales */
+.stats-card {
+  /* BaseCard s'occupe du style de base */
+  transition: all var(--animation-normal, 0.3s) ease;
+}
+
+.stats-card-large {
+  background: var(--gradient-primary);
+  color: var(--primarywhite);
+  border: none;
+}
+
+/* Card Header */
+.stats-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm, 8px);
+}
+
+.stats-icon {
+  font-size: 24px;
+}
+
+.stats-label {
+  font-size: 14px;
+  color: var(--variable-collection-text-secondary, #718096);
+  font-weight: 500;
+}
+
+.stats-card-large .stats-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+}
+
+/* Values - Utilise la typographie globale */
+.stats-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--variable-collection-text-primary, #2d3748);
+}
+
+.stats-value-primary {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.stats-value-small {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Badge - Utilise les couleurs du theme */
+.stats-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs, 4px);
+  padding: var(--spacing-sm, 8px) var(--spacing-md, 12px);
+  border-radius: var(--border-radius-medium, 8px);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primarywhite);
+}
+
+/* Boutons - Réutilise le composant Button existant */
+.stats-actions {
+  display: flex;
+  gap: var(--spacing-md, 12px);
+  margin-top: var(--spacing-lg, 16px);
+}
+
+/* Responsive - Utilise les breakpoints du theme */
+@media (max-width: 768px) {
+  .stats-value-primary {
+    font-size: 28px;
+  }
+  
+  .stats-value {
+    font-size: 20px;
+  }
+}

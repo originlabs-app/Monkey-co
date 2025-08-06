@@ -1,0 +1,46 @@
+/* BaseCard - Composant SSOT pour toutes les cards */
+.base-card {
+  background: var(--variable-collection-background-white, #ffffff);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--animation-normal, 0.3s) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Variantes */
+.base-card--default {
+  border: 1px solid var(--variable-collection-gray-100, #f0f0f0);
+}
+
+.base-card--large {
+  min-height: 200px;
+}
+
+.base-card--highlighted {
+  background: linear-gradient(135deg, var(--gradient-primary));
+  color: var(--primarywhite);
+}
+
+.base-card--transparent {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+/* Hover Effects */
+.base-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.base-card--transparent:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .base-card {
+    padding: var(--spacing-lg, 16px);
+  }
+}

@@ -168,5 +168,62 @@
   "modal": {
     "joinPresaleTitle": "Rejoins la prévente exclusive",
     "joinPresaleSubtitle": "Sois parmi les premiers à investir et profite de bonus exclusifs réservés aux early builders."
+  },
+  "dashboard": {
+    "sidebar": {
+      "dashboard": "Tableau de bord",
+      "investments": "Investissements",
+      "projects": "Projets",
+      "staking": "Staking",
+      "governance": "Gouvernance",
+      "rewards": "Récompenses",
+      "settings": "Paramètres",
+      "help": "Aide",
+      "logout": "Déconnexion"
+    },
+    "header": {
+      "balance": "Solde",
+      "keycoin": "KEYCOIN",
+      "walletAddress": "Adresse"
+    },
+    "stats": {
+      "ecologicalImpact": "Mon impact écologique",
+      "totalInvested": "Total investi",
+      "revenue": "Revenus",
+      "keycoinReceived": "KEYCOIN reçus",
+      "co2Avoided": "CO2 évité",
+      "yields": "de rendements",
+      "invest": "Investir",
+      "withdraw": "Retirer",
+      "history": "Historique"
+    },
+    "voting": {
+      "title": "Votes DAO",
+      "activeProposals": "Propositions actives",
+      "voteFor": "Pour",
+      "voteAgainst": "Contre",
+      "participation": "Participation",
+      "timeRemaining": "Temps restant",
+      "days": "jours"
+    },
+    "community": {
+      "title": "Communauté",
+      "totalInvestors": "Investisseurs totaux",
+      "activeProjects": "Projets actifs",
+      "co2Total": "CO2 évité total",
+      "distributed": "Distribués"
+    },
+    "projects": {
+      "title": "Projets en cours",
+      "seeAll": "Voir tout",
+      "invest": "Investir",
+      "progress": "Progression",
+      "co2": "CO2 évité"
+    },
+    "chart": {
+      "title": "Évolution des investissements",
+      "invested": "Investi",
+      "rewards": "Récompenses"
+    }
   }
 }

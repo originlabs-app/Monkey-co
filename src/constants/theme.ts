@@ -86,6 +86,48 @@ export const ICON_COLORS = {
   black: '#000000',
 } as const;
 
+// Couleurs du Dashboard et graphiques
+export const COLORS = {
+  // Couleurs principales
+  primary: '#52705F',      // Vert Monkey-co
+  secondary: '#E67E22',    // Orange
+  tertiary: '#3498db',     // Bleu
+  quaternary: '#9b59b6',   // Violet
+  
+  // Backgrounds
+  background: {
+    white: '#ffffff',
+    beige: '#f7fafc',
+    dark: '#1a202c',
+    card: '#ffffff',
+    sidebar: '#2d3748',
+  },
+  
+  // Textes
+  text: {
+    primary: '#2d3748',
+    secondary: '#718096',
+    light: '#a0aec0',
+    dark: '#1a202c',
+  },
+  
+  // États
+  success: '#48bb78',
+  warning: '#ed8936',
+  danger: '#f56565',
+  info: '#4299e1',
+  
+  // Graphiques
+  chart: {
+    primary: '#52705F',
+    secondary: '#E67E22',
+    tertiary: '#3498db',
+    quaternary: '#9b59b6',
+    quinary: '#1abc9c',
+    senary: '#f39c12',
+  },
+} as const;
+
 // Border radius standardisés
 export const BORDER_RADIUS = {
   none: '0px',

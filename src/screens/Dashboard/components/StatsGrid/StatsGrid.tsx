@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/Button';
+import { BaseCard } from '@/components/BaseCard';
+import { COLORS, SPACING } from '@/constants/theme';
 import type { DashboardStats } from '../../types/dashboard.types';
 import './StatsGrid.css';
 
@@ -14,27 +16,27 @@ export const StatsGrid: React.FC<StatsGridProps> = ({ stats }) => {
   return (
     <div className="stats-grid-container">
       {/* Card Impact Écologique */}
-      <div className="stats-card stats-card-large">
+      <BaseCard variant="large" className="stats-card-large">
         <div className="stats-card-header">
-          <span className="stats-label">Mon impact écologique</span>
+          <span className="stats-label">{t('dashboard.stats.ecologicalImpact')}</span>
         </div>
-        <div className="stats-value-primary">
+        <div className="stats-value-primary" style={{ color: COLORS.primary }}>
           {stats.ecologicalImpact.toLocaleString()} USDC
         </div>
-      </div>
+      </BaseCard>
 
       {/* Card Total Investi */}
-      <div className="stats-card">
+      <BaseCard>
         <div className="stats-card-header">
           <span className="stats-icon">💰</span>
-          <span className="stats-label">Total investi</span>
+          <span className="stats-label">{t('dashboard.stats.totalInvested')}</span>
         </div>
-        <div className="stats-value">
+        <div className="stats-value" style={{ color: COLORS.text.primary }}>
           {stats.totalInvested.toFixed(2)} USDC
         </div>
-        <div className="stats-badge stats-badge-success">
+        <div className="stats-badge" style={{ backgroundColor: COLORS.success, padding: `${SPACING.sm}px` }}>
           <span className="trend-icon">📈</span>
-          +12% de rendements
+          +12% {t('dashboard.stats.yields')}
         </div>
         <Button
           showIconRight={false}
