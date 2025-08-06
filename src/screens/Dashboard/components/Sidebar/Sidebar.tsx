@@ -1,73 +1,106 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DASHBOARD_MENU_ITEMS } from '../../constants/dashboard.constants';
-import type { CommunityStats } from '../../types/dashboard.types';
+import { 
+  LayoutGrid, 
+  Coins, 
+  Users, 
+  FolderOpen, 
+  BookOpen,
+  ChevronLeft
+} from 'lucide-react';
 import './Sidebar.css';
 
 interface SidebarProps {
   isCollapsed: boolean;
   onToggle: () => void;
+  currentPage?: string;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ 
+  isCollapsed, 
+  onToggle,
+  currentPage = 'dashboard' 
+}) => {
   const { t } = useTranslation();
-  
-  // Stats communautaires (à remplacer par API call)
-  const communityStats: CommunityStats = {
-    projects: 23,
+
+  const menuItems = [
+    { 
+      id: 'dashboard', 
+      label: t('dashboard.sidebar.dashboard'),
+      icon: <LayoutGrid size={20} />
+    },
+    { 
+      id: 'staking', 
+      label: t('dashboard.sidebar.staking'),
+      icon: <Coins size={20} />
+    },
+    { 
+      id: 'dao', 
+      label: t('dashboard.sidebar.governance'),
+      icon: <Users size={20} />
+    },
+    { 
+      id: 'projects', 
+      label: t('dashboard.sidebar.projects'),
+      icon: <FolderOpen size={20} />
+    },
+    { 
+      id: 'documentation', 
+      label: t('dashboard.sidebar.help'),
+      icon: <BookOpen size={20} />
+    },
+  ];
+
+  // Stats pour le module impact
+  const communityStats = {
+    projectsFunded: 23,
     co2Saved: 1247,
     totalInvested: 570000,
   };
 
   return (
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+      {/* Header avec logo */}
       <div className="sidebar-header">
         <div className="sidebar-logo">
-          <img 
-            src="/img/Images-monkey-co/logo-logo.png" 
-            alt="Monkey-co" 
-            className="logo-image"
-          />
-          {!isCollapsed && <span className="logo-text">Monkey-co</span>}
+          <span className="logo-text">Monkey-co</span>
         </div>
         <button className="sidebar-toggle" onClick={onToggle}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path 
-              d="M15 18L9 12L15 6" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ChevronLeft size={18} />
         </button>
       </div>
 
+      {/* Navigation */}
       <nav className="sidebar-nav">
-        {DASHBOARD_MENU_ITEMS.map(item => (
+        {menuItems.map(item => (
           <a
             key={item.id}
             href={`#${item.id}`}
-            className={`sidebar-item ${item.active ? 'active' : ''}`}
+            className={`sidebar-item ${currentPage === item.id ? 'active' : ''}`}
           >
-            <span className="sidebar-icon">{item.icon}</span>
-            {!isCollapsed && <span className="sidebar-label">{item.label}</span>}
+            <span className="sidebar-icon">
+              {item.icon}
+            </span>
+            {!isCollapsed && (
+              <span className="sidebar-label">{item.label}</span>
+            )}
           </a>
         ))}
       </nav>
 
+      {/* Module Impact Communautaire */}
       {!isCollapsed && (
-        <div className="sidebar-stats">
-          <div className="sidebar-stats-card">
-            <h4>Impact communautaire</h4>
-            <div className="stats-grid">
+        <div className="sidebar-impact">
+          <div className="impact-card">
+            <h4 className="impact-title">{t('dashboard.community.title')}</h4>
+            <div className="impact-stats">
               <div className="stat-item">
                 <span className="stat-label">Projets financés</span>
-                <span className="stat-value">{communityStats.projects}</span>
+                <span className="stat-value">{communityStats.projectsFunded}</span>
               </div>
               <div className="stat-item">
                 <span className="stat-label">CO₂ évités</span>
-                <span className="stat-value">{communityStats.co2Saved} kg</span>
+                <span className="stat-value">{communityStats.co2Saved.toLocaleString()} kg</span>
               </div>
               <div className="stat-item">
                 <span className="stat-label">Total investi</span>

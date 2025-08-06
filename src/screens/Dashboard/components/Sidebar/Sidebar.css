@@ -1,30 +1,31 @@
-/* Sidebar Container */
+/* Sidebar Container - Fond blanc comme demandé */
 .sidebar {
   position: fixed;
   left: 0;
   top: 0;
   height: 100vh;
-  width: 240px;
-  background: #1F1F23;
-  color: #ffffff;
+  width: 260px;
+  background: var(--primarywhite);
+  box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
-  transition: width 0.3s ease;
-  z-index: 10;
-  font-family: "Lexend Deca", Helvetica;
+  transition: width var(--animation-normal, 0.3s) ease;
+  z-index: 100;
+  border-right: 1px solid rgba(31, 31, 35, 0.1);
 }
 
 .sidebar.collapsed {
-  width: 60px;
+  width: 70px;
 }
 
-/* Header */
+/* Header avec Logo style LP */
 .sidebar-header {
-  padding: 20px;
-  border-bottom: 1px solid #2d3748;
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(31, 31, 35, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 80px;
 }
 
 .sidebar-logo {
@@ -33,23 +34,26 @@
   gap: 12px;
 }
 
-.logo-image {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
+/* Logo avec style exact de la LP */
 .logo-text {
-  font-size: 20px;
+  color: #1F1F23;
+  font-family: "Lexend Deca", Helvetica;
+  font-size: 24px;
   font-weight: 400;
   letter-spacing: -1px;
   line-height: 32px;
-  color: #1F1F23;
+  cursor: pointer;
+  transition: color var(--animation-normal, 0.3s) ease;
 }
 
+.logo-text:hover {
+  color: var(--variable-collection-secondary-200, #E67E22);
+}
+
+/* Bouton toggle avec bordure dorée */
 .sidebar-toggle {
-  background: none;
-  border: 1px solid #E67E22;
+  background: var(--primarywhite);
+  border: 1px solid var(--variable-collection-secondary-200, #E67E22);
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -57,114 +61,167 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #E67E22;
-  transition: all 0.2s ease;
+  color: var(--variable-collection-secondary-200, #E67E22);
+  transition: all var(--animation-normal, 0.3s) ease;
 }
 
 .sidebar-toggle:hover {
-  background: #E67E22;
-  color: white;
+  background: var(--variable-collection-secondary-200, #E67E22);
+  color: var(--primarywhite);
+  transform: scale(1.05);
+}
+
+.sidebar-toggle svg {
+  transition: transform var(--animation-normal, 0.3s) ease;
+}
+
+.sidebar.collapsed .sidebar-toggle svg {
+  transform: rotate(180deg);
 }
 
 /* Navigation */
 .sidebar-nav {
   flex: 1;
   padding: 20px 0;
+  overflow-y: auto;
 }
 
+/* Items de navigation - Style LP */
 .sidebar-item {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  padding: 14px 20px;
   color: #1F1F23;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all var(--animation-normal, 0.3s) ease;
   cursor: pointer;
-  font-family: "Lexend Deca", Helvetica;
+  font-family: "Inter", Helvetica;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
+  position: relative;
+  margin: 4px 12px;
+  border-radius: 8px;
 }
 
 .sidebar-item:hover {
-  background: rgba(31, 31, 35, 0.1);
-  color: #1F1F23;
+  background: rgba(31, 31, 35, 0.05);
+  transform: translateX(2px);
 }
 
+/* Item actif avec overlay noir */
 .sidebar-item.active {
-  background: rgba(31, 31, 35, 0.15);
-  color: #1F1F23;
-  border-left: 3px solid #E67E22;
+  background: #1F1F23;
+  color: var(--primarywhite);
 }
 
+.sidebar-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 24px;
+  background: var(--variable-collection-secondary-200, #E67E22);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Icônes */
 .sidebar-icon {
-  margin-right: 12px;
-  min-width: 20px;
+  min-width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-right: 12px;
 }
 
+.sidebar-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Labels */
 .sidebar-label {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Inter", Helvetica;
 }
 
-/* Stats Card */
-.sidebar-stats {
+/* Module Impact Communautaire */
+.sidebar-impact {
   padding: 20px;
-  border-top: 1px solid #2d3748;
+  border-top: 1px solid rgba(31, 31, 35, 0.1);
+  margin-top: auto;
 }
 
-.sidebar-stats-card {
+.impact-card {
   background: linear-gradient(135deg, #90A99A 0%, #52705F 100%);
-  border-radius: 12px;
-  padding: 16px;
-  color: white;
+  border-radius: 16px;
+  padding: 20px;
+  color: var(--primarywhite);
+  box-shadow: var(--shadow-md);
+  animation: fadeInUp 0.6s ease-out;
 }
 
-.sidebar-stats-card h4 {
-  font-size: 14px;
-  margin: 0 0 12px 0;
-  color: white;
+.impact-title {
   font-family: "Lexend Deca", Helvetica;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 16px 0;
+  color: var(--primarywhite);
+  opacity: 0.95;
 }
 
-.stats-grid {
+.impact-stats {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .stat-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item:last-child {
+  border-bottom: none;
 }
 
 .stat-label {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.9);
-  font-family: "Lexend Deca", Helvetica;
+  font-family: "Inter", Helvetica;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 400;
 }
 
 .stat-value {
+  font-family: "Lexend Deca", Helvetica;
   font-size: 14px;
   font-weight: 600;
-  color: white;
-  font-family: "Lexend Deca", Helvetica;
+  color: var(--primarywhite);
 }
 
-/* Collapsed State */
-.sidebar.collapsed .sidebar-label,
-.sidebar.collapsed .sidebar-stats,
+/* État collapsed */
 .sidebar.collapsed .logo-text {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-label {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-impact {
   display: none;
 }
 
 .sidebar.collapsed .sidebar-item {
   justify-content: center;
+  padding: 14px 10px;
 }
 
 .sidebar.collapsed .sidebar-icon {
@@ -173,8 +230,44 @@
 
 .sidebar.collapsed .sidebar-header {
   justify-content: center;
+  padding: 24px 10px;
 }
 
 .sidebar.collapsed .sidebar-toggle {
-  display: none;
+  position: absolute;
+  right: -16px;
+  background: var(--primarywhite);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.sidebar {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .sidebar.collapsed {
+    width: 100%;
+  }
 }
