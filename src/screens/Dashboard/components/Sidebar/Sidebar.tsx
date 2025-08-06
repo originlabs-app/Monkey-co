@@ -23,8 +23,24 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle }) => {
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
         <div className="sidebar-logo">
-          {!isCollapsed && <span>Monkey-co</span>}
+          <img 
+            src="/img/Images-monkey-co/logo-logo.png" 
+            alt="Monkey-co" 
+            className="logo-image"
+          />
+          {!isCollapsed && <span className="logo-text">Monkey-co</span>}
         </div>
+        <button className="sidebar-toggle" onClick={onToggle}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path 
+              d="M15 18L9 12L15 6" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
       </div>
 
       <nav className="sidebar-nav">

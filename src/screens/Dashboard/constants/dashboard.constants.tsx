@@ -3,13 +3,41 @@
  * Évite la duplication et facilite la maintenance
  */
 
-// Menu items
+import React from 'react';
+import { Grid01_2 } from '@/icons/Grid01_2';
+import { CoinsStacked01_1 } from '@/icons/CoinsStacked01_1';
+import { Users01_2 } from '@/icons/Users01_2';
+import { Folder2 } from '@/icons/Folder2';
+import { BookOpen01_1 } from '@/icons/BookOpen01_1';
+
+// Menu items avec icônes SVG
 export const DASHBOARD_MENU_ITEMS = [
-  { id: 'dashboard', label: 'Dashboard', icon: '📊', active: true },
-  { id: 'staking', label: 'Staking', icon: '💰' },
-  { id: 'dao', label: 'DAO', icon: '🗳️' },
-  { id: 'projects', label: 'Projets', icon: '🌱' },
-  { id: 'documentation', label: 'Documentation', icon: '📚' },
+  { 
+    id: 'dashboard', 
+    label: 'Dashboard', 
+    icon: <Grid01_2 size={20} color="currentColor" />, 
+    active: true 
+  },
+  { 
+    id: 'staking', 
+    label: 'Staking', 
+    icon: <CoinsStacked01_1 size={20} color="currentColor" />
+  },
+  { 
+    id: 'dao', 
+    label: 'DAO', 
+    icon: <Users01_2 size={20} color="currentColor" />
+  },
+  { 
+    id: 'projects', 
+    label: 'Projets', 
+    icon: <Folder2 size={20} color="currentColor" />
+  },
+  { 
+    id: 'documentation', 
+    label: 'Documentation', 
+    icon: <BookOpen01_1 size={20} color="currentColor" />
+  },
 ];
 
 // Community cards
