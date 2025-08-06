@@ -51,10 +51,10 @@ export const StatsGrid: React.FC<StatsGridProps> = ({ stats }) => {
           text="Staker"
           visible1={true}
         />
-      </div>
+      </BaseCard>
 
       {/* Card Revenue */}
-      <div className="stats-card">
+      <BaseCard>
         <div className="stats-card-header">
           <span className="stats-icon">💵</span>
           <span className="stats-label">Revenue</span>
@@ -66,10 +66,10 @@ export const StatsGrid: React.FC<StatsGridProps> = ({ stats }) => {
           <span className="trend-icon">📈</span>
           +8.2% ce mois
         </div>
-      </div>
+      </BaseCard>
 
       {/* Card Keycoin */}
-      <div className="stats-card">
+      <BaseCard>
         <div className="stats-card-header">
           <span className="stats-icon">🔑</span>
           <span className="stats-label">Total Keycoin reçus</span>
@@ -94,10 +94,10 @@ export const StatsGrid: React.FC<StatsGridProps> = ({ stats }) => {
           text="Staker"
           visible1={true}
         />
-      </div>
+      </BaseCard>
 
       {/* Card CO2 Évité */}
-      <div className="stats-card">
+      <BaseCard>
         <div className="stats-card-header">
           <span className="stats-icon">🌱</span>
           <span className="stats-label">CO₂ Évité</span>
@@ -109,7 +109,7 @@ export const StatsGrid: React.FC<StatsGridProps> = ({ stats }) => {
           <span className="trend-icon">📈</span>
           +10% ce mois
         </div>
-      </div>
+      </BaseCard>
     </div>
   );
 };
