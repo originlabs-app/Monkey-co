@@ -13,6 +13,7 @@ import { FeaturesSection } from "@/components/FeaturesSection";
 import { StatsSection } from "@/components/StatsSection";
 import { JoinBeforeSection } from "@/components/JoinBeforeSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
+import { EmailCaptureSection } from "@/components/EmailCaptureSection";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { EXTERNAL_LINKS, PDF_LINKS, SECTION_IDS } from "@/constants/links";
 import { logger } from "@/services/logger";
