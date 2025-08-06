@@ -96,10 +96,12 @@ export const LandingPage = (): JSX.Element => {
 
       <PartnersSection screenWidth={screenWidth} />
 
+
       <ProblemSolutionSection 
         screenWidth={screenWidth} 
         onJoinPresale={() => setIsModalOpen(true)} 
       />
+
 
       <FeaturesSection screenWidth={screenWidth} />
 

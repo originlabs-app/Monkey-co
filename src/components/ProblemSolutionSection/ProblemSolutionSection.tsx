@@ -202,7 +202,17 @@ export const ProblemSolutionSection: React.FC<ProblemSolutionSectionProps> = ({
               </div>
             </div>
 
-            <div className="image-4" />
+            <img 
+              className="image-4" 
+              src="/img/flow-english.png"
+              alt="Flow diagram - Problème et Solution"
+              style={{
+                width: "100%",
+                maxWidth: "600px",
+                height: "auto",
+                objectFit: "contain",
+              }}
+            />
 
             <button 
               className="button-5" 
@@ -312,7 +322,17 @@ export const ProblemSolutionSection: React.FC<ProblemSolutionSectionProps> = ({
             </div>
 
             <div className="div-23">
-              <div className="image-5" />
+              <img 
+                className="image-5" 
+                src="/img/flow-english.png"
+                alt="Flow diagram - Problème et Solution"
+                style={{
+                  width: "100%",
+                  maxWidth: "800px",
+                  height: "auto",
+                  objectFit: "contain",
+                }}
+              />
               
               <button 
                 className="button-5"

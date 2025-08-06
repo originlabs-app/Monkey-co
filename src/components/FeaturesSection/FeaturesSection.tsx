@@ -16,7 +16,7 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
     rendement: "/img/Frame 1.svg",
     impact: "/img/Frame 2.svg",
     dashboard: "/img/Frame 3.svg",
-    gouvernance: "/img/DAO.png",
+    gouvernance: "/img/Frame 4.svg",
     projets: "/img/Frame 5.svg",
   };
 
@@ -272,11 +272,10 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
                 isDesktop(screenWidth)
                   ? "602px"
                   : undefined,
-              objectFit: selectedCard === "gouvernance" ? "cover" : "contain",
-              objectPosition: selectedCard === "gouvernance" ? "center" : "top left",
-              transform: isDesktop(screenWidth) && selectedCard !== "gouvernance" ? "scale(1.15) translateY(-10px)" : undefined,
+              objectFit: "contain",
+              objectPosition: "top left",
+              transform: isDesktop(screenWidth) ? "scale(1.15) translateY(-10px)" : undefined,
               transformOrigin: "top left",
-              borderRadius: selectedCard === "gouvernance" ? "12px" : undefined,
             }}
             alt={selectedCard}
             src={cardImages[selectedCard as keyof typeof cardImages]}
