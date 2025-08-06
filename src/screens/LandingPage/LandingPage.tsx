@@ -19,6 +19,7 @@ import { CommunitySection } from "@/components/CommunitySection";
 import { WhyMonkeyCoSection } from "@/components/WhyMonkeyCoSection";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { EXTERNAL_LINKS, PDF_LINKS, SECTION_IDS } from "@/constants/links";
+import { BREAKPOINTS, SPACING, DIMENSIONS, isMobile, isDesktop } from "@/constants/theme";
 import { logger } from "@/services/logger";
 import "./style.css";
 
@@ -79,13 +80,8 @@ export const LandingPage = (): JSX.Element => {
       id="top"
       className="landing-page"
       style={{
-        display:
-          screenWidth < 1440
-            ? "flex"
-            : screenWidth >= 1440
-              ? "inline-flex"
-              : undefined,
-        minWidth: screenWidth < 1440 ? "390px" : undefined,
+        display: isMobile(screenWidth) ? "flex" : "inline-flex",
+        minWidth: isMobile(screenWidth) ? `${BREAKPOINTS.MOBILE}px` : undefined,
       }}
     >
       <HeroSection 
