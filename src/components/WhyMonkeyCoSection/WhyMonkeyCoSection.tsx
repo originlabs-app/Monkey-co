@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
+import { isMobile, isDesktop, SPACING } from "@/constants/theme";
 
 interface WhyMonkeyCoSectionProps {
   screenWidth: number;
@@ -15,15 +16,14 @@ export const WhyMonkeyCoSection: React.FC<WhyMonkeyCoSectionProps> = ({ screenWi
       style={{
         alignSelf: "stretch",
         padding:
-          screenWidth < 1440
-            ? "48px 20px"
-            : screenWidth >= 1440
-              ? "64px"
+          isMobile(screenWidth)
+            ? `${SPACING["4xl"]}px ${SPACING.xl}px`
+            : isDesktop(screenWidth) ? `${SPACING["5xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -32,31 +32,27 @@ export const WhyMonkeyCoSection: React.FC<WhyMonkeyCoSectionProps> = ({ screenWi
         className="frame-wrapper"
         style={{
           backgroundImage:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "url(/img/section-11.png)"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "url(/img/section-17.png)"
                 : undefined,
           padding:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "24px"
-              : screenWidth >= 1440
-                ? "48px"
+              : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
                 : undefined,
         }}
       >
         <div
           className="frame-6"
           style={{
-            gap:
-              screenWidth < 1440
-                ? "24px"
-                : screenWidth >= 1440
-                  ? "48px"
+            gap: isMobile(screenWidth) ? `${SPACING["2xl"]}px`
+                : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
                   : undefined,
           }}
         >
-          {screenWidth < 1440 && (
+          {isMobile(screenWidth) && (
             <div className="div-7">
               <div className="frame-7">
                 <img
@@ -124,7 +120,7 @@ export const WhyMonkeyCoSection: React.FC<WhyMonkeyCoSectionProps> = ({ screenWi
             </div>
           )}
 
-          {screenWidth >= 1440 && (
+          {isDesktop(screenWidth) && (
             <>
               <div className="frame-8">
                 <h2 className="text-10">

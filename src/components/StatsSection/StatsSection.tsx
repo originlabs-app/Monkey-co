@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { LeafAnimation } from "@/components/LeafAnimation";
 import { SECTION_IDS } from "@/constants/links";
+import { isMobile, isDesktop, SPACING } from "@/constants/theme";
 
 interface StatsSectionProps {
   screenWidth: number;
@@ -17,22 +18,19 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
       className="section-3"
       style={{
         alignSelf: "stretch",
-        gap:
-          screenWidth < 1440
-            ? "24px"
-            : screenWidth >= 1440
-              ? "48px"
+        gap: isMobile(screenWidth) ? `${SPACING["2xl"]}px`
+            : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
               : undefined,
         padding:
-          screenWidth < 1440
-            ? "48px 20px"
-            : screenWidth >= 1440
-              ? "64px 128px"
+          isMobile(screenWidth)
+            ? `${SPACING["4xl"]}px ${SPACING.xl}px`
+            : isDesktop(screenWidth)
+              ? `${SPACING["5xl"]}px ${SPACING["7xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -42,18 +40,15 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
         style={{
           alignSelf: "stretch",
           display:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "inline-flex"
                 : undefined,
-          gap:
-            screenWidth < 1440
-              ? "16px"
-              : screenWidth >= 1440
-                ? "24px"
+          gap: isMobile(screenWidth) ? `${SPACING.lg}px`
+              : isDesktop(screenWidth) ? `${SPACING["2xl"]}px`
                 : undefined,
-          width: screenWidth < 1440 ? "100%" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <p
@@ -61,15 +56,14 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
           style={{
             alignSelf: "stretch",
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "28px"
-                : screenWidth >= 1440
-                  ? "48px"
+                : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "36px"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "56px"
                   : undefined,
             width: "100%",
@@ -84,39 +78,39 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
           style={{
             alignSelf: "stretch",
             fontFamily:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-accent-font-family)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-emphasis-font-family)"
                   : undefined,
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-accent-font-size)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-emphasis-font-size)"
                   : undefined,
             fontStyle:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-accent-font-style)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-emphasis-font-style)"
                   : undefined,
             fontWeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-accent-font-weight)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-emphasis-font-weight)"
                   : undefined,
             letterSpacing:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-accent-letter-spacing)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-emphasis-letter-spacing)"
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-accent-line-height)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-emphasis-line-height)"
                   : undefined,
             width: "100%",
@@ -132,23 +126,23 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
         style={{
           alignSelf: "stretch",
           height:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "255px"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "451px"
                 : undefined,
           width:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "100%"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "842px"
                 : undefined,
         }}
         alt="Background"
         src={
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "/img/background-3-2.svg"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "/img/background-3.svg"
               : undefined
         }
@@ -158,36 +152,33 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
         className="frame-4"
         style={{
           alignItems:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "center"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "flex-start"
                 : undefined,
           alignSelf: "stretch",
           display:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "inline-flex"
                 : undefined,
-          flexDirection: screenWidth < 1440 ? "column" : undefined,
-          gap:
-            screenWidth < 1440
-              ? "24px"
-              : screenWidth >= 1440
-                ? "48px"
+          flexDirection: isMobile(screenWidth) ? "column" : undefined,
+          gap: isMobile(screenWidth) ? `${SPACING["2xl"]}px`
+              : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
                 : undefined,
-          width: screenWidth < 1440 ? "100%" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <div
           className="card-4"
           style={{
-            flex: screenWidth < 1440 ? "0 0 auto" : undefined,
+            flex: isMobile(screenWidth) ? "0 0 auto" : undefined,
             width:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "258.42px"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "236px"
                   : undefined,
           }}
@@ -195,16 +186,16 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
           <div
             className="div-26"
             style={{
-              justifyContent: screenWidth < 1440 ? "center" : undefined,
-              padding: screenWidth < 1440 ? "0px 12px" : undefined,
+              justifyContent: isMobile(screenWidth) ? "center" : undefined,
+              padding: isMobile(screenWidth) ? `0px ${SPACING.md}px` : undefined,
             }}
           >
             <div className="icon-2">
               <div className="vector-wrapper">
                 <LeafAnimation 
                   className="vector-7"
-                  width={screenWidth < 1440 ? 40 : 60}
-                  height={screenWidth < 1440 ? 40 : 60}
+                  width={isMobile(screenWidth) ? 40 : 60}
+                  height={isMobile(screenWidth) ? 40 : 60}
                 />
               </div>
             </div>
@@ -212,14 +203,14 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
             <div
               className="title-8"
               style={{
-                flex: screenWidth >= 1440 ? "1" : undefined,
-                textAlign: screenWidth < 1440 ? "center" : undefined,
-                whiteSpace: screenWidth < 1440 ? "nowrap" : undefined,
-                width: screenWidth < 1440 ? "fit-content" : undefined,
+                flex: isDesktop(screenWidth) ? "1" : undefined,
+                textAlign: isMobile(screenWidth) ? "center" : undefined,
+                whiteSpace: isMobile(screenWidth) ? "nowrap" : undefined,
+                width: isMobile(screenWidth) ? "fit-content" : undefined,
               }}
             >
-              {screenWidth < 1440 && <>$1.2bn+</>}
-              {screenWidth >= 1440 && <>{t('stats.greenBondsAmount')}</>}
+              {isMobile(screenWidth) && <>$1.2bn+</>}
+              {isDesktop(screenWidth) && <>{t('stats.greenBondsAmount')}</>}
             </div>
           </div>
 
@@ -227,50 +218,50 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
             className="title-9"
             style={{
               fontFamily:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-family)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-family)"
                     : undefined,
               fontSize:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-size)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-size)"
                     : undefined,
               fontStyle:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-style)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-style)"
                     : undefined,
               fontWeight:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-weight)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-weight)"
                     : undefined,
               letterSpacing:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-letter-spacing)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-letter-spacing)"
                     : undefined,
               lineHeight:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-line-height)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-line-height)"
                     : undefined,
-              textAlign: screenWidth < 1440 ? "center" : undefined,
+              textAlign: isMobile(screenWidth) ? "center" : undefined,
             }}
           >
-            {screenWidth < 1440 && (
+            {isMobile(screenWidth) && (
               <p className="text-wrapper-29">
                 Pool prioritaire pour les premiers inscrits
               </p>
             )}
-            {screenWidth >= 1440 && (
+            {isDesktop(screenWidth) && (
               <p className="text-wrapper-29">
                 {t('stats.greenBondsDescription')}
               </p>
@@ -281,21 +272,21 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
         <div
           className="card-5"
           style={{
-            flex: screenWidth < 1440 ? "0 0 auto" : undefined,
+            flex: isMobile(screenWidth) ? "0 0 auto" : undefined,
           }}
         >
           <div
             className="div-27"
             style={{
-              justifyContent: screenWidth < 1440 ? "center" : undefined,
+              justifyContent: isMobile(screenWidth) ? "center" : undefined,
             }}
           >
             <div className="icon-3">
               <div className="vector-wrapper">
                 <LeafAnimation 
                   className="vector-8"
-                  width={screenWidth < 1440 ? 45 : 65}
-                  height={screenWidth < 1440 ? 45 : 65}
+                  width={isMobile(screenWidth) ? 45 : 65}
+                  height={isMobile(screenWidth) ? 45 : 65}
                 />
               </div>
             </div>
@@ -303,14 +294,14 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
             <div
               className="title-10"
               style={{
-                flex: screenWidth >= 1440 ? "1" : undefined,
-                textAlign: screenWidth < 1440 ? "center" : undefined,
-                whiteSpace: screenWidth < 1440 ? "nowrap" : undefined,
-                width: screenWidth < 1440 ? "fit-content" : undefined,
+                flex: isDesktop(screenWidth) ? "1" : undefined,
+                textAlign: isMobile(screenWidth) ? "center" : undefined,
+                whiteSpace: isMobile(screenWidth) ? "nowrap" : undefined,
+                width: isMobile(screenWidth) ? "fit-content" : undefined,
               }}
             >
-              {screenWidth < 1440 && <>150,000+</>}
-              {screenWidth >= 1440 && <>{t('stats.co2Reduction')}</>}
+              {isMobile(screenWidth) && <>150,000+</>}
+              {isDesktop(screenWidth) && <>{t('stats.co2Reduction')}</>}
             </div>
           </div>
 
@@ -318,46 +309,46 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
             className="title-11"
             style={{
               fontFamily:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-family)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-family)"
                     : undefined,
               fontSize:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-size)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-size)"
                     : undefined,
               fontStyle:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-style)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-style)"
                     : undefined,
               fontWeight:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-weight)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-weight)"
                     : undefined,
               letterSpacing:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-letter-spacing)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-letter-spacing)"
                     : undefined,
               lineHeight:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-line-height)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-line-height)"
                     : undefined,
-              textAlign: screenWidth < 1440 ? "center" : undefined,
+              textAlign: isMobile(screenWidth) ? "center" : undefined,
             }}
           >
-            {screenWidth < 1440 && <>Airdrop + NFT surprise</>}
-            {screenWidth >= 1440 && (
+            {isMobile(screenWidth) && <>Airdrop + NFT surprise</>}
+            {isDesktop(screenWidth) && (
               <p className="text-wrapper-29">
                 {t('stats.co2ReductionDescription')}
               </p>
@@ -368,21 +359,21 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
         <div
           className="card-6"
           style={{
-            flex: screenWidth < 1440 ? "0 0 auto" : undefined,
+            flex: isMobile(screenWidth) ? "0 0 auto" : undefined,
           }}
         >
           <div
             className="div-28"
             style={{
-              justifyContent: screenWidth < 1440 ? "center" : undefined,
+              justifyContent: isMobile(screenWidth) ? "center" : undefined,
             }}
           >
             <div className="icon-2">
               <div className="vector-wrapper">
                 <LeafAnimation 
                   className="vector-9"
-                  width={screenWidth < 1440 ? 50 : 70}
-                  height={screenWidth < 1440 ? 50 : 70}
+                  width={isMobile(screenWidth) ? 50 : 70}
+                  height={isMobile(screenWidth) ? 50 : 70}
                 />
               </div>
             </div>
@@ -390,13 +381,13 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
             <div
               className="title-12"
               style={{
-                flex: screenWidth >= 1440 ? "1" : undefined,
-                whiteSpace: screenWidth < 1440 ? "nowrap" : undefined,
-                width: screenWidth < 1440 ? "fit-content" : undefined,
+                flex: isDesktop(screenWidth) ? "1" : undefined,
+                whiteSpace: isMobile(screenWidth) ? "nowrap" : undefined,
+                width: isMobile(screenWidth) ? "fit-content" : undefined,
               }}
             >
-              {screenWidth < 1440 && <>15+</>}
-              {screenWidth >= 1440 && <>{t('stats.dualRewards')}</>}
+              {isMobile(screenWidth) && <>15+</>}
+              {isDesktop(screenWidth) && <>{t('stats.dualRewards')}</>}
             </div>
           </div>
 
@@ -404,46 +395,46 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
             className="title-13"
             style={{
               fontFamily:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-family)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-family)"
                     : undefined,
               fontSize:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-size)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-size)"
                     : undefined,
               fontStyle:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-style)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-style)"
                     : undefined,
               fontWeight:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-weight)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-weight)"
                     : undefined,
               letterSpacing:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-letter-spacing)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-letter-spacing)"
                     : undefined,
               lineHeight:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-line-height)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-line-height)"
                     : undefined,
-              textAlign: screenWidth < 1440 ? "center" : undefined,
+              textAlign: isMobile(screenWidth) ? "center" : undefined,
             }}
           >
-            {screenWidth < 1440 && <>Récompenses x2</>}
-            {screenWidth >= 1440 && (
+            {isMobile(screenWidth) && <>Récompenses x2</>}
+            {isDesktop(screenWidth) && (
               <p className="text-wrapper-29">
                 {t('stats.dualRewardsDescription')}
               </p>
@@ -454,22 +445,22 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
         <div
           className="card-7"
           style={{
-            flex: screenWidth < 1440 ? "0 0 auto" : undefined,
+            flex: isMobile(screenWidth) ? "0 0 auto" : undefined,
           }}
         >
           <div
             className="div-29"
             style={{
-              justifyContent: screenWidth < 1440 ? "center" : undefined,
-              padding: screenWidth < 1440 ? "0px 12px" : undefined,
+              justifyContent: isMobile(screenWidth) ? "center" : undefined,
+              padding: isMobile(screenWidth) ? `0px ${SPACING.md}px` : undefined,
             }}
           >
             <div className="icon-2">
               <div className="vector-wrapper">
                 <LeafAnimation 
                   className="vector-10"
-                  width={screenWidth < 1440 ? 55 : 75}
-                  height={screenWidth < 1440 ? 55 : 75}
+                  width={isMobile(screenWidth) ? 55 : 75}
+                  height={isMobile(screenWidth) ? 55 : 75}
                 />
               </div>
             </div>
@@ -477,14 +468,14 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
             <div
               className="title-14"
               style={{
-                flex: screenWidth >= 1440 ? "1" : undefined,
-                textAlign: screenWidth < 1440 ? "center" : undefined,
-                whiteSpace: screenWidth < 1440 ? "nowrap" : undefined,
-                width: screenWidth < 1440 ? "fit-content" : undefined,
+                flex: isDesktop(screenWidth) ? "1" : undefined,
+                textAlign: isMobile(screenWidth) ? "center" : undefined,
+                whiteSpace: isMobile(screenWidth) ? "nowrap" : undefined,
+                width: isMobile(screenWidth) ? "fit-content" : undefined,
               }}
             >
-              {screenWidth < 1440 && <>1M+</>}
-              {screenWidth >= 1440 && <>{t('stats.projectsInPipeline')}</>}
+              {isMobile(screenWidth) && <>1M+</>}
+              {isDesktop(screenWidth) && <>{t('stats.projectsInPipeline')}</>}
             </div>
           </div>
 
@@ -492,48 +483,48 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ screenWidth }) => {
             className="title-15"
             style={{
               fontFamily:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-family)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-family)"
                     : undefined,
               fontSize:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-size)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-size)"
                     : undefined,
               fontStyle:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-style)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-style)"
                     : undefined,
               fontWeight:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-font-weight)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-font-weight)"
                     : undefined,
               letterSpacing:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-letter-spacing)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-letter-spacing)"
                     : undefined,
               lineHeight:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "var(--text-content-caption-regular-line-height)"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "var(--text-content-body-regular-line-height)"
                     : undefined,
-              textAlign: screenWidth < 1440 ? "center" : undefined,
+              textAlign: isMobile(screenWidth) ? "center" : undefined,
             }}
           >
-            {screenWidth < 1440 && (
+            {isMobile(screenWidth) && (
               <p className="text-wrapper-29">Communauté exclusive</p>
             )}
-            {screenWidth >= 1440 && (
+            {isDesktop(screenWidth) && (
               <p className="text-wrapper-29">
                 {t('stats.projectsInPipelineDescription')}
               </p>

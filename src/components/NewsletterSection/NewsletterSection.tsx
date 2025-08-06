@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Button } from "@/components/Button";
 import { ArrowLeft8 } from "@/icons/ArrowLeft8";
 import { logger } from "@/services/logger";
+import { isMobile, isDesktop, SPACING } from "@/constants/theme";
 
 interface NewsletterSectionProps {
   screenWidth: number;
@@ -59,33 +60,30 @@ export const NewsletterSection: React.FC<NewsletterSectionProps> = ({ screenWidt
       style={{
         alignSelf: "stretch",
         backgroundColor:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "#06502b"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "unset"
               : undefined,
         backgroundImage:
-          screenWidth >= 1440
+          isDesktop(screenWidth)
             ? "url(/img/background.svg)"
             : undefined,
-        backgroundPosition: screenWidth >= 1440 ? "50% 50%" : undefined,
-        backgroundSize: screenWidth >= 1440 ? "cover" : undefined,
-        gap:
-          screenWidth < 1440
-            ? "24px"
-            : screenWidth >= 1440
-              ? "48px"
+        backgroundPosition: isDesktop(screenWidth) ? "50% 50%" : undefined,
+        backgroundSize: isDesktop(screenWidth) ? "cover" : undefined,
+        gap: isMobile(screenWidth) ? `${SPACING["2xl"]}px`
+            : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
               : undefined,
         padding:
-          screenWidth < 1440
-            ? "40px 20px"
-            : screenWidth >= 1440
-              ? "64px 249px"
+          isMobile(screenWidth)
+            ? `${SPACING["3.5xl"]}px ${SPACING.xl}px`
+            : isDesktop(screenWidth)
+              ? `${SPACING["5xl"]}px ${SPACING["8xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -95,18 +93,15 @@ export const NewsletterSection: React.FC<NewsletterSectionProps> = ({ screenWidt
         style={{
           alignSelf: "stretch",
           display:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "inline-flex"
                 : undefined,
-          gap:
-            screenWidth < 1440
-              ? "12px"
-              : screenWidth >= 1440
-                ? "24px"
+          gap: isMobile(screenWidth) ? `${SPACING.md}px`
+              : isDesktop(screenWidth) ? `${SPACING["2xl"]}px`
                 : undefined,
-          width: screenWidth < 1440 ? "100%" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <div
@@ -114,26 +109,25 @@ export const NewsletterSection: React.FC<NewsletterSectionProps> = ({ screenWidt
           style={{
             alignSelf: "stretch",
             color:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "#ffffff"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "#f2f8f7"
                   : undefined,
-            flex: screenWidth < 1440 ? "1" : undefined,
+            flex: isMobile(screenWidth) ? "1" : undefined,
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "28px"
-                : screenWidth >= 1440
-                  ? "40px"
+                : isDesktop(screenWidth)
+                  ? `${SPACING["3.5xl"]}px`
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "36px"
-                : screenWidth >= 1440
-                  ? "48px"
+                : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
                   : undefined,
-            marginTop: screenWidth >= 1440 ? "-1.00px" : undefined,
-            width: screenWidth >= 1440 ? "624px" : undefined,
+            marginTop: isDesktop(screenWidth) ? "-1.00px" : undefined,
+            width: isDesktop(screenWidth) ? "624px" : undefined,
           }}
         >
           {t('newsletter.title')}
@@ -144,48 +138,48 @@ export const NewsletterSection: React.FC<NewsletterSectionProps> = ({ screenWidt
           style={{
             alignSelf: "stretch",
             color:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "#eff6f5"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "#f2f8f7"
                   : undefined,
             fontFamily:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-family)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-body-regular-font-family)"
                   : undefined,
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-size)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-body-regular-font-size)"
                   : undefined,
             fontStyle:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-style)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-body-regular-font-style)"
                   : undefined,
             fontWeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-weight)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-body-regular-font-weight)"
                   : undefined,
             letterSpacing:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-letter-spacing)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-body-regular-letter-spacing)"
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-line-height)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-body-regular-line-height)"
                   : undefined,
-            width: screenWidth < 1440 ? "100%" : undefined,
+            width: isMobile(screenWidth) ? "100%" : undefined,
           }}
         >
           {t('newsletter.description')}
@@ -198,12 +192,12 @@ export const NewsletterSection: React.FC<NewsletterSectionProps> = ({ screenWidt
           alignItems: "flex-start",
           alignSelf: "stretch",
           backgroundColor: "#ffffff",
-          borderRadius: "8px",
+          borderRadius: `${SPACING.sm}px`,
           display: "flex",
           gap: "16px",
-          padding: "8px",
+          padding: `${SPACING.sm}px`,
           position: "relative",
-          width: screenWidth < 1440 ? "100%" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <input
@@ -217,7 +211,7 @@ export const NewsletterSection: React.FC<NewsletterSectionProps> = ({ screenWidt
             flex: "1",
             fontSize: "16px",
             outline: "none",
-            padding: "8px",
+            padding: `${SPACING.sm}px`,
           }}
         />
         

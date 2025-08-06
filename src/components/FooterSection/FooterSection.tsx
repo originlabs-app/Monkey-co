@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { LeafAnimation } from "@/components/LeafAnimation";
 import { EXTERNAL_LINKS } from "@/constants/links";
+import { SPACING } from "@/constants/theme";
 
 interface FooterSectionProps {
   screenWidth: number;
@@ -17,15 +18,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
       style={{
         alignSelf: "stretch",
         padding:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "48px 16px"
-            : screenWidth >= 1440
-              ? "64px"
+            : isDesktop(screenWidth) ? `${SPACING["5xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -33,12 +33,12 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
       <div
         className="container-9"
         style={{
-          flexDirection: screenWidth < 1440 ? "column" : undefined,
-          gap: screenWidth < 1440 ? "48px" : undefined,
-          justifyContent: screenWidth >= 1440 ? "space-between" : undefined,
+          flexDirection: isMobile(screenWidth) ? "column" : undefined,
+          gap: isMobile(screenWidth) ? "48px" : undefined,
+          justifyContent: isDesktop(screenWidth) ? "space-between" : undefined,
         }}
       >
-        {screenWidth < 1440 && (
+        {isMobile(screenWidth) && (
           <>
             <div className="div-34">
               <div className="logo-3">Monkey-co</div>
@@ -78,7 +78,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
           </>
         )}
 
-        {screenWidth >= 1440 && (
+        {isDesktop(screenWidth) && (
           <>
             <div className="container-11">
               <div className="div-37">
@@ -139,16 +139,16 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
         className="div-38"
         style={{
           alignItems:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex-end"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "center"
                 : undefined,
-          flexDirection: screenWidth < 1440 ? "column" : undefined,
+          flexDirection: isMobile(screenWidth) ? "column" : undefined,
           justifyContent:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "center"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "flex-end"
                 : undefined,
         }}
@@ -158,15 +158,15 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
           style={{
             alignSelf: "stretch",
             flex:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "0 0 auto"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "1"
                   : undefined,
-            flexGrow: screenWidth >= 1440 ? "1" : undefined,
-            marginBottom: screenWidth >= 1440 ? "-1.00px" : undefined,
-            marginRight: screenWidth < 1440 ? "-1.00px" : undefined,
-            width: screenWidth < 1440 ? "100%" : undefined,
+            flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+            marginBottom: isDesktop(screenWidth) ? "-1.00px" : undefined,
+            marginRight: isMobile(screenWidth) ? "-1.00px" : undefined,
+            width: isMobile(screenWidth) ? "100%" : undefined,
           }}
           onClick={() => window.open(EXTERNAL_LINKS.DISCORD, '_blank')}
         >
@@ -176,14 +176,14 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
             <div className="overlap-group-5">
               <LeafAnimation 
                 className="vector-17"
-                width={screenWidth < 1440 ? 55 : 75}
-                height={screenWidth < 1440 ? 55 : 75}
+                width={isMobile(screenWidth) ? 55 : 75}
+                height={isMobile(screenWidth) ? 55 : 75}
               />
 
               <LeafAnimation 
                 className="vector-18"
-                width={screenWidth < 1440 ? 60 : 80}
-                height={screenWidth < 1440 ? 60 : 80}
+                width={isMobile(screenWidth) ? 60 : 80}
+                height={isMobile(screenWidth) ? 60 : 80}
               />
             </div>
           </div>
@@ -194,17 +194,17 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
           style={{
             alignSelf: "stretch",
             flex:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "0 0 auto"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "1"
                   : undefined,
-            flexGrow: screenWidth >= 1440 ? "1" : undefined,
-            marginBottom: screenWidth >= 1440 ? "-1.00px" : undefined,
-            marginLeft: screenWidth < 1440 ? "-1.00px" : undefined,
-            marginRight: screenWidth < 1440 ? "-1.00px" : undefined,
-            marginTop: screenWidth >= 1440 ? "-1.00px" : undefined,
-            width: screenWidth < 1440 ? "100%" : undefined,
+            flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+            marginBottom: isDesktop(screenWidth) ? "-1.00px" : undefined,
+            marginLeft: isMobile(screenWidth) ? "-1.00px" : undefined,
+            marginRight: isMobile(screenWidth) ? "-1.00px" : undefined,
+            marginTop: isDesktop(screenWidth) ? "-1.00px" : undefined,
+            width: isMobile(screenWidth) ? "100%" : undefined,
           }}
           onClick={() => window.open(EXTERNAL_LINKS.TWITTER, '_blank')}
         >
@@ -215,9 +215,9 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
               className="vector-19"
               alt="Vector"
               src={
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "/img/vector-77.svg"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "/img/vector-75-2.svg"
                     : undefined
               }
@@ -230,17 +230,17 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
           style={{
             alignSelf: "stretch",
             flex:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "0 0 auto"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "1"
                   : undefined,
-            flexGrow: screenWidth >= 1440 ? "1" : undefined,
-            marginBottom: screenWidth >= 1440 ? "-1.00px" : undefined,
-            marginLeft: screenWidth < 1440 ? "-1.00px" : undefined,
-            marginRight: screenWidth < 1440 ? "-1.00px" : undefined,
-            marginTop: screenWidth >= 1440 ? "-1.00px" : undefined,
-            width: screenWidth < 1440 ? "100%" : undefined,
+            flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+            marginBottom: isDesktop(screenWidth) ? "-1.00px" : undefined,
+            marginLeft: isMobile(screenWidth) ? "-1.00px" : undefined,
+            marginRight: isMobile(screenWidth) ? "-1.00px" : undefined,
+            marginTop: isDesktop(screenWidth) ? "-1.00px" : undefined,
+            width: isMobile(screenWidth) ? "100%" : undefined,
           }}
         >
           <div className="text-18">{t('footerNav.joinPresale')}</div>
@@ -251,15 +251,15 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
           style={{
             alignSelf: "stretch",
             flex:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "0 0 auto"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "1"
                   : undefined,
-            flexGrow: screenWidth >= 1440 ? "1" : undefined,
-            marginLeft: screenWidth < 1440 ? "-1.00px" : undefined,
-            marginTop: screenWidth >= 1440 ? "-1.00px" : undefined,
-            width: screenWidth < 1440 ? "100%" : undefined,
+            flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+            marginLeft: isMobile(screenWidth) ? "-1.00px" : undefined,
+            marginTop: isDesktop(screenWidth) ? "-1.00px" : undefined,
+            width: isMobile(screenWidth) ? "100%" : undefined,
           }}
         >
           <div className="text-18">{t('footerNav.launchApp')}</div>
@@ -268,9 +268,9 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
             className="icon-arrow-right"
             alt="Icon arrow right"
             src={
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "/img/icon-arrow-right-7.svg"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "/img/icon-arrow-right-9.svg"
                   : undefined
             }

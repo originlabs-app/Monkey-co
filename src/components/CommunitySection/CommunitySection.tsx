@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { LeafAnimation } from "@/components/LeafAnimation";
 import { EXTERNAL_LINKS } from "@/constants/links";
+import { SPACING, isMobile, isDesktop } from "@/constants/theme";
 
 interface CommunitySectionProps {
   screenWidth: number;
@@ -17,15 +18,14 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
       style={{
         alignSelf: "stretch",
         padding:
-          screenWidth < 1440
-            ? "48px 20px"
-            : screenWidth >= 1440
-              ? "64px"
+          isMobile(screenWidth)
+            ? `${SPACING["4xl"]}px ${SPACING.xl}px`
+            : isDesktop(screenWidth) ? `${SPACING["5xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -35,12 +35,12 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
         style={{
           alignSelf: "stretch",
           display:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "inline-flex"
                 : undefined,
-          width: screenWidth < 1440 ? "100%" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <div
@@ -48,15 +48,15 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
           style={{
             alignSelf: "stretch",
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "28px"
-                : screenWidth >= 1440
-                  ? "40px"
+                : isDesktop(screenWidth)
+                  ? `${SPACING["3.5xl"]}px`
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "36px"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "56px"
                   : undefined,
             width: "100%",
@@ -70,39 +70,39 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
           style={{
             alignSelf: "stretch",
             fontFamily:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-family)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-family)"
                   : undefined,
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-size)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-size)"
                   : undefined,
             fontStyle:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-style)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-style)"
                   : undefined,
             fontWeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-weight)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-weight)"
                   : undefined,
             letterSpacing:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-letter-spacing)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-letter-spacing)"
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-line-height)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-line-height)"
                   : undefined,
             width: "100%",
@@ -116,7 +116,7 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
         <div
           className="frame-12"
           style={{
-            flexDirection: screenWidth < 1440 ? "column" : undefined,
+            flexDirection: isMobile(screenWidth) ? "column" : undefined,
           }}
         >
           <div
@@ -125,13 +125,13 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
             style={{
               alignSelf: "stretch",
               flex:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "0 0 auto"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "1"
                     : undefined,
-              flexGrow: screenWidth >= 1440 ? "1" : undefined,
-              width: screenWidth < 1440 ? "100%" : undefined,
+              flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+              width: isMobile(screenWidth) ? "100%" : undefined,
               cursor: 'pointer',
             }}
           >
@@ -141,14 +141,14 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
                   <div className="overlap-group-4">
                     <LeafAnimation 
                       className="vector-13"
-                      width={screenWidth < 1440 ? 35 : 55}
-                      height={screenWidth < 1440 ? 35 : 55}
+                      width={isMobile(screenWidth) ? 35 : 55}
+                      height={isMobile(screenWidth) ? 35 : 55}
                     />
 
                     <LeafAnimation 
                       className="vector-14"
-                      width={screenWidth < 1440 ? 40 : 60}
-                      height={screenWidth < 1440 ? 40 : 60}
+                      width={isMobile(screenWidth) ? 40 : 60}
+                      height={isMobile(screenWidth) ? 40 : 60}
                     />
                   </div>
                 </div>
@@ -168,13 +168,13 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
             style={{
               alignSelf: "stretch",
               flex:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "0 0 auto"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "1"
                     : undefined,
-              flexGrow: screenWidth >= 1440 ? "1" : undefined,
-              width: screenWidth < 1440 ? "100%" : undefined,
+              flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+              width: isMobile(screenWidth) ? "100%" : undefined,
               cursor: 'pointer',
             }}
           >
@@ -183,9 +183,9 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
                 className="icon-4"
                 alt="Icon"
                 src={
-                  screenWidth < 1440
+                  isMobile(screenWidth)
                     ? "/img/icon-3-2.svg"
-                    : screenWidth >= 1440
+                    : isDesktop(screenWidth)
                       ? "/img/icon-3.svg"
                       : undefined
                 }
@@ -207,13 +207,13 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
             style={{
               alignSelf: "stretch",
               flex:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "0 0 auto"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "1"
                     : undefined,
-              flexGrow: screenWidth >= 1440 ? "1" : undefined,
-              width: screenWidth < 1440 ? "100%" : undefined,
+              flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+              width: isMobile(screenWidth) ? "100%" : undefined,
               cursor: 'pointer',
             }}
           >
@@ -222,8 +222,8 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
                 <div className="uil-share">
                   <LeafAnimation 
                     className="vector-15"
-                    width={screenWidth < 1440 ? 45 : 65}
-                    height={screenWidth < 1440 ? 45 : 65}
+                    width={isMobile(screenWidth) ? 45 : 65}
+                    height={isMobile(screenWidth) ? 45 : 65}
                   />
                 </div>
               </div>
@@ -244,13 +244,13 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
             style={{
               alignSelf: "stretch",
               flex:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "0 0 auto"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "1"
                     : undefined,
-              flexGrow: screenWidth >= 1440 ? "1" : undefined,
-              width: screenWidth < 1440 ? "100%" : undefined,
+              flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+              width: isMobile(screenWidth) ? "100%" : undefined,
               cursor: 'pointer',
             }}
           >
@@ -259,8 +259,8 @@ export const CommunitySection: React.FC<CommunitySectionProps> = ({ screenWidth 
                 <div className="div-3">
                   <LeafAnimation 
                     className="vector-16"
-                    width={screenWidth < 1440 ? 50 : 70}
-                    height={screenWidth < 1440 ? 50 : 70}
+                    width={isMobile(screenWidth) ? 50 : 70}
+                    height={isMobile(screenWidth) ? 50 : 70}
                   />
                 </div>
               </div>

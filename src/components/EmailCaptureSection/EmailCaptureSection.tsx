@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { Button } from "@/components/Button";
 import { logger } from "@/services/logger";
+import { SPACING, isMobile, isDesktop } from "@/constants/theme";
 
 interface EmailCaptureSectionProps {
   screenWidth: number;
@@ -68,22 +69,18 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
       className="section-4"
       style={{
         alignSelf: "stretch",
-        gap:
-          screenWidth < 1440
-            ? "24px"
-            : screenWidth >= 1440
-              ? "48px"
+        gap: isMobile(screenWidth) ? `${SPACING["2xl"]}px`
+            : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
               : undefined,
         padding:
-          screenWidth < 1440
-            ? "48px 20px"
-            : screenWidth >= 1440
-              ? "64px"
+          isMobile(screenWidth)
+            ? `${SPACING["4xl"]}px ${SPACING.xl}px`
+            : isDesktop(screenWidth) ? `${SPACING["5xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -92,35 +89,35 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
         className="albedobase-XL-a-3"
         style={{
           height:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "113px"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "172px"
                 : undefined,
           left:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "-31px"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "339px"
                 : undefined,
           top:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "243px"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "284px"
                 : undefined,
           width:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "113px"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "172px"
                 : undefined,
         }}
         alt="Albedobase XL a"
         src={
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "/img/albedobase-xl-a-cheerful-modern-illustration-of-a-monkey-weari-1-3.svg"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "/img/albedobase-xl-a-cheerful-modern-illustration-of-a-monkey-weari-1-3-2.svg"
               : undefined
         }
@@ -130,9 +127,9 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
         <div
           className="horizontal-divider-5"
           style={{
-            flex: screenWidth < 1440 ? "1" : undefined,
-            flexGrow: screenWidth < 1440 ? "1" : undefined,
-            width: screenWidth >= 1440 ? "200px" : undefined,
+            flex: isMobile(screenWidth) ? "1" : undefined,
+            flexGrow: isMobile(screenWidth) ? "1" : undefined,
+            width: isDesktop(screenWidth) ? "200px" : undefined,
           }}
         />
 
@@ -145,9 +142,9 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
         <div
           className="horizontal-divider-6"
           style={{
-            flex: screenWidth < 1440 ? "1" : undefined,
-            flexGrow: screenWidth < 1440 ? "1" : undefined,
-            width: screenWidth >= 1440 ? "200px" : undefined,
+            flex: isMobile(screenWidth) ? "1" : undefined,
+            flexGrow: isMobile(screenWidth) ? "1" : undefined,
+            width: isDesktop(screenWidth) ? "200px" : undefined,
           }}
         />
       </div>
@@ -161,12 +158,12 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
           gap: "16px",
           position: "relative" as const,
           display:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "inline-flex"
                 : undefined,
-          width: screenWidth < 1440 ? "100%" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <p
@@ -184,15 +181,15 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
             marginLeft: "auto",
             marginRight: "auto",
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "28px"
-                : screenWidth >= 1440
-                  ? "40px"
+                : isDesktop(screenWidth)
+                  ? `${SPACING["3.5xl"]}px`
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "32px"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "56px"
                   : undefined,
             width: "100%",
@@ -211,39 +208,39 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
             maxWidth: "1200px",
             margin: "0 auto",
             fontFamily:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-family)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-family)"
                   : undefined,
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-size)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-size)"
                   : undefined,
             fontStyle:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-style)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-style)"
                   : undefined,
             fontWeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-weight)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-weight)"
                   : undefined,
             letterSpacing:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-letter-spacing)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-letter-spacing)"
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-line-height)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-line-height)"
                   : undefined,
             width: "100%",
@@ -278,9 +275,9 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
                   className="vector-11"
                   alt="Vector"
                   src={
-                    screenWidth < 1440
+                    isMobile(screenWidth)
                       ? "/img/image.svg"
-                      : screenWidth >= 1440
+                      : isDesktop(screenWidth)
                         ? "/img/vector-66.svg"
                         : undefined
                   }

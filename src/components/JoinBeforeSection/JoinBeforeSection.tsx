@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { DisplayCard } from "@/components/DisplayCard";
+import { isMobile, isDesktop, SPACING } from "@/constants/theme";
 
 interface JoinBeforeSectionProps {
   screenWidth: number;
@@ -16,33 +17,30 @@ export const JoinBeforeSection: React.FC<JoinBeforeSectionProps> = ({ screenWidt
       style={{
         alignSelf: "stretch",
         backgroundColor:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "#eaedec"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "unset"
               : undefined,
         backgroundImage:
-          screenWidth >= 1440
+          isDesktop(screenWidth)
             ? "url(/img/background-2.svg)"
             : undefined,
-        backgroundPosition: screenWidth >= 1440 ? "50% 50%" : undefined,
-        backgroundSize: screenWidth >= 1440 ? "cover" : undefined,
-        gap:
-          screenWidth < 1440
-            ? "32px"
-            : screenWidth >= 1440
-              ? "48px"
+        backgroundPosition: isDesktop(screenWidth) ? "50% 50%" : undefined,
+        backgroundSize: isDesktop(screenWidth) ? "cover" : undefined,
+        gap: isMobile(screenWidth) ? `${SPACING["3xl"]}px`
+            : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
               : undefined,
         padding:
-          screenWidth < 1440
-            ? "24px 20px"
-            : screenWidth >= 1440
-              ? "64px 128px"
+          isMobile(screenWidth)
+            ? `${SPACING["2xl"]}px ${SPACING.xl}px`
+            : isDesktop(screenWidth)
+              ? `${SPACING["5xl"]}px ${SPACING["7xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -51,15 +49,14 @@ export const JoinBeforeSection: React.FC<JoinBeforeSectionProps> = ({ screenWidt
         className="text-14"
         style={{
           fontSize:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "28px"
-              : screenWidth >= 1440
-                ? "48px"
+              : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
                 : undefined,
           lineHeight:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "36px"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "56px"
                 : undefined,
         }}
@@ -72,75 +69,72 @@ export const JoinBeforeSection: React.FC<JoinBeforeSectionProps> = ({ screenWidt
         style={{
           alignSelf: "stretch",
           display:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "inline-flex"
                 : undefined,
-          flexWrap: screenWidth >= 1440 ? "wrap" : undefined,
-          gap:
-            screenWidth < 1440
-              ? "16px"
-              : screenWidth >= 1440
-                ? "32px"
+          flexWrap: isDesktop(screenWidth) ? "wrap" : undefined,
+          gap: isMobile(screenWidth) ? `${SPACING.lg}px`
+              : isDesktop(screenWidth) ? `${SPACING["3xl"]}px`
                 : undefined,
-          width: screenWidth < 1440 ? "100%" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <DisplayCard
-          cUSTRIPPERCENT={screenWidth >= 1440}
+          cUSTRIPPERCENT={isDesktop(screenWidth)}
           className="display-card-instance"
-          divClassName={screenWidth >= 1440 ? "display-card-2" : undefined}
-          frameClassName={screenWidth >= 1440 ? "display-card-3" : undefined}
+          divClassName={isDesktop(screenWidth) ? "display-card-2" : undefined}
+          frameClassName={isDesktop(screenWidth) ? "display-card-3" : undefined}
           isIconHighlighted={false}
           state="default"
-          stateIconHighlightedClassName={screenWidth >= 1440 ? "display-card-4" : undefined}
+          stateIconHighlightedClassName={isDesktop(screenWidth) ? "display-card-4" : undefined}
           stateProp="default"
-          text={screenWidth < 1440 ? t('features.poolPriority') : t('features.poolPriorityDesc')}
-          title={screenWidth < 1440 ? t('features.priorityPool') : t('features.priorityPool')}
-          type={screenWidth < 1440 ? "display-h5" : "display-h4"}
+          text={isMobile(screenWidth) ? t('features.poolPriority') : t('features.poolPriorityDesc')}
+          title={isMobile(screenWidth) ? t('features.priorityPool') : t('features.priorityPool')}
+          type={isMobile(screenWidth) ? "display-h5" : "display-h4"}
           variant="light"
         />
         <DisplayCard
-          cUSTRIPPERCENT={screenWidth >= 1440}
+          cUSTRIPPERCENT={isDesktop(screenWidth)}
           className="display-card-instance"
-          divClassName={screenWidth >= 1440 ? "display-card-2" : undefined}
-          frameClassName={screenWidth >= 1440 ? "display-card-3" : undefined}
+          divClassName={isDesktop(screenWidth) ? "display-card-2" : undefined}
+          frameClassName={isDesktop(screenWidth) ? "display-card-3" : undefined}
           isIconHighlighted={false}
           state="default"
-          stateIconHighlightedClassName={screenWidth >= 1440 ? "display-card-4" : undefined}
+          stateIconHighlightedClassName={isDesktop(screenWidth) ? "display-card-4" : undefined}
           stateProp="default"
-          text={screenWidth < 1440 ? t('features.airdropNft') : t('features.airdropNftDesc')}
-          title={screenWidth < 1440 ? t('features.airdrop') : t('features.airdrop')}
-          type={screenWidth < 1440 ? "display-h5" : "display-h4"}
+          text={isMobile(screenWidth) ? t('features.airdropNft') : t('features.airdropNftDesc')}
+          title={isMobile(screenWidth) ? t('features.airdrop') : t('features.airdrop')}
+          type={isMobile(screenWidth) ? "display-h5" : "display-h4"}
           variant="light"
         />
         <DisplayCard
-          cUSTRIPPERCENT={screenWidth >= 1440}
+          cUSTRIPPERCENT={isDesktop(screenWidth)}
           className="display-card-instance"
-          divClassName={screenWidth >= 1440 ? "display-card-2" : undefined}
-          frameClassName={screenWidth >= 1440 ? "display-card-3" : undefined}
+          divClassName={isDesktop(screenWidth) ? "display-card-2" : undefined}
+          frameClassName={isDesktop(screenWidth) ? "display-card-3" : undefined}
           isIconHighlighted={false}
           state="default"
-          stateIconHighlightedClassName={screenWidth >= 1440 ? "display-card-4" : undefined}
+          stateIconHighlightedClassName={isDesktop(screenWidth) ? "display-card-4" : undefined}
           stateProp="default"
-          text={screenWidth < 1440 ? t('features.doubleRewards') : t('features.doubleRewardsDesc')}
-          title={screenWidth < 1440 ? t('features.rewards2x') : t('features.rewards2x')}
-          type={screenWidth < 1440 ? "display-h5" : "display-h4"}
+          text={isMobile(screenWidth) ? t('features.doubleRewards') : t('features.doubleRewardsDesc')}
+          title={isMobile(screenWidth) ? t('features.rewards2x') : t('features.rewards2x')}
+          type={isMobile(screenWidth) ? "display-h5" : "display-h4"}
           variant="light"
         />
         <DisplayCard
-          cUSTRIPPERCENT={screenWidth >= 1440}
+          cUSTRIPPERCENT={isDesktop(screenWidth)}
           className="display-card-instance"
-          divClassName={screenWidth >= 1440 ? "display-card-2" : undefined}
-          frameClassName={screenWidth >= 1440 ? "display-card-3" : undefined}
+          divClassName={isDesktop(screenWidth) ? "display-card-2" : undefined}
+          frameClassName={isDesktop(screenWidth) ? "display-card-3" : undefined}
           isIconHighlighted={false}
           state="default"
-          stateIconHighlightedClassName={screenWidth >= 1440 ? "display-card-4" : undefined}
+          stateIconHighlightedClassName={isDesktop(screenWidth) ? "display-card-4" : undefined}
           stateProp="default"
-          text={screenWidth < 1440 ? t('features.exclusiveCommunity') : t('features.exclusiveCommunityDesc')}
-          title={screenWidth < 1440 ? t('features.community') : t('features.community')}
-          type={screenWidth < 1440 ? "display-h5" : "display-h4"}
+          text={isMobile(screenWidth) ? t('features.exclusiveCommunity') : t('features.exclusiveCommunityDesc')}
+          title={isMobile(screenWidth) ? t('features.community') : t('features.community')}
+          type={isMobile(screenWidth) ? "display-h5" : "display-h4"}
           variant="light"
         />
       </div>

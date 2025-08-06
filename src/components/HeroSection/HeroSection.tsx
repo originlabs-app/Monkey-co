@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { LeafAnimation } from "@/components/LeafAnimation";
 import { SECTION_IDS, EXTERNAL_LINKS } from "@/constants/links";
+import { SPACING, isMobile, isDesktop } from "@/constants/theme";
 
 interface HeroSectionProps {
   screenWidth: number;
@@ -28,9 +29,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         style={{
           alignSelf: "stretch",
           padding:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "0px 16px"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "0px 48px"
                 : undefined,
           width: "100%",
@@ -39,11 +40,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div
           className="menu"
           style={{
-            flex: screenWidth < 1440 ? "0 0 auto" : undefined,
-            height: screenWidth >= 1440 ? "80px" : undefined,
+            flex: isMobile(screenWidth) ? "0 0 auto" : undefined,
+            height: isDesktop(screenWidth) ? "80px" : undefined,
           }}
         >
-          {screenWidth < 1440 && (
+          {isMobile(screenWidth) && (
             <div className="div-2">
               <div className="logo" onClick={scrollToTop} style={{ cursor: 'pointer' }}>Monkey-co</div>
               <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
@@ -55,7 +56,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           )}
 
-          {screenWidth >= 1440 && (
+          {isDesktop(screenWidth) && (
             <>
               <div className="div-4">
                 <div className="logo-2" onClick={scrollToTop} style={{ cursor: 'pointer' }}>Monkey-co</div>
@@ -137,22 +138,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         style={{
           alignSelf: "stretch",
           gap:
-            screenWidth < 1440
-              ? "40px"
-              : screenWidth >= 1440
-                ? "48px"
+            isMobile(screenWidth)
+              ? `${SPACING["3.5xl"]}px`
+              : isDesktop(screenWidth) ? `${SPACING["4xl"]}px`
                 : undefined,
           height:
-            screenWidth < 1440
-              ? "585px"
-              : screenWidth >= 1440
-                ? "1010px"
+            isMobile(screenWidth)
+              ? "700px"
+              : isDesktop(screenWidth)
+                ? "1200px"
                 : undefined,
           padding:
-            screenWidth < 1440
-              ? "48px 20px"
-              : screenWidth >= 1440
-                ? "64px"
+            isMobile(screenWidth)
+              ? `${SPACING["4xl"]}px ${SPACING.xl}px`
+              : isDesktop(screenWidth) ? `${SPACING["5xl"]}px`
                 : undefined,
           width: "100%",
         }}
@@ -161,27 +160,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           className="image"
           style={{
             backgroundImage:
-              screenWidth >= 1440
+              isDesktop(screenWidth)
                 ? "url(/img/image-17.png)"
-                : screenWidth < 1440
+                : isMobile(screenWidth)
                   ? "url(/img/image-13.png)"
                   : undefined,
             height:
-              screenWidth >= 1440
+              isDesktop(screenWidth)
                 ? "598px"
-                : screenWidth < 1440
+                : isMobile(screenWidth)
                   ? "266px"
                   : undefined,
             top:
-              screenWidth >= 1440
+              isDesktop(screenWidth)
                 ? "467px"
-                : screenWidth < 1440
+                : isMobile(screenWidth)
                   ? "374px"
                   : undefined,
           }}
         />
 
-        {screenWidth < 1440 && (
+        {isMobile(screenWidth) && (
           <>
             <div className="link-2">
               <p className="p">
@@ -228,7 +227,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </>
         )}
 
-        {screenWidth >= 1440 && (
+        {isDesktop(screenWidth) && (
           <>
             <div className="link-3">
               <p className="text-6">
@@ -279,35 +278,37 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           className="app-image"
           style={{
             height:
-              screenWidth < 1440
-                ? "211.47px"
-                : screenWidth >= 1440
-                  ? "639.02px"
+              isMobile(screenWidth)
+                ? "auto"
+                : isDesktop(screenWidth)
+                  ? "auto"
+                  : undefined,
+            marginTop:
+              isMobile(screenWidth)
+                ? "20px"
+                : isDesktop(screenWidth)
+                  ? `${SPACING["3.5xl"]}px`
                   : undefined,
             marginBottom:
-              screenWidth < 1440
-                ? "-48.00px"
-                : screenWidth >= 1440
-                  ? "-64.00px"
+              isMobile(screenWidth)
+                ? "0px"
+                : isDesktop(screenWidth)
+                  ? "0px"
                   : undefined,
             width:
-              screenWidth < 1440
-                ? "366px"
-                : screenWidth >= 1440
-                  ? "1106px"
+              isMobile(screenWidth)
+                ? "100%"
+                : isDesktop(screenWidth)
+                  ? "100%"
                   : undefined,
+            maxWidth: "1200px",
+            objectPosition: "center 70%",
           }}
           alt="App image"
-          src={
-            screenWidth < 1440
-              ? "/img/app-image-3.png"
-              : screenWidth >= 1440
-                ? "/img/app-image-3-2.png"
-                : undefined
-          }
+          src="/img/app-image-new.png"
         />
 
-        {screenWidth >= 1440 && (
+        {isDesktop(screenWidth) && (
           <>
             <LeafAnimation 
               className="group"

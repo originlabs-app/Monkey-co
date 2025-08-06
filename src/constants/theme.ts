@@ -13,24 +13,27 @@ export const BREAKPOINTS = {
 
 // Système de spacing unifié
 export const SPACING = {
-  xs: '4px',
-  sm: '8px',
-  md: '12px',
-  lg: '16px',
-  xl: '20px',
-  '2xl': '24px',
-  '3xl': '32px',
-  '4xl': '48px',
-  '5xl': '64px',
-  '6xl': '96px',
+  xs: 4,
+  sm: 8,
+  md: 12,
+  lg: 16,
+  xl: 20,
+  '2xl': 24,
+  '3xl': 32,
+  '3.5xl': 40,
+  '4xl': 48,
+  '5xl': 64,
+  '6xl': 96,
+  '7xl': 128,
+  '8xl': 249,
 } as const;
 
 // Dimensions communes
 export const DIMENSIONS = {
   // Containers
   containerPadding: {
-    mobile: `${SPACING['4xl']} ${SPACING.xl}`,
-    desktop: SPACING['5xl'],
+    mobile: `${SPACING['4xl']}px ${SPACING.xl}px`,
+    desktop: `${SPACING['5xl']}px`,
   },
   maxWidth: {
     content: '1200px',
@@ -59,7 +62,7 @@ export const DIMENSIONS = {
   // Form elements
   input: {
     height: '48px',
-    padding: SPACING.lg,
+    padding: `${SPACING.lg}px`,
   },
   
   // Sections
@@ -68,8 +71,8 @@ export const DIMENSIONS = {
       mobile: '390px',
     },
     padding: {
-      mobile: `${SPACING['4xl']} ${SPACING.xl}`,
-      desktop: SPACING['5xl'],
+      mobile: `${SPACING['4xl']}px ${SPACING.xl}px`,
+      desktop: `${SPACING['5xl']}px`,
     },
   },
 } as const;

@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { PDF_LINKS, SECTION_IDS } from "@/constants/links";
+import { isMobile, isDesktop, SPACING } from "@/constants/theme";
 
 interface TokenomicsSectionProps {
   screenWidth: number;
@@ -17,15 +18,14 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
       style={{
         alignSelf: "stretch",
         padding:
-          screenWidth < 1440
-            ? "48px 20px"
-            : screenWidth >= 1440
-              ? "64px"
+          isMobile(screenWidth)
+            ? `${SPACING["4xl"]}px ${SPACING.xl}px`
+            : isDesktop(screenWidth) ? `${SPACING["5xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -34,9 +34,9 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
         <div
           className="horizontal-divider-7"
           style={{
-            flex: screenWidth < 1440 ? "1" : undefined,
-            flexGrow: screenWidth < 1440 ? "1" : undefined,
-            width: screenWidth >= 1440 ? "200px" : undefined,
+            flex: isMobile(screenWidth) ? "1" : undefined,
+            flexGrow: isMobile(screenWidth) ? "1" : undefined,
+            width: isDesktop(screenWidth) ? "200px" : undefined,
           }}
         />
 
@@ -49,9 +49,9 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
         <div
           className="horizontal-divider-8"
           style={{
-            flex: screenWidth < 1440 ? "1" : undefined,
-            flexGrow: screenWidth < 1440 ? "1" : undefined,
-            width: screenWidth >= 1440 ? "200px" : undefined,
+            flex: isMobile(screenWidth) ? "1" : undefined,
+            flexGrow: isMobile(screenWidth) ? "1" : undefined,
+            width: isDesktop(screenWidth) ? "200px" : undefined,
           }}
         />
       </div>
@@ -61,12 +61,12 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
         style={{
           alignSelf: "stretch",
           display:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "inline-flex"
                 : undefined,
-          width: screenWidth < 1440 ? "100%" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <p
@@ -74,15 +74,15 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
           style={{
             alignSelf: "stretch",
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "28px"
-                : screenWidth >= 1440
-                  ? "40px"
+                : isDesktop(screenWidth)
+                  ? `${SPACING["3.5xl"]}px`
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "36px"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "56px"
                   : undefined,
             width: "100%",
@@ -96,39 +96,39 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
           style={{
             alignSelf: "stretch",
             fontFamily:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-family)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-family)"
                   : undefined,
             fontSize:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-size)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-size)"
                   : undefined,
             fontStyle:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-style)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-style)"
                   : undefined,
             fontWeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-font-weight)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-font-weight)"
                   : undefined,
             letterSpacing:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-letter-spacing)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-letter-spacing)"
                   : undefined,
             lineHeight:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "var(--text-content-caption-regular-line-height)"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "var(--text-content-note-regular-line-height)"
                   : undefined,
             width: "100%",
@@ -143,15 +143,14 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
         style={{
           alignSelf: "stretch",
           padding:
-            screenWidth < 1440
-              ? "16px 12px"
-              : screenWidth >= 1440
-                ? "24px"
+            isMobile(screenWidth)
+              ? `${SPACING.lg}px ${SPACING.md}px`
+              : isDesktop(screenWidth) ? `${SPACING["2xl"]}px`
                 : undefined,
           width: "100%",
         }}
       >
-        {screenWidth >= 1440 && (
+        {isDesktop(screenWidth) && (
           <>
             <div className="text-13">{t('tokenomics.tokenDistribution')}</div>
 
@@ -276,7 +275,7 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
         )}
 
         <div className="div-31">
-          {screenWidth >= 1440 && (
+          {isDesktop(screenWidth) && (
             <>
               <button className="button-6" onClick={() => window.open(PDF_LINKS.WHITEPAPER_FR, '_blank')}>
                 <div className="material-symbols">
@@ -304,7 +303,7 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
             </>
           )}
 
-          {screenWidth < 1440 && (
+          {isMobile(screenWidth) && (
             <>
               <p className="legend-2">
                 {t('tokenomics.supplyLimited')}
@@ -321,7 +320,7 @@ export const TokenomicsSection: React.FC<TokenomicsSectionProps> = ({ screenWidt
           )}
         </div>
 
-        {screenWidth < 1440 && (
+        {isMobile(screenWidth) && (
           <>
             <div className="image-7">
               <img

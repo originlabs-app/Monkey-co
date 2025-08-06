@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { SECTION_IDS } from "@/constants/links";
+import { SPACING, isMobile, isDesktop } from "@/constants/theme";
 
 interface FeaturesSectionProps {
   screenWidth: number;
@@ -26,15 +27,14 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
       style={{
         alignSelf: "stretch",
         padding:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "48px 20px 48px 20px"
-            : screenWidth >= 1440
-              ? "64px"
+            : isDesktop(screenWidth) ? `${SPACING["5xl"]}px`
               : undefined,
         width:
-          screenWidth < 1440
+          isMobile(screenWidth)
             ? "100%"
-            : screenWidth >= 1440
+            : isDesktop(screenWidth)
               ? "100%"
               : undefined,
       }}
@@ -43,15 +43,15 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
         className="text-wrapper-9"
         style={{
           fontSize:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "28px"
-              : screenWidth >= 1440
-                ? "40px"
+              : isDesktop(screenWidth)
+                ? `${SPACING["3.5xl"]}px`
                 : undefined,
           lineHeight:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "36px"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "56px"
                 : undefined,
         }}
@@ -63,31 +63,31 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
         className="frame-3"
         style={{
           alignItems:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex-start"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "flex-start"
                 : undefined,
           alignSelf: "stretch",
           display:
-            screenWidth < 1440
+            isMobile(screenWidth)
               ? "flex"
-              : screenWidth >= 1440
+              : isDesktop(screenWidth)
                 ? "inline-flex"
                 : undefined,
-          flexDirection: screenWidth < 1440 ? "column" : undefined,
-          justifyContent: screenWidth < 1440 ? "center" : undefined,
-          width: screenWidth < 1440 ? "100%" : undefined,
+          flexDirection: isMobile(screenWidth) ? "column" : undefined,
+          justifyContent: isMobile(screenWidth) ? "center" : undefined,
+          width: isMobile(screenWidth) ? "100%" : undefined,
         }}
       >
         <div
           className="div-24"
           style={{
-            flex: screenWidth < 1440 ? "0 0 auto" : undefined,
+            flex: isMobile(screenWidth) ? "0 0 auto" : undefined,
             width:
-              screenWidth < 1440
+              isMobile(screenWidth)
                 ? "100%"
-                : screenWidth >= 1440
+                : isDesktop(screenWidth)
                   ? "602px"
                   : undefined,
           }}
@@ -106,14 +106,13 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
             <p
               className="title-3"
               style={{
-                flex: screenWidth < 1440 ? "1" : undefined,
+                flex: isMobile(screenWidth) ? "1" : undefined,
                 lineHeight:
-                  screenWidth < 1440
+                  isMobile(screenWidth)
                     ? "16px"
-                    : screenWidth >= 1440
-                      ? "32px"
+                    : isDesktop(screenWidth) ? `${SPACING["3xl"]}px`
                       : undefined,
-                width: screenWidth >= 1440 ? "570px" : undefined,
+                width: isDesktop(screenWidth) ? "570px" : undefined,
                 transition: 'color 0.3s'
               }}
             >
@@ -135,14 +134,13 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
             <div
               className="title-4"
               style={{
-                flex: screenWidth < 1440 ? "1" : undefined,
+                flex: isMobile(screenWidth) ? "1" : undefined,
                 lineHeight:
-                  screenWidth < 1440
+                  isMobile(screenWidth)
                     ? "16px"
-                    : screenWidth >= 1440
-                      ? "32px"
+                    : isDesktop(screenWidth) ? `${SPACING["3xl"]}px`
                       : undefined,
-                width: screenWidth >= 1440 ? "570px" : undefined,
+                width: isDesktop(screenWidth) ? "570px" : undefined,
                 transition: 'color 0.3s'
               }}
             >
@@ -164,14 +162,13 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
             <div
               className="title-5"
               style={{
-                flex: screenWidth < 1440 ? "1" : undefined,
+                flex: isMobile(screenWidth) ? "1" : undefined,
                 lineHeight:
-                  screenWidth < 1440
+                  isMobile(screenWidth)
                     ? "16px"
-                    : screenWidth >= 1440
-                      ? "32px"
+                    : isDesktop(screenWidth) ? `${SPACING["3xl"]}px`
                       : undefined,
-                width: screenWidth >= 1440 ? "570px" : undefined,
+                width: isDesktop(screenWidth) ? "570px" : undefined,
                 transition: 'color 0.3s'
               }}
             >
@@ -193,14 +190,13 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
             <div
               className="title-6"
               style={{
-                flex: screenWidth < 1440 ? "1" : undefined,
+                flex: isMobile(screenWidth) ? "1" : undefined,
                 lineHeight:
-                  screenWidth < 1440
+                  isMobile(screenWidth)
                     ? "16px"
-                    : screenWidth >= 1440
-                      ? "32px"
+                    : isDesktop(screenWidth) ? `${SPACING["3xl"]}px`
                       : undefined,
-                width: screenWidth >= 1440 ? "570px" : undefined,
+                width: isDesktop(screenWidth) ? "570px" : undefined,
                 transition: 'color 0.3s'
               }}
             >
@@ -222,14 +218,13 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
             <div
               className="title-7"
               style={{
-                flex: screenWidth < 1440 ? "1" : undefined,
+                flex: isMobile(screenWidth) ? "1" : undefined,
                 lineHeight:
-                  screenWidth < 1440
+                  isMobile(screenWidth)
                     ? "16px"
-                    : screenWidth >= 1440
-                      ? "32px"
+                    : isDesktop(screenWidth) ? `${SPACING["3xl"]}px`
                       : undefined,
-                width: screenWidth >= 1440 ? "570px" : undefined,
+                width: isDesktop(screenWidth) ? "570px" : undefined,
                 transition: 'color 0.3s'
               }}
             >
@@ -241,26 +236,26 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
         <div
           className="staking-USDC-empty-wrapper no-border"
           style={{
-            alignSelf: screenWidth >= 1440 ? "stretch" : "stretch",
+            alignSelf: isDesktop(screenWidth) ? "stretch" : "stretch",
             display: "flex",
             marginBottom: "0",
             marginLeft: "0",
             padding: "0",
-            width: screenWidth < 1440 ? "100%" : undefined,
+            width: isMobile(screenWidth) ? "100%" : undefined,
             boxShadow: "none",
             border: "none",
             justifyContent: "flex-start",
             alignItems: "stretch",
-            flex: screenWidth >= 1440 ? "1" : undefined
+            flex: isDesktop(screenWidth) ? "1" : undefined
           }}
         >
           <img
             className="staking-USDC-empty"
             style={{
               height:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "300px"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "100%"
                     : undefined,
               marginLeft: 0,
@@ -268,18 +263,18 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({ screenWidth })
               marginTop: 0,
               marginBottom: 0,
               width:
-                screenWidth < 1440
+                isMobile(screenWidth)
                   ? "100%"
-                  : screenWidth >= 1440
+                  : isDesktop(screenWidth)
                     ? "602px"
                     : undefined,
               maxWidth:
-                screenWidth >= 1440
+                isDesktop(screenWidth)
                   ? "602px"
                   : undefined,
               objectFit: "contain",
               objectPosition: "top left",
-              transform: screenWidth >= 1440 ? "scale(1.15) translateY(-10px)" : undefined,
+              transform: isDesktop(screenWidth) ? "scale(1.15) translateY(-10px)" : undefined,
               transformOrigin: "top left",
             }}
             alt={selectedCard}
