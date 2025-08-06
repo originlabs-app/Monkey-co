@@ -6,11 +6,12 @@ interface Language {
   code: string;
   name: string;
   flag: string;
+  flagCode: string; // Code pays pour fallback
 }
 
 const languages: Language[] = [
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷', flagCode: 'FR' },
+  { code: 'en', name: 'English', flag: '🇬🇧', flagCode: 'GB' },
 ];
 
 export const LanguageSwitcher: React.FC = () => {
@@ -38,6 +39,34 @@ export const LanguageSwitcher: React.FC = () => {
     };
   }, []);
 
+  // Fonction pour détecter si les emojis de drapeaux sont supportés
+  const supportsFlagEmojis = () => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return false;
+    
+    ctx.font = '16px Arial';
+    const text = '🇫🇷';
+    const metrics = ctx.measureText(text);
+    
+    // Si la largeur est très petite, les emojis ne sont pas supportés
+    return metrics.width > 10;
+  };
+
+  const [useEmojis, setUseEmojis] = useState(true);
+
+  useEffect(() => {
+    setUseEmojis(supportsFlagEmojis());
+  }, []);
+
+  const getFlagDisplay = (language: Language) => {
+    if (useEmojis) {
+      return language.flag;
+    }
+    // Fallback : utiliser le code pays
+    return language.flagCode;
+  };
+
   return (
     <div className="language-dropdown" ref={dropdownRef}>
       <button
@@ -45,7 +74,9 @@ export const LanguageSwitcher: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Select language"
       >
-        <span className="language-flag">{currentLanguage.flag}</span>
+        <span className={`language-flag ${!useEmojis ? 'flag-code' : ''}`}>
+          {getFlagDisplay(currentLanguage)}
+        </span>
         <span className="language-code">{currentLanguage.code.toUpperCase()}</span>
         <svg
           className={`dropdown-arrow ${isOpen ? 'open' : ''}`}
@@ -72,7 +103,9 @@ export const LanguageSwitcher: React.FC = () => {
               className={`language-option ${lang.code === i18n.language ? 'active' : ''}`}
               onClick={() => changeLanguage(lang.code)}
             >
-              <span className="language-flag">{lang.flag}</span>
+              <span className={`language-flag ${!useEmojis ? 'flag-code' : ''}`}>
+                {getFlagDisplay(lang)}
+              </span>
               <span className="language-name">{lang.name}</span>
             </button>
           ))}

@@ -109,14 +109,8 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({ screenWidth })
                   ? "179.78px"
                   : undefined,
             }}
-            alt="Logo praxitherm"
-            src={
-              isDesktop(screenWidth)
-                ? "/img/logo-praxitherm-1-3.png"
-                : isMobile(screenWidth)
-                  ? "/img/logo-praxitherm-1-3-2x.png"
-                  : undefined
-            }
+            alt="Logo Praxitherm"
+            src="/img/logo-praxitherm-1-3.png"
           />
 
           <img
@@ -133,17 +127,17 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({ screenWidth })
                   ? "82.5px"
                   : undefined,
             }}
-            alt="Image"
-            src="/img/image-3-3.png"
+            alt="Logo Kamea Labs"
+            src="/img/logo-kamea-labs.png"
           />
 
           {isDesktop(screenWidth) && (
             <>
-              <img className="image-3" alt="Image" src="/img/image-4-3.png" />
+              <img className="image-3" alt="Logo Fipto" src="/img/logo-fipto.png" />
 
               <img
                 className="logo-la-boite-a-demo"
-                alt="Logo la boite a demo"
+                alt="Logo La Boîte à Demo"
                 src="/img/logo-la-boi-te-a-de-mo-1-3.png"
               />
             </>
@@ -151,11 +145,35 @@ export const PartnersSection: React.FC<PartnersSectionProps> = ({ screenWidth })
         </div>
 
         {isMobile(screenWidth) && (
-          <img
+          <div
             className="frame-2"
-            alt="Frame"
-            src="/img/frame-1707478377-1.svg"
-          />
+            style={{
+              display: "flex",
+              gap: `${SPACING.lg}px`,
+              justifyContent: "center",
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <img
+              alt="Logo Fipto"
+              src="/img/logo-fipto.png"
+              style={{
+                height: "40px",
+                width: "auto",
+                objectFit: "contain",
+              }}
+            />
+            <img
+              alt="Logo La Boîte à Demo"
+              src="/img/logo-la-boi-te-a-de-mo-1-3.png"
+              style={{
+                height: "40px",
+                width: "auto",
+                objectFit: "contain",
+              }}
+            />
+          </div>
         )}
       </div>
     </div>
