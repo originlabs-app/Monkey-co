@@ -22,19 +22,8 @@ import "./style.css";
 export const LandingPage = (): JSX.Element => {
   const screenWidth = useWindowWidth();
   const { t, i18n } = useTranslation();
-  const [email, setEmail] = useState("");
-  const [consent, setConsent] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { scrollToTop, scrollToSection } = useSmoothScroll();
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
 
   const handleShare = () => {
     const shareData = {
@@ -51,57 +40,6 @@ export const LandingPage = (): JSX.Element => {
       // Fallback: Copier le lien
       navigator.clipboard.writeText(window.location.href);
       alert('Lien copié dans le presse-papier !');
-    }
-  };
-
-  const handleSubmit = async () => {
-    // Reset messages
-    setShowError(false);
-    setErrorMessage("");
-    setSuccessMessage("");
-
-    // Validation email
-    if (!email || !validateEmail(email)) {
-      setErrorMessage(t('footerCta.emailRequired'));
-      return;
-    }
-
-    // Validation consentement
-    if (!consent) {
-      setShowError(true);
-      return;
-    }
-    
-    setIsLoading(true);
-
-    try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/api/mailing`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          consent,
-          timestamp: new Date().toISOString(),
-          source: 'landing_page'
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Erreur lors de l\'inscription');
-      }
-
-      // Succès
-      setSuccessMessage(t('footerCta.successMessage'));
-      setEmail("");
-      setConsent(false);
-    } catch (error: any) {
-      setErrorMessage(error.message || t('footerCta.errorMessage'));
-    } finally {
-      setIsLoading(false);
     }
   };
 
