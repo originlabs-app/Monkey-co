@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useWindowWidth } from "../../breakpoints";
-import { Button } from "../../components/Button";
-import { DisplayCard } from "../../components/DisplayCard";
-import { ArrowLeft8 } from "../../icons/ArrowLeft8";
-import { LeafAnimation } from "../../components/LeafAnimation";
-import { LanguageSwitcher } from "../../components/LanguageSwitcher";
-import { EmailCaptureModal } from "../../components/EmailCaptureModal";
-import { useSmoothScroll } from "../../hooks/useSmoothScroll";
-import { EXTERNAL_LINKS, PDF_LINKS, SECTION_IDS } from "../../constants/links";
+import { useWindowWidth } from "@/breakpoints";
+import { Button } from "@/components/Button";
+import { DisplayCard } from "@/components/DisplayCard";
+import { ArrowLeft8 } from "@/icons/ArrowLeft8";
+import { LeafAnimation } from "@/components/LeafAnimation";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { EmailCaptureModal } from "@/components/EmailCaptureModal";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { EXTERNAL_LINKS, PDF_LINKS, SECTION_IDS } from "@/constants/links";
+import { logger } from "@/services/logger";
 import "./style.css";
 
 export const LandingPage = (): JSX.Element => {
@@ -45,7 +46,9 @@ export const LandingPage = (): JSX.Element => {
     };
 
     if (navigator.share) {
-      navigator.share(shareData).catch(console.error);
+      navigator.share(shareData).catch((error) => {
+        logger.error('Share failed', { error: error.message });
+      });
     } else {
       // Fallback: Copier le lien
       navigator.clipboard.writeText(window.location.href);

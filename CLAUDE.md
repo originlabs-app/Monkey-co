@@ -1,370 +1,425 @@
-# CLAUDE.md - Single Source of Truth (SSOT) pour AnimaPackage React
+# CLAUDE.md
 
-Ce fichier est la **RÉFÉRENCE ABSOLUE** pour le développement de ce projet. **TOUJOURS** commencer par lire ce fichier avant toute action.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## 🚨 RÈGLES CRITIQUES - À LIRE EN PREMIER
 
 ### 1. SSOT - Single Source of Truth (OBLIGATOIRE)
-**Ce fichier EST la vérité absolue. Toute déviation doit être justifiée par une ADR (Architecture Decision Record).**
+**TOUJOURS vérifier si le code existe déjà avant de créer quoi que ce soit**
+- 📖 **CLAUDE.md EST le SSOT** - Ce fichier contient toutes les règles et principes
+- ✅ Une seule source de vérité par fonctionnalité
+- ❌ JAMAIS de duplication de code/config/schémas
 
-#### Hiérarchie des sources de vérité :
-1. **CLAUDE.md** (ce fichier) - Règles et principes absolus
-2. **SPRINT.md** - État actuel des tâches et priorités
-3. **package.json** - Dépendances et scripts autorisés
-4. **Code existant** - Patterns à suivre/améliorer
-
-### 2. Avant CHAQUE modification de code
-
+### 2. Avant CHAQUE ajout de code
 ```bash
-# OBLIGATOIRE - Checklist de vérification :
+# OBLIGATOIRE - Faire ces vérifications :
 
 # 1. Est-ce que ça existe déjà ?
-grep -r "NomDeLaFonction" src/ --exclude-dir=node_modules
-find src/ -name "*composant*" -type f
+grep -r "NomDeLaFonction" . --exclude-dir=node_modules
+find . -name "*nom-fichier*" -type f | grep -v node_modules
 
-# 2. Où placer le code ? (Architecture stricte)
-# - Composants UI → src/components/[NomComposant]/
-# - Icônes → src/icons/[NomIcone]/
-# - Pages → src/screens/[NomPage]/
+# 2. Où est la bonne place ? (RÈGLES ANIMAPACKAGE)
+# - Composants → src/components/[NomComposant]/
+# - Services → src/services/
 # - Hooks → src/hooks/
-# - Services API → src/services/
-# - Constantes → src/constants/
+# - Types → src/types/
+# - Contexts → src/contexts/
+# - Tests → src/tests/
 # - i18n → src/i18n/locales/
 # - Animations → src/animations/
-# - Styles globaux → src/ (racine uniquement)
+# - Icons → src/icons/
 
-# 3. Y a-t-il un pattern existant ?
-ls src/components/  # Vérifier la structure des composants
-cat src/components/Button/Button.tsx  # Exemple de pattern
+# 3. Y a-t-il déjà un service similaire ?
+ls src/services/
 ```
 
-### 3. Architecture actuelle (NE JAMAIS DUPLIQUER)
+### 3. Architecture actuelle (NE PAS DUPLIQUER)
+- **React + Vite** : Architecture frontend uniquement
+- **Composants** : `src/components/[NomComposant]/` avec pattern strict
+- **Services** : `src/services/` (API, logger)
+- **Hooks** : `src/hooks/` (useForm, useScrollAnimation, etc.)
+- **Contexts** : `src/contexts/` (AppContext pour state management)
+- **Types** : `src/types/` (icon.types.ts, etc.)
+- **Tests** : `src/tests/` (setup.ts, configuration Vitest)
+- **i18n** : `src/i18n/locales/` (fr.json, en.json)
+- **Assets** : `static/` (images, PDFs)
 
+### 4. Quality Gates (OBLIGATOIRE)
+**Avant chaque commit, vérifier :**
+- [ ] Code coverage minimum : 80% (quand tests configurés)
+- [ ] Complexité cyclomatique max : 10 par fonction
+- [ ] Nombre de paramètres max : 4 par fonction
+- [ ] Pas de duplication de code détectée
+- [ ] Gestion d'erreurs appropriée
+- [ ] Documentation mise à jour
+
+### 5. Vérification des dépendances
+**Avant chaque ajout de package :**
+- [ ] Impact sur le bundle size évalué
+- [ ] Raison de la dépendance documentée
+- [ ] Alternative existante vérifiée
+- [ ] Version stable et maintenue
+- [ ] Licence compatible avec le projet
+
+## 🔴 CRITICAL REMINDERS - READ FIRST
+
+### Workflow de développement OBLIGATOIRE
+
+**🚨 RÈGLE ABSOLUE : TOUJOURS commencer par `/ssot`**
+
+1. **CONSULTER CLAUDE.md** - `/ssot` OBLIGATOIRE avant toute action
+2. **Les fichiers TODO dictent la progression** - Suivre TODO.md étape par étape
+3. **Progression tâche par tâche** - Une seule tâche à la fois selon les priorités
+4. **Checkmark APRÈS test validé** - Ne JAMAIS checkmarker sans validation utilisateur
+5. **Scénario de test OBLIGATOIRE** - Fournir un scénario détaillé avant checkmark
+6. **Validation avant progression** - Si test échoue, on reste sur la tâche
+7. **Pour chaque nouvelle tâche** :
+   a. Poser des questions sur l'implémentation souhaitée
+   b. Proposer un userflow logique basé sur l'existant
+   c. Pour le front : TOUJOURS référencer le design de la landing page
+8. **Documentation après achèvement** - Ajouter contexte et décisions dans TODO.md
+
+### Commandes et environnement
+- **npm run dev** : L'utilisateur gère le serveur de développement (port 5173)
+- **Autres commandes** : Claude exécute via Bash (build, lint, test)
+- **Si erreur** : L'utilisateur copie/colle les logs du terminal
+
+## 🎨 RÈGLES DE DESIGN ET UI
+
+### RÈGLE #1 : PRÉSERVATION DU DESIGN PAR DÉFAUT
+**AVANT TOUT CHANGEMENT D'UI/DESIGN :**
+1. **Demander explicitement** : "Dois-je changer le design ou seulement analyser ?"
+2. **Préserver par défaut** : Ne JAMAIS changer un design validé sans permission
+3. **Screenshots obligatoires** : Si changement demandé, montrer avant/après
+4. **Validation utilisateur** : Attendre "OK pour changer le design" explicite
+5. **Git check** : Vérifier git diff avant de modifier des composants UI existants
+6. **Backup obligatoire** : Créer une copie du fichier original avant modification
+
+### RÈGLE #2 : DISTINCTION ANALYSE vs IMPLÉMENTATION
+**Mots-clés ANALYSE** → Ne pas coder :
+- "analyser", "identifier", "diagnostiquer", "problèmes"
+- "proposer une solution" (= donner des recommandations, pas coder)
+- "évaluer", "examiner", "vérifier", "audit"
+- "pourquoi", "comment se fait-il que"
+
+**Mots-clés IMPLÉMENTATION** → Coder :
+- "implémenter", "corriger", "refactoriser", "modifier"
+- "faire", "créer", "ajouter", "mettre en place"
+- "fixer", "réparer", "appliquer"
+- Phrases impératives : "fait ça", "change ça", "ajoute ça"
+
+### RÈGLE #3 : QUESTION OBLIGATOIRE AVANT ACTION
+**Toujours demander :**
+1. "Est-ce une analyse ou une implémentation ?"
+2. "Dois-je préserver le design existant ?"
+3. "Quel est le scope exact de la modification ?"
+4. "Y a-t-il des éléments à NE PAS toucher ?"
+
+### RÈGLE #4 : CLARIFICATION DU SCOPE
+**En cas de doute sur le scope :**
+1. **Lister les actions possibles** : "Je peux faire A, B ou C"
+2. **Demander confirmation** : "Veux-tu que je fasse A seulement ou aussi B et C ?"
+3. **Proposer par étapes** : "Je propose de d'abord faire A, puis on verra pour B"
+4. **Mini-scope par défaut** : En cas de doute, faire le minimum
+
+### RÈGLE #5 : TRAÇABILITÉ DES CHANGEMENTS
+**Pour tout changement de code :**
+1. **Avant** : Afficher ce qui va être modifié
+2. **Pendant** : Commenter les raisons du changement
+3. **Après** : Résumer ce qui a été fait avec /listdev
+
+## 🎯 COMMANDES SLASH OBLIGATOIRES
+
+### 📋 Commandes de workflow
+- `/ssot` : **OBLIGATOIRE** - Vérifie et applique les règles SSOT de CLAUDE.md
+- `/questions` : Pose 5-10+ questions sur la tâche actuelle avant développement
+- `/userflow` : Propose un userflow détaillé pour la fonctionnalité
+- `/test` : Génère un scénario de test complet pour validation
+- `/clean` : Améliore le maintien du code, l'organisation des fichiers/dossiers
+- `/pasta` : Fais une analyse du SPAGHETTI CODE et autres problèmes
+- `/debug` : Débogage en respectant les principes SSOT
+- `/design` : Utilise les références design et les styles validés
+- `/listdev` : Liste toutes les modifications effectuées et leur impact
+
+### 📝 Implémentation des commandes
+Les commandes sont des raccourcis pour le workflow. Quand vous tapez une commande, Claude :
+- **OBLIGATOIRE** : Lit CLAUDE.md en premier
+- Lit les fichiers nécessaires (TODO.md, CLAUDE.md, etc.)
+- Analyse l'état actuel
+- Exécute l'action demandée
+- Affiche le résultat formaté
+
+**🚨 RÈGLE ABSOLUE** : 
+- **TOUJOURS** commencer par `/ssot` avant toute action
+- **TOUJOURS** vérifier CLAUDE.md avant de coder
+- **TOUJOURS** appliquer les quality gates
+- **TOUJOURS** respecter l'architecture SSOT
+
+## 🌟 INTENTIONS DU CTO - ALIGNEMENT STRATÉGIQUE
+**Objectif global** : Développer comme un CTO de 45 ans d'expérience – prioriser la qualité, éviter le "spaghetti code", et utiliser l'IA pour du "vibecoding" professionnel sans hallucinations ni désorganisation.
+
+**Intentions clés** :
+- **Qualité > Vélocité** : Toujours propre dès le début, même si ça prend plus de temps
+- **SSOT absolu** : CLAUDE.md est la référence unique – tout écart doit être justifié
+- **Anti-spaghetti** : Zéro tolérance pour les duplications, console.log, types any, ou imports relatifs
+- **Workflow IA** : L'IA doit poser des questions, proposer des userflows, et valider par tests avant progression
+- **Pragmatique** : Garder la structure actuelle pour la vitesse, refactoriser progressivement
+
+## 📋 MARCHE À SUIVRE DÉTAILLÉE
+
+### 1️⃣ Lecture du TODO
+- Ouvrir TODO.md
+- Identifier la prochaine tâche non checkmarkée de priorité haute
+- Lire TOUS les critères d'acceptation
+- Comprendre le contexte et les dépendances
+
+### 2️⃣ Phase de questions (OBLIGATOIRE)
+Poser MINIMUM 5 questions avant de coder :
+- "Comment veux-tu que [fonctionnalité] se comporte quand [cas d'usage] ?"
+- "Quel design/style préfères-tu pour [élément UI] ?"
+- "Où doit se situer [fonctionnalité] dans le flow utilisateur ?"
+- "Quelles sont les erreurs à gérer pour [action] ?"
+- "As-tu des préférences pour [choix technique] ?"
+
+### 3️⃣ Proposition de userflow
+Présenter un flow détaillé :
 ```
-AnimaPackage-React/
-├── src/
-│   ├── components/        # Composants réutilisables AVEC pattern strict
-│   │   └── [Component]/   # TOUJOURS un dossier par composant
-│   │       ├── index.ts   # Export propre
-│   │       ├── [Component].tsx
-│   │       ├── style.css  # Styles isolés (→ .module.css)
-│   │       └── [Component].stories.ts  # Storybook
-│   ├── screens/          # Pages complètes
-│   ├── icons/            # Icônes SVG en composants React
-│   ├── hooks/            # Hooks personnalisés ✅
-│   │   ├── useForm.ts    # Gestion formulaires
-│   │   ├── useScrollAnimation.ts
-│   │   └── useSmoothScroll.ts
-│   ├── services/         # Couche API ✅
-│   │   ├── api.ts
-│   │   └── logger.ts     # Logger custom
-│   ├── contexts/         # State management ✅
-│   │   └── AppContext.tsx
-│   ├── types/            # Types partagés ✅
-│   │   └── icon.types.ts
-│   ├── tests/            # Configuration tests ✅
-│   │   └── setup.ts
-│   ├── constants/        # Constantes globales
-│   ├── i18n/            # Internationalisation
-│   └── animations/       # Fichiers Lottie JSON
-├── static/              # Assets statiques (images, PDFs)
-├── public/              # Fichiers publics Netlify
-├── .eslintrc.json       # ✅ Config ESLint stricte
-├── .prettierrc.json     # ✅ Config Prettier
-├── vitest.config.ts     # ✅ Config tests
-├── vite.config.ts       # ✅ Config Vite + imports absolus
-└── TODO.md              # Roadmap et tâches
-```
-
-### 4. Quality Gates (OBLIGATOIRE avant commit)
-
-**🚫 ZÉRO TOLÉRANCE pour :**
-- [ ] Types `any` (sauf className temporaire)
-- [ ] `console.log/error` (utiliser un logger)
-- [ ] Imports relatifs (`../`) - TOUJOURS absolus
-- [ ] Duplication de code/composants
-- [ ] Fichiers > 300 lignes
-- [ ] Fonctions > 50 lignes
-- [ ] CSS inline (sauf animation dynamique)
-- [ ] Hardcoded strings (utiliser i18n)
-- [ ] Composants sans PropTypes ET TypeScript
-- [ ] API calls sans gestion d'erreur
-
-### 5. Commandes autorisées
-
-```bash
-# Développement
-npm run dev              # Lance le serveur Vite (port 5173)
-npm run build           # Build production
-npm run preview         # Preview du build
-npm run storybook       # Documentation composants
-
-# Qualité (✅ CONFIGURÉ)
-npm run lint            # ESLint + Prettier
-npm run lint:fix        # Auto-fix des erreurs
-npm run format          # Prettier sur tout le code
-npm run type-check      # TypeScript strict
-npm run test            # Tests avec Vitest
-npm run test:ui         # Interface graphique des tests
-npm run test:coverage   # Coverage report
-npm run quality         # Tout vérifier d'un coup
-```
-
-## 🔴 WORKFLOW DE DÉVELOPPEMENT OBLIGATOIRE
-
-### 1️⃣ Analyse avant action
-```bash
-# TOUJOURS exécuter avant de coder :
-/ssot                   # Vérifier les règles CLAUDE.md
-grep -r "feature" src/  # Chercher si ça existe
-npm run type-check      # Vérifier les types (quand configuré)
-```
-
-### 2️⃣ Pattern de composant STRICT
-
-```typescript
-// src/components/MonComposant/MonComposant.tsx
-import React from "react";
-import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
-import "./style.css";
-
-// 1. Interface TypeScript OBLIGATOIRE
-interface MonComposantProps {
-  title: string;
-  onClick?: () => void;
-  className?: string; // Seul 'any' toléré temporairement
-}
-
-// 2. Composant avec typage strict
-export const MonComposant: React.FC<MonComposantProps> = ({
-  title,
-  onClick,
-  className = ""
-}) => {
-  const { t } = useTranslation();
-  
-  return (
-    <div className={`mon-composant ${className}`}>
-      {/* Jamais de string hardcodé */}
-      <h2>{t('monComposant.title', { defaultValue: title })}</h2>
-    </div>
-  );
-};
-
-// 3. PropTypes OBLIGATOIRE (double validation)
-MonComposant.propTypes = {
-  title: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  className: PropTypes.string
-};
-```
-
-```typescript
-// src/components/MonComposant/index.ts
-export { MonComposant } from "./MonComposant";
-```
-
-### 3️⃣ Gestion des erreurs OBLIGATOIRE
-
-```typescript
-// ❌ INTERDIT
-try {
-  const response = await fetch(url);
-  console.log("Success"); // JAMAIS
-} catch (error: any) {    // JAMAIS any
-  console.error(error);   // JAMAIS console
-}
-
-// ✅ OBLIGATOIRE
-import { logger } from "@/services/logger"; // ✅ Créé
-
-try {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
-  logger.info("API call successful", { endpoint: url });
-  return await response.json();
-} catch (error) {
-  if (error instanceof Error) {
-    logger.error("API call failed", { 
-      error: error.message,
-      endpoint: url 
-    });
-    // Afficher à l'utilisateur
-    throw new Error(t('errors.apiCallFailed'));
-  }
-  throw error;
-}
+📱 Userflow proposé :
+1. L'utilisateur arrive sur [page]
+2. Il voit [éléments visibles]
+3. Il peut [actions possibles]
+4. Si [action], alors [résultat]
+5. En cas d'erreur : [gestion]
 ```
 
-### 4️⃣ i18n OBLIGATOIRE
+### 4️⃣ Développement
+- Référencer TOUJOURS le design de la landing page
+- Utiliser les composants/patterns existants
+- Commiter régulièrement (si demandé)
+- Documenter les décisions importantes
 
-```typescript
-// ❌ INTERDIT
-<button>Envoyer</button>
-<p>Merci pour votre inscription!</p>
+### 5️⃣ Scénario de test
+Format OBLIGATOIRE :
+```
+📋 Scénario de test - [Nom fonctionnalité]
 
-// ✅ OBLIGATOIRE
-<button>{t('common.send')}</button>
-<p>{t('subscription.thankYou')}</p>
+Prérequis :
+- [ ] Serveur frontend lancé (port 5173)
+- [ ] Utilisateur sur la page appropriée
+
+Test :
+1. Aller sur http://localhost:5173/[page]
+2. Vérifier que [élément] est visible
+3. Cliquer sur [bouton/lien]
+4. Remplir [formulaire] avec :
+   - Champ 1 : "valeur test"
+   - Champ 2 : "valeur test"
+5. Soumettre le formulaire
+6. Vérifier que :
+   - [ ] Message de succès apparaît
+   - [ ] Redirection vers [page]
+   - [ ] Données visibles dans [endroit]
+
+Cas d'erreur à tester :
+- Formulaire vide
+- Données invalides
+- Serveur API éteint
+```
+
+### 6️⃣ Validation et checkmark
+- Attendre confirmation : "Test validé ✅" 
+- Si échec : corriger et reproposer test
+- Si succès : checkmarker dans TODO.md
+- Ajouter section "✅ Complété" avec détails
+
+### 7️⃣ Documentation
+Ajouter dans TODO.md :
+```markdown
+### ✅ Complété : [Nom tâche]
+
+**Actions effectuées :**
+- ✅ [Action 1 réalisée]
+- ✅ [Action 2 réalisée]
+
+**Décisions prises :**
+- [Décision technique] : [Raison]
+- [Choix UX] : [Justification]
+
+**Notes :**
+- [Contexte important]
+- [Points d'attention pour le futur]
 ```
 
 ## 🏗️ ARCHITECTURE DECISION RECORDS (ADR)
 
-### ADR-001: Pattern de composants
-**Date :** 2024-01-28
-**Statut :** Accepté
-**Décision :** Chaque composant dans son propre dossier avec index.ts, styles isolés, et Storybook
-**Raison :** Évite les conflits CSS, améliore la maintenabilité
+### Format ADR
+Chaque décision technique majeure doit être documentée :
 
-### ADR-002: Double validation TypeScript + PropTypes
-**Date :** 2024-01-28
-**Statut :** Accepté
-**Décision :** Utiliser les deux pour la robustesse maximale
-**Raison :** TypeScript compile-time + PropTypes runtime = zéro erreur
+```markdown
+# ADR-XXX: [Titre de la décision]
 
-### ADR-003: Imports absolus obligatoires
-**Date :** 2024-01-28
-**Statut :** Accepté
-**Décision :** Configurer Vite pour les imports absolus depuis src/
-**Raison :** Évite la fragilité des imports relatifs
+**Date :** YYYY-MM-DD
+**Statut :** [Proposé | Accepté | Rejeté | Déprécié]
+
+**Contexte :**
+[Pourquoi cette décision est nécessaire]
+
+**Décision :**
+[Nous avons décidé de...]
+
+**Conséquences :**
+- [Conséquence positive]
+- [Conséquence négative]
+- [Impact sur l'architecture]
+
+**Alternatives considérées :**
+- [Alternative 1] : [Pourquoi rejetée]
+- [Alternative 2] : [Pourquoi rejetée]
+```
+
+## 🔍 CODE REVIEW CHECKLIST (IA)
+
+**Avant chaque modification, vérifier :**
+
+### Architecture
+- [ ] Respect du SSOT (pas de duplication)
+- [ ] Code placé dans le bon dossier
+- [ ] Dépendances appropriées
+- [ ] Pas de couplage fort entre modules
+
+### Qualité du code
+- [ ] Nommage clair et cohérent
+- [ ] Fonctions courtes et focalisées
+- [ ] Gestion d'erreurs appropriée
+- [ ] Pas de code mort ou commenté
+
+### Tests et documentation
+- [ ] Tests inclus (quand framework configuré)
+- [ ] Documentation mise à jour
+- [ ] Exemples d'utilisation fournis
+- [ ] API publique documentée
+
+### Performance
+- [ ] Bundle size optimisé
+- [ ] Lazy loading approprié
+- [ ] Cache utilisé quand pertinent
+
+### Sécurité
+- [ ] Validation des inputs
+- [ ] Pas de secrets en dur
+- [ ] Sanitisation des données
 
 ## 📊 MÉTRIQUES DE QUALITÉ
 
-### Seuils stricts (non négociables)
-```typescript
-export const QUALITY_METRICS = {
-  maxFileLines: 300,          // Fichier trop long = découper
-  maxFunctionLines: 50,       // Fonction trop longue = refactoriser
-  maxComponentProps: 7,       // Trop de props = revoir l'architecture
-  maxNestingLevel: 4,         // Trop imbriqué = simplifier
-  minTestCoverage: 80,        // Quand tests configurés
-  maxCyclomaticComplexity: 10,
-  zeroConsoleLog: true,       // Aucune exception
-  zeroTypeAny: true,          // Sauf className temporaire
-  zeroRelativeImports: true,  // Aucune exception
-};
-```
+### Objectifs à maintenir
+- **Code coverage** : 80% minimum (quand tests configurés)
+- **Complexité cyclomatique** : Max 10 par fonction
+- **Nombre de paramètres** : Max 4 par fonction
+- **Longueur de fonction** : Max 50 lignes
+- **Duplication de code** : 0% (utilisation de composants partagés)
 
-## 🚨 ANTI-PATTERNS À ÉVITER
-
-### 1. Le "Monstre Component"
-```typescript
-// ❌ INTERDIT - Composant de 3000+ lignes
-export const LandingPage = () => {
-  // 500 lignes de state
-  // 1000 lignes de handlers
-  // 1500 lignes de JSX
-};
-
-// ✅ OBLIGATOIRE - Découper en sous-composants
-export const LandingPage = () => {
-  return (
-    <>
-      <HeroSection />
-      <FeaturesSection />
-      <CTASection />
-    </>
-  );
-};
-```
-
-### 2. Le "State Chaos"
-```typescript
-// ❌ INTERDIT - 20+ useState dans un composant
-const [email, setEmail] = useState("");
-const [name, setName] = useState("");
-const [phone, setPhone] = useState("");
-// ... 17 autres
-
-// ✅ OBLIGATOIRE - useReducer ou custom hook
-const { values, errors, handleSubmit } = useForm({
-  email: { initialValue: '', validators: [validators.email()] },
-  consent: { initialValue: false, validators: [validators.required()] }
-});
-```
-
-### 3. Le "Copy-Paste Driven Development"
-```typescript
-// ❌ INTERDIT - Duplication
-<button className="btn-primary">Envoyer</button>
-<button className="btn-primary">Soumettre</button>
-<button className="btn-primary">Valider</button>
-
-// ✅ OBLIGATOIRE - Composant réutilisable
-<Button variant="primary">{t('send')}</Button>
-<Button variant="primary">{t('submit')}</Button>
-<Button variant="primary">{t('validate')}</Button>
-```
-
-## 🔧 OUTILS DE DÉVELOPPEMENT
-
-### Configuration ESLint stricte (✅ IMPLÉMENTÉ)
-Voir `.eslintrc.json` pour la configuration complète avec :
-- ❌ `no-console`: "error"
-- ❌ `@typescript-eslint/no-explicit-any`: "error"
-- ✅ Limites de complexité et taille
-- ✅ Imports absolus obligatoires
-- ✅ Règles React strictes
-
-### Configuration TypeScript stricte (⏳ À IMPLÉMENTER)
-Ajouter dans `tsconfig.json` :
-```json
-{
-  "compilerOptions": {
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  }
-}
-```
-
-### Configuration Vite pour imports absolus (✅ IMPLÉMENTÉ)
-Configuration active dans `vite.config.ts` avec :
-- Alias `@` → `src/`
-- CSS Modules configurés
-- Support des imports absolus
-
-## 📋 CHECKLIST AVANT CHAQUE COMMIT
-
+### Outils de vérification
 ```bash
-# Automatiser avec husky + lint-staged
-- [ ] Pas de console.log
-- [ ] Pas de any (sauf className)
-- [ ] Pas d'imports relatifs
-- [ ] Tous les strings dans i18n
-- [ ] Gestion d'erreur sur tous les try/catch
-- [ ] PropTypes + TypeScript sur tous les composants
-- [ ] Pas de duplication de code
-- [ ] Fichiers < 300 lignes
-- [ ] Build passe sans warning
+# Vérification de la qualité
+npm run lint                    # ESLint + Prettier
+npm run type-check             # TypeScript
+npm run test                   # Tests unitaires
+npm run build                  # Build verification
 ```
 
-## 🎯 COMMANDES SLASH OBLIGATOIRES
+## 🚨 PRINCIPES DE DÉVELOPPEMENT - ÉVITER LE SPAGHETTI CODE
 
-- `/ssot` : **TOUJOURS EN PREMIER** - Vérifie CLAUDE.md
-- `/clean` : Nettoie le code selon les standards
-- `/pasta` : Détecte le spaghetti code
-- `/quality` : Vérifie les métriques de qualité
-- `/refactor` : Propose des améliorations
+### 🎯 PHILOSOPHIE : "QUALITÉ DÈS LE DÉBUT"
 
-## 💡 PRINCIPES FONDAMENTAUX
+**PRINCIPE FONDAMENTAL :** Mieux vaut prendre 1h de plus pour faire propre que 1 jour pour nettoyer après.
 
-1. **"Quality First"** : Mieux vaut 1h de plus maintenant que 10h de debug plus tard
-2. **"No Technical Debt"** : On ne laisse JAMAIS de TODO ou code sale
-3. **"Component Thinking"** : Tout est composant réutilisable
-4. **"Type Everything"** : Si ce n'est pas typé, ça n'existe pas
-5. **"Test or Regret"** : Pas de code sans test (quand configuré)
+### 📋 RÈGLES ABSOLUES - JAMAIS D'EXCEPTION
+
+#### **1. JAMais de logging non structuré**
+```typescript
+// ❌ INTERDIT - Ne jamais faire
+console.log('Debug endpoint appelé');
+console.error('Erreur API contact:', error);
+
+// ✅ OBLIGATOIRE - Toujours faire
+logger.info('Debug endpoint appelé');
+logger.error('Erreur API contact:', error);
+```
+
+#### **2. JAMais de types non stricts**
+```typescript
+// ❌ INTERDIT - Ne jamais faire
+const data: any = response;
+} catch (err: any) {
+
+// ✅ OBLIGATOIRE - Toujours faire
+interface ApiResponse {
+  data: User[];
+  status: number;
+}
+const data: ApiResponse = response;
+} catch (err: Error) {
+```
+
+#### **3. JAMais d'imports fragiles**
+```typescript
+// ❌ INTERDIT - Ne jamais faire
+import { useCurrentLocale } from '../hooks/useCurrentLocale';
+import BusinessPlanModal from '../BusinessPlanModal';
+
+// ✅ OBLIGATOIRE - Toujours faire
+import { useCurrentLocale } from '@/hooks/useCurrentLocale';
+import BusinessPlanModal from '@/components/BusinessPlanModal';
+```
+
+#### **4. JAMais de données hardcodées massives**
+```typescript
+// ❌ INTERDIT - Ne jamais faire
+const mockData = { /* 1000+ lignes de contenu hardcodé */ };
+
+// ✅ OBLIGATOIRE - Toujours faire
+const loadData = async () => {
+  return await readFromFile();
+};
+```
+
+### 🔧 QUALITY GATES OBLIGATOIRES
+
+#### **Avant chaque commit, vérifier :**
+```bash
+# Checklist automatique pour React/TypeScript
+- [ ] Types stricts (pas de any/unknown)
+- [ ] Logger professionnel (pas de console.log)
+- [ ] Imports absolus (pas de ../)
+- [ ] Pas de duplication de code
+- [ ] Pas de données hardcodées massives
+- [ ] Tests passent (Vitest)
+- [ ] Lint clean (ESLint)
+- [ ] Type check clean (TypeScript)
+- [ ] Build clean (Vite)
+```
+
+## 🚨 RÈGLES ABSOLUES POUR L'IA
+
+### Règle 1 : "Clean Code First"
+```typescript
+// Priorité : Qualité > Vélocité
+// Mieux vaut prendre 1h de plus pour faire propre
+// Que 1 jour pour nettoyer après
+```
+
+### Règle 2 : "No Technical Debt"
+```typescript
+// Interdit de laisser des TODO
+// Interdit de commenter "// TODO: nettoyer plus tard"
+// Interdit de faire "quick & dirty"
+```
+
+### Règle 3 : "Architecture Over Speed"
+```typescript
+// Mieux vaut une architecture propre
+// Qu'un code qui marche vite mais sale
+```
 
 ## 🚀 PROCHAINES ÉTAPES CRITIQUES
 

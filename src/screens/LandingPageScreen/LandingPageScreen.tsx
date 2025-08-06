@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "../../components/Button";
-import { DisplayCard } from "../../components/DisplayCard";
-import { EmailCaptureModal } from "../../components/EmailCaptureModal";
-import { ArrowLeft8 } from "../../icons/ArrowLeft8";
-import { LeafAnimation } from "../../components/LeafAnimation";
-import { useSmoothScroll } from "../../hooks/useSmoothScroll";
-import { EXTERNAL_LINKS, PDF_LINKS, SECTION_IDS } from "../../constants/links";
+import { Button } from "@/components/Button";
+import { DisplayCard } from "@/components/DisplayCard";
+import { EmailCaptureModal } from "@/components/EmailCaptureModal";
+import { ArrowLeft8 } from "@/icons/ArrowLeft8";
+import { LeafAnimation } from "@/components/LeafAnimation";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { EXTERNAL_LINKS, PDF_LINKS, SECTION_IDS } from "@/constants/links";
 import "./style.css";
 
 export const LandingPageScreen = (): JSX.Element => {

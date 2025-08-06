@@ -5,7 +5,7 @@ Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcN
 
 import PropTypes from "prop-types";
 import React from "react";
-import { Plus33 } from "../../icons/Plus33";
+import { Plus33 } from "@/icons/Plus33";
 import "./style.css";
 
 interface Props {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "../Button";
-import { IconClose1 } from "../../icons/IconClose1";
+import { Button } from "@/components/Button";
+import { IconClose1 } from "@/icons/IconClose1";
 import "./style.css";
 
 interface EmailCaptureModalProps {
