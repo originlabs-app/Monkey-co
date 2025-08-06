@@ -72,12 +72,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                   : isDesktop(screenWidth)
                     ? "flex-start"
                     : undefined,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                gap: "16px"
               }}
             >
               <div
                 className="wrap-4"
                 style={{
-                  alignSelf: "stretch",
+                  flex: "1",
                   width: isMobile(screenWidth)
                     ? "100%"
                     : isDesktop(screenWidth)
@@ -102,16 +107,27 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                 >
                   {t('projects.getFinancing')}
                 </p>
+
+                <div 
+                  className="button-7"
+                  onClick={handleFinancingClick}
+                  style={{ cursor: 'pointer', marginTop: "16px" }}
+                >
+                  <div className="text-wrapper-15">{t('projects.requestFinancing')}</div>
+                  <ArrowLeft8 className="arrow-left" />
+                </div>
               </div>
 
-              <div 
-                className="button-7"
-                onClick={handleFinancingClick}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="text-wrapper-15">{t('projects.requestFinancing')}</div>
-                <ArrowLeft8 className="arrow-left" />
-              </div>
+              <img
+                src="/img/projets-left.png"
+                alt="Projets écologiques"
+                style={{
+                  width: "120px",
+                  height: "auto",
+                  borderRadius: "8px",
+                  flexShrink: 0
+                }}
+              />
             </div>
           </div>
 
@@ -138,98 +154,61 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                   : isDesktop(screenWidth)
                     ? "flex-end"
                     : undefined,
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                gap: "16px"
               }}
             >
-              {isMobile(screenWidth) && (
-                <div className="wrap-5">
-                  <p className="title-18">
-                    {t('projects.knowProject')}
-                  </p>
+              <img
+                src="/img/projets-right.png"
+                alt="Projets écologiques"
+                style={{
+                  width: "120px",
+                  height: "auto",
+                  borderRadius: "8px",
+                  flexShrink: 0
+                }}
+              />
 
-                  <p className="subtitle-7">
-                    {t('projects.recommendProject')}
-                  </p>
-                </div>
-              )}
+              <div style={{ flex: "1" }}>
+                {isMobile(screenWidth) && (
+                  <div className="wrap-5">
+                    <p className="title-18">
+                      {t('projects.knowProject')}
+                    </p>
 
-              {isDesktop(screenWidth) && (
-                <div className="wrap-6">
-                  <p className="title-19">
-                    {t('projects.knowProject')}
-                  </p>
-
-                  <p className="subtitle-8">
-                    {t('projects.recommendProject')}
-                  </p>
-                </div>
-              )}
-
-              <div 
-                className="button-7"
-                onClick={handleIntroducerClick}
-                style={{ cursor: 'pointer' }}
-              >
-                <div className="text-wrapper-15">
-                  {t('projects.becomeIntroducer')}
-                </div>
-
-                <ArrowLeft8 className="arrow-left" />
-              </div>
-
-              {isDesktop(screenWidth) && (
-                <div className="group-3">
-                  <div className="overlap">
-                    <div className="display-card-10">
-                      <div className="content-wrapper">
-                        <div className="content-2">
-                          <div className="wrap-3">
-                            <div className="r-novation-co-2">
-                              {t('projects.solarPanelsNantes')}
-                            </div>
-                            <div className="statuses-2">
-                              <div className="text-wrapper-12">{t('projects.inProgress')}</div>
-                            </div>
-                          </div>
-                          <div className="element-kg-CO-vit-2">
-                            {`150 ${t('projects.co2Avoided')}`}
-                          </div>
-                          <div className="progress-figma-2">
-                            <div className="text-wrapper-13">{t('projects.progression')}</div>
-                            <div className="progress-background-wrapper">
-                              <div className="progress-background-2" />
-                            </div>
-                            <div className="text-wrapper-14">80%</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="display-card-19">
-                      <div className="content-wrapper">
-                        <div className="content-2">
-                          <div className="wrap-3">
-                            <div className="r-novation-co-2">
-                              {t('projects.ecoDistrictLyon')}
-                            </div>
-                            <div className="statuses-2">
-                              <div className="text-wrapper-12">{t('projects.inProgress')}</div>
-                            </div>
-                          </div>
-                          <div className="element-kg-CO-vit-2">
-                            {`200 ${t('projects.co2Avoided')}`}
-                          </div>
-                          <div className="progress-figma-2">
-                            <div className="text-wrapper-13">{t('projects.progression')}</div>
-                            <div className="progress-background-wrapper">
-                              <div className="progress-background-2" />
-                            </div>
-                            <div className="text-wrapper-14">85%</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <p className="subtitle-7">
+                      {t('projects.recommendProject')}
+                    </p>
                   </div>
+                )}
+
+                {isDesktop(screenWidth) && (
+                  <div className="wrap-6">
+                    <p className="title-19">
+                      {t('projects.knowProject')}
+                    </p>
+
+                    <p className="subtitle-8">
+                      {t('projects.recommendProject')}
+                    </p>
+                  </div>
+                )}
+
+                <div 
+                  className="button-7"
+                  onClick={handleIntroducerClick}
+                  style={{ cursor: 'pointer', marginTop: "16px" }}
+                >
+                  <div className="text-wrapper-15">
+                    {t('projects.becomeIntroducer')}
+                  </div>
+
+                  <ArrowLeft8 className="arrow-left" />
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
