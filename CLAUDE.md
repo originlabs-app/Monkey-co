@@ -317,31 +317,49 @@ Chaque décision technique majeure doit être documentée :
 - **Code coverage** : 80% minimum (quand tests configurés)
 - **Complexité cyclomatique** : Max 10 par fonction
 - **Nombre de paramètres** : Max 4 par fonction
-- **Longueur de fonction** : Max 50 lignes
+- **Longueur de fonction** : Idéal < 50 lignes, acceptable < 100 si bien structuré
 - **Duplication de code** : 0% (utilisation de composants partagés)
 
 ### Migration Progressive (ACCEPTÉE)
 **Pour les projets existants avec du code legacy, une migration progressive est autorisée :**
 
-#### Phase 1 : Stabilisation (Actuel)
+#### Phase 1 : Stabilisation (Actuel) - APPROCHE PRAGMATIQUE
 - Code coverage : 0% → 60% (tests critiques d'abord)
-- Taille de fichier : 1000 lignes max (migration progressive)
+- **Composants complexes** : < 1000 lignes (acceptable si bien organisé)
+- **Composants moyens** : < 800 lignes (sections complètes OK)
 - Complexité : 20 max (pages complexes acceptées temporairement)
 - Paramètres : 10 max (composants Anima générés)
 
-#### Phase 2 : Refactoring (Prochaine)
+#### Phase 2 : Refactoring (Recommandé)
 - Code coverage : 60% → 80% (tests complets)
-- Taille de fichier : 500 lignes max (composants moyens)
+- **Composants standards** : 300-500 lignes (avec logique métier)
+- **Composants simples** : < 200 lignes
 - Complexité : 15 max (complexité maîtrisée)
 - Paramètres : 7 max (props raisonnables)
 
-#### Phase 3 : Excellence (Production)
+#### Phase 3 : Excellence (Optionnel)
 - Code coverage : 80% (objectif final)
-- Taille de fichier : 300 lignes max (composants focalisés)
+- **Composants focalisés** : < 300 lignes (idéal mais non obligatoire)
+- **Fonctions** : < 50 lignes (idéal)
 - Complexité : 10 max (objectif final)
 - Paramètres : 4 max (objectif final)
 
-**Note :** Les objectifs finaux restent les mêmes, mais la migration se fait par étapes pour éviter le "big bang" refactoring.
+**Note :** Les objectifs finaux restent flexibles. L'important est d'avoir du code maintenable et lisible, pas de respecter des métriques arbitraires.
+
+### 📏 Philosophie : Lisibilité > Métriques strictes
+
+✅ **Un fichier de 500-800 lignes est ACCEPTABLE si :**
+- Le code est bien organisé et lisible
+- Les responsabilités sont claires
+- La maintenance reste simple
+- L'équipe est comfortable avec
+
+❌ **Un fichier de 200 lignes nécessite refactoring si :**
+- Le code est confus ou dupliqué
+- Plusieurs responsabilités mélangées
+- Difficile à tester ou modifier
+
+**Règle d'or :** "Le code parfait est l'ennemi du code qui fonctionne"
 
 ### Outils de vérification
 ```bash
@@ -460,7 +478,10 @@ const loadData = async () => {
 1. **Installer les dépendances** (voir commande npm ci-dessous)
 2. **Configurer TypeScript strict** dans tsconfig.json
 3. **Remplacer console.log** par logger dans api.ts
-4. **Refactoriser LandingPage** (3500+ lignes → 1000 lignes d'abord) - **Migration progressive**
+4. **Refactoriser LandingPage** - Migration progressive acceptée :
+   - Phase 1 : Extraire sections principales (OK si ~1000 lignes restantes)
+   - Phase 2 : Optimiser si nécessaire (viser 500-800 lignes)
+   - Phase 3 : Perfectionnement optionnel (< 300 lignes si valeur ajoutée)
 5. **Typer les icônes** avec `IconProps` de `src/types/icon.types.ts`
 6. **Créer les premiers tests** pour composants critiques (0% → 60%)
 7. **Migrer vers CSS Modules** (renommer `.css` → `.module.css`)

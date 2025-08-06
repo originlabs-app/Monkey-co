@@ -542,8 +542,6 @@ export const LandingPage = (): JSX.Element => {
 
       <WhyMonkeyCoSection screenWidth={screenWidth} />
 
-      </div>
-
       <CommunitySection screenWidth={screenWidth} />
 
       <div
