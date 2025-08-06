@@ -88,6 +88,69 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
               : undefined,
       }}
     >
+      <img
+        className="albedobase-XL-a-3"
+        style={{
+          height:
+            screenWidth < 1440
+              ? "113px"
+              : screenWidth >= 1440
+                ? "172px"
+                : undefined,
+          left:
+            screenWidth < 1440
+              ? "-31px"
+              : screenWidth >= 1440
+                ? "339px"
+                : undefined,
+          top:
+            screenWidth < 1440
+              ? "243px"
+              : screenWidth >= 1440
+                ? "284px"
+                : undefined,
+          width:
+            screenWidth < 1440
+              ? "113px"
+              : screenWidth >= 1440
+                ? "172px"
+                : undefined,
+        }}
+        alt="Albedobase XL a"
+        src={
+          screenWidth < 1440
+            ? "/img/albedobase-xl-a-cheerful-modern-illustration-of-a-monkey-weari-1-3.svg"
+            : screenWidth >= 1440
+              ? "/img/albedobase-xl-a-cheerful-modern-illustration-of-a-monkey-weari-1-3-2.svg"
+              : undefined
+        }
+      />
+
+      <div className="container-6">
+        <div
+          className="horizontal-divider-5"
+          style={{
+            flex: screenWidth < 1440 ? "1" : undefined,
+            flexGrow: screenWidth < 1440 ? "1" : undefined,
+            width: screenWidth >= 1440 ? "200px" : undefined,
+          }}
+        />
+
+        <div className="background-border-2">
+          <div className="investir-pour-la-wrapper">
+            <div className="text-wrapper-4">INVESTIR POUR LA PLANÈTE</div>
+          </div>
+        </div>
+
+        <div
+          className="horizontal-divider-6"
+          style={{
+            flex: screenWidth < 1440 ? "1" : undefined,
+            flexGrow: screenWidth < 1440 ? "1" : undefined,
+            width: screenWidth >= 1440 ? "200px" : undefined,
+          }}
+        />
+      </div>
       <div
         className="heading-2"
         style={{
@@ -126,7 +189,7 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
             width: "100%",
           }}
         >
-          {t('footerCta.joinWaitingList')}
+          {t('footerCta.presaleTitle')}
         </p>
 
         <p
@@ -172,7 +235,7 @@ export const EmailCaptureSection: React.FC<EmailCaptureSectionProps> = ({ screen
             width: "100%",
           }}
         >
-          {t('footerCta.limitedPlaces')}
+          {t('footerCta.presaleDescription')}
         </p>
       </div>
 
