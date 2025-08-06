@@ -5,27 +5,29 @@
   gap: 20px;
 }
 
-/* Stats Cards */
+/* Stats Cards - Style unifié avec LP */
 .stats-card {
-  background: #ffffff;
+  background: var(--primarywhite);
   border-radius: 20px;
   border: 2px solid #52705F;
-  padding: 24px;
+  padding: var(--spacing-2xl, 24px);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: all 0.3s ease;
+  gap: var(--spacing-lg, 16px);
+  transition: all var(--animation-normal, 0.3s) ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .stats-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(82, 112, 95, 0.15);
+  box-shadow: var(--shadow-md);
 }
 
 .stats-card-large {
-  background: linear-gradient(135deg, #52705F 0%, #6b8f7a 100%);
-  color: white;
+  background: var(--gradient-primary, linear-gradient(132deg, rgba(144, 169, 154, 1) 0%, rgba(82, 112, 95, 1) 100%));
+  color: var(--primarywhite);
   border: none;
+  box-shadow: var(--shadow-lg);
 }
 
 /* Card Header */
@@ -67,31 +69,40 @@
   color: #E67E22;
 }
 
-/* Badges */
+/* Badges - Style LP avec gradients */
 .stats-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 20px;
+  gap: var(--spacing-xs, 6px);
+  padding: 8px 16px;
+  border-radius: 50px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   width: fit-content;
+  background: var(--gradient-primary);
+  color: var(--primarywhite);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--animation-normal, 0.3s) ease;
+}
+
+.stats-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .stats-badge-success {
-  background: #c6f6d5;
-  color: #22543d;
+  background: linear-gradient(135deg, rgba(144, 169, 154, 1) 0%, rgba(82, 112, 95, 1) 100%);
+  color: var(--primarywhite);
 }
 
 .stats-badge-info {
-  background: #bee3f8;
-  color: #2c5282;
+  background: var(--gradient-hero);
+  color: var(--primarywhite);
 }
 
 .stats-badge-warning {
-  background: #fed7aa;
-  color: #c05621;
+  background: var(--gradient-secondary);
+  color: var(--variable-collection-tertiary-300, rgba(164, 136, 49, 1));
 }
 
 .trend-icon {

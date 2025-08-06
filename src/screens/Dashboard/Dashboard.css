@@ -1,8 +1,8 @@
-/* Dashboard Container */
+/* Dashboard Container - Utilise les couleurs LP */
 .dashboard-container {
   display: flex;
   min-height: 100vh;
-  background: #f7fafc;
+  background: var(--variable-collection-background-beige, rgba(234, 233, 227, 1));
 }
 
 /* Main Content Area */
@@ -18,21 +18,21 @@
   margin-left: 60px;
 }
 
-/* Content Padding */
+/* Content Padding - Utilise SPACING unifié */
 .dashboard-content {
   flex: 1;
-  padding: 24px;
+  padding: var(--spacing-2xl, 24px);
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* Grid Layout */
+/* Grid Layout - Utilise SPACING unifié */
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 32px;
+  gap: var(--spacing-2xl, 24px);
+  margin-bottom: var(--spacing-3xl, 32px);
 }
 
 .dashboard-left,

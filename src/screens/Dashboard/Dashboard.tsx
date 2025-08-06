@@ -9,6 +9,7 @@ import { CommunityGrid } from './components/CommunityGrid';
 import { ProjectCards } from './components/ProjectCards';
 import type { DashboardStats, WalletInfo } from './types/dashboard.types';
 import './Dashboard.css';
+import './animations.css';
 
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation();

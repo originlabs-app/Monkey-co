@@ -34,22 +34,18 @@ export const StatsGrid: React.FC<StatsGridProps> = ({ stats }) => {
         <div className="stats-value" style={{ color: COLORS.text.primary }}>
           {stats.totalInvested.toFixed(2)} USDC
         </div>
-        <div className="stats-badge" style={{ backgroundColor: COLORS.success, padding: `${SPACING.sm}px` }}>
+        <div className="stats-badge stats-badge-success">
           <span className="trend-icon">📈</span>
           +12% {t('dashboard.stats.yields')}
         </div>
         <Button
-          showIconRight={false}
-          showIconLeft={false}
-          value="Staker"
-          size="md"
+          size="lg"
           state="default"
           variant="primary"
-          className="stats-button"
+          text={t('dashboard.stats.invest')}
           visible={true}
-          divClassName=""
-          text="Staker"
-          visible1={true}
+          visible1={false}
+          style={{ marginTop: '16px', width: '100%' }}
         />
       </BaseCard>
 
