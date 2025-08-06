@@ -31,7 +31,8 @@ export const subscribeToMailing = async (data: MailingData): Promise<ApiResponse
 
     return result;
   } catch (error) {
-    console.error('Erreur API:', error);
+    // Logger sera importé après installation des dépendances
+    // logger.error('Erreur API:', error);
     throw error;
   }
 };
