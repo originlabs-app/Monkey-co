@@ -77,6 +77,26 @@ export const DIMENSIONS = {
   },
 } as const;
 
+// Couleurs des icônes (utilisées dans les composants SVG)
+export const ICON_COLORS = {
+  primary: '#2B2E48',
+  secondary: '#19161D',
+  tertiary: '#959595',
+  white: '#FFFFFF',
+  black: '#000000',
+} as const;
+
+// Border radius standardisés
+export const BORDER_RADIUS = {
+  none: '0px',
+  small: '4px',
+  medium: '8px',
+  large: '12px',
+  xlarge: '16px',
+  xxlarge: '24px',
+  full: '9999px',
+} as const;
+
 // Animation durations
 export const ANIMATIONS = {
   fast: '150ms',

@@ -1,4 +1,10 @@
 :root {
+  /* Gradients principaux */
+  --gradient-primary: linear-gradient(132deg, rgba(144, 169, 154, 1) 0%, rgba(82, 112, 95, 1) 100%);
+  --gradient-secondary: linear-gradient(345deg, rgba(182, 160, 93, 1) 0%, rgba(238, 229, 203, 0.4) 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(182, 209, 253, 1) 0%, rgba(91, 96, 152, 1) 100%);
+  --gradient-leaf: linear-gradient(180deg, rgba(0, 158, 94, 1) 0%, rgba(0, 113, 67, 1) 100%);
+  
   --focus-brand: 0px 0px 0px 2px rgba(104, 255, 213, 1);
   --focus-danger: 0px 0px 0px 2px rgba(248, 113, 113, 1);
   --focus-success: 0px 0px 0px 2px rgba(52, 211, 153, 1);

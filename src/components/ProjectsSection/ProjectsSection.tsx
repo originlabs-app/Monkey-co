@@ -172,9 +172,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                 }}
               />
 
-              <div style={{ flex: "1" }}>
+              <div style={{ flex: "1", display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                 {isMobile(screenWidth) && (
-                  <div className="wrap-5">
+                  <div className="wrap-5" style={{ textAlign: "right" }}>
                     <p className="title-18">
                       {t('projects.knowProject')}
                     </p>
@@ -186,7 +186,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ screenWidth })
                 )}
 
                 {isDesktop(screenWidth) && (
-                  <div className="wrap-6">
+                  <div className="wrap-6" style={{ textAlign: "right" }}>
                     <p className="title-19">
                       {t('projects.knowProject')}
                     </p>
