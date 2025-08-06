@@ -10,50 +10,50 @@
 ### 1️⃣ **Structure Finale avec Réutilisation**
 
 ```
-Monkey-co-Project/
-├── landing-page/           # Projet existant optimisé (AnimaPackage-React-BWtCA)
-│   ├── src/
-│   │   ├── components/     # Composants réutilisables
-│   │   ├── constants/      # theme.ts, links.ts
-│   │   ├── hooks/          # useForm, useSmoothScroll
-│   │   ├── services/       # logger, api
-│   │   └── types/          # Types de base
-│   ├── package.json
-│   └── README.md
-│
-├── dashboard/              # Nouveau projet React natif
+AnimaPackage-React-BWtCA/
+├── src/                    # Landing page (existant)
+│   ├── components/         # Composants réutilisables
+│   ├── constants/          # theme.ts, breakpoints
+│   ├── hooks/              # useForm, useSmoothScroll
+│   ├── services/           # logger, api
+│   ├── types/              # Types de base
+│   └── screens/
+│       ├── LandingPage/    # Landing (existant)
+│       └── Dashboard/      # Dashboard (nouveau)
+├── dashboard/              # Projet dashboard séparé
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── shared/     # Composants adaptés de landing
-│   │   │   ├── layout/     # Sidebar, Header, MainContent
-│   │   │   └── dashboard/  # Composants spécifiques
-│   │   ├── constants/      # Extensions de landing/theme.ts
-│   │   ├── hooks/          # Liens vers landing/hooks
-│   │   ├── services/       # Liens vers landing/services
+│   │   │   ├── shared/     # Composants réutilisés
+│   │   │   │   ├── Button/ # Import depuis ../src/
+│   │   │   │   ├── DisplayCard/
+│   │   │   │   └── LanguageSwitcher/
+│   │   │   ├── layout/     # Layout dashboard
+│   │   │   │   ├── Sidebar/
+│   │   │   │   ├── Header/
+│   │   │   │   └── MainContent/
+│   │   │   └── dashboard/  # Composants métier
+│   │   │       ├── StatsCards/
+│   │   │       ├── ProjectCard/
+│   │   │       └── Charts/
+│   │   ├── constants/      # Extensions de ../src/constants/
+│   │   ├── hooks/          # Liens vers ../src/hooks/
+│   │   ├── services/       # Liens vers ../src/services/
 │   │   └── types/          # Types étendus
 │   ├── package.json
-│   └── README.md
-│
-└── shared/                 # Code partagé (optionnel)
-    ├── components/         # Composants ultra-génériques
-    ├── types/              # Types communs
-    └── constants/          # Constantes globales
+│   └── vite.config.ts
+└── package.json            # Root workspace
 ```
 
 ### 2️⃣ **Processus de Développement avec Réutilisation**
 
 #### **Étape 1 : Setup du Workspace**
 ```bash
-# Depuis le dossier parent de votre projet actuel
-mkdir Monkey-co-Project
-cd Monkey-co-Project
-
-# Déplacer la landing page
-mv ../AnimaPackage-React-BWtCA ./landing-page
+# Depuis le projet actuel AnimaPackage-React-BWtCA
+mkdir dashboard
+cd dashboard
 
 # Créer le projet dashboard
-npm create vite@latest dashboard -- --template react-ts
-cd dashboard
+npm create vite@latest . -- --template react-ts
 ```
 
 #### **Étape 2 : Configuration de la Réutilisation**
@@ -61,11 +61,8 @@ cd dashboard
 # Dans dashboard/
 npm install react-router-dom axios recharts @headlessui/react clsx
 
-# Créer les liens vers les ressources partagées
-mkdir -p src/shared
-ln -s ../../landing-page/src/constants src/shared/constants
-ln -s ../../landing-page/src/hooks src/shared/hooks  
-ln -s ../../landing-page/src/services src/shared/services
+# Configuration des alias TypeScript pour réutilisation
+# Vite config et tsconfig déjà configurés avec @shared/* vers ../src/
 ```
 
 #### **Étape 3 : Configuration des Composants Réutilisables**
@@ -74,7 +71,7 @@ ln -s ../../landing-page/src/services src/shared/services
 ```typescript
 // dashboard/src/constants/theme.ts
 // Réutiliser toutes les constantes de la landing page
-export * from '../shared/constants/theme';
+export * from '@shared/constants/theme';
 
 // Extensions spécifiques dashboard
 export const DASHBOARD_COLORS = {
@@ -93,11 +90,11 @@ export const DASHBOARD_COLORS = {
 ```typescript
 // dashboard/src/components/shared/Button/index.ts
 // Réutilisation directe du composant Button
-export { Button } from '../../../shared/components/Button';
+export { Button } from '@shared/components/Button';
 
 // dashboard/src/components/shared/ProjectCard/ProjectCard.tsx
 // Adaptation du DisplayCard pour le dashboard
-import { DisplayCard } from '../../../shared/components/DisplayCard';
+import { DisplayCard } from '@shared/components/DisplayCard';
 
 export const ProjectCard = ({ project, ...props }) => {
   return (

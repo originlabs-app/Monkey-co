@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { LeafAnimation } from "@/components/LeafAnimation";
 import { EXTERNAL_LINKS } from "@/constants/links";
@@ -11,6 +12,7 @@ interface FooterSectionProps {
 
 export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <footer
@@ -248,7 +250,9 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ screenWidth }) => 
 
         <button
           className="button-12"
+          onClick={() => navigate('/dashboard')}
           style={{
+            cursor: 'pointer',
             alignSelf: "stretch",
             flex:
               isMobile(screenWidth)

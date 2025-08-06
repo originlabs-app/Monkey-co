@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { LeafAnimation } from "@/components/LeafAnimation";
@@ -20,6 +21,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   setIsModalOpen 
 }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -114,7 +116,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
                   <button 
                     className="button-2" 
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => navigate('/dashboard')}
                     style={{ cursor: 'pointer' }}
                   >
                     <div className="text-2">{t('nav.launchApp')}</div>

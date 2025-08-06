@@ -137,8 +137,8 @@ ls src/services/
 - `/questions` : Pose 5-10+ questions sur la tâche actuelle avant développement
 - `/userflow` : Propose un userflow détaillé pour la fonctionnalité
 - `/test` : Génère un scénario de test complet pour validation
-- `/clean` : Améliore le maintien du code, l'organisation des fichiers/dossiers
-- `/pasta` : Fais une analyse du SPAGHETTI CODE et autres problèmes
+- `/antipasta` : Améliore le maintien du code, l'organisation des fichiers/dossiers
+- `/pasta` : Fais une analyse du SPAGHETTI CODE, des fichiers, des dossiers et autres problèmes
 - `/debug` : Débogage en respectant les principes SSOT
 - `/design` : Utilise les références design et les styles validés
 - `/listdev` : Liste toutes les modifications effectuées et leur impact

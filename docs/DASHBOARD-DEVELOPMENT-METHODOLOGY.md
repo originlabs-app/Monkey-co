@@ -30,39 +30,44 @@
 
 #### **1.2 Structure du Projet avec Réutilisation**
 ```bash
-# Créer le projet dashboard dans le workspace
-cd ..
+# Créer le projet dashboard dans le workspace actuel
 mkdir dashboard
 cd dashboard
 npm create vite@latest . -- --template react-ts
 
 # Structure recommandée avec réutilisation
-dashboard/
-├── src/
-│   ├── components/
-│   │   ├── shared/           # Composants réutilisés/adaptés
-│   │   │   ├── Button/       # Import depuis landing
-│   │   │   ├── DisplayCard/  # Adapté pour dashboard
-│   │   │   ├── Modal/        # Basé sur EmailCaptureModal
-│   │   │   └── LanguageSwitcher/
-│   │   ├── layout/           # Spécifique dashboard
-│   │   │   ├── Sidebar/
-│   │   │   ├── Header/
-│   │   │   └── MainContent/
-│   │   └── dashboard/        # Composants métier
-│   │       ├── StatsCards/   # Basé sur StatsSection
-│   │       ├── ProjectCard/  # Basé sur DisplayCard
-│   │       └── Charts/
-│   ├── constants/
-│   │   └── theme.ts          # Extension de landing/theme.ts
-│   ├── hooks/                # Liens vers landing/hooks
-│   ├── services/             # Liens vers landing/services
-│   └── types/
-├── shared/                   # Code partagé (optionnel)
-│   ├── components/
-│   ├── constants/
-│   └── types/
-└── landing-page/            # Projet existant
+AnimaPackage-React-BWtCA/
+├── src/                      # Landing page (existant)
+│   ├── components/           # Composants réutilisables
+│   ├── constants/            # Theme, breakpoints
+│   ├── hooks/                # Hooks partagés
+│   ├── services/             # Services partagés
+│   └── screens/
+│       ├── LandingPage/      # Landing (existant)
+│       └── Dashboard/        # Dashboard (nouveau)
+├── dashboard/                # Projet dashboard séparé
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── shared/       # Composants réutilisés
+│   │   │   │   ├── Button/   # Import depuis ../src/
+│   │   │   │   ├── DisplayCard/
+│   │   │   │   └── LanguageSwitcher/
+│   │   │   ├── layout/       # Layout dashboard
+│   │   │   │   ├── Sidebar/
+│   │   │   │   ├── Header/
+│   │   │   │   └── MainContent/
+│   │   │   └── dashboard/    # Composants métier
+│   │   │       ├── StatsCards/
+│   │   │       ├── ProjectCard/
+│   │   │       └── Charts/
+│   │   ├── constants/
+│   │   │   └── theme.ts      # Extension de ../src/constants/
+│   │   ├── hooks/            # Liens vers ../src/hooks/
+│   │   ├── services/         # Liens vers ../src/services/
+│   │   └── types/
+│   ├── package.json
+│   └── vite.config.ts
+└── package.json              # Root workspace
 ```
 
 #### **1.3 Configuration avec Réutilisation**
@@ -71,7 +76,7 @@ dashboard/
 ```typescript
 // dashboard/src/constants/theme.ts
 // Réutiliser toutes les constantes de la landing page
-export * from '../../landing-page/src/constants/theme';
+export * from '../src/constants/theme';
 
 // Extensions spécifiques dashboard
 export const DASHBOARD_COLORS = {
@@ -112,7 +117,7 @@ export const DASHBOARD_SPACING = {
 ```typescript
 // dashboard/src/types/dashboard.types.ts
 // Réutiliser les types de base de la landing page
-import { User as BaseUser } from '../../landing-page/src/types/common';
+import { User as BaseUser } from '../src/types/common';
 
 export interface DashboardStats {
   totalInvestments: number;
@@ -150,14 +155,14 @@ export interface Project {
 ```typescript
 // dashboard/src/hooks/index.ts
 // Réutiliser les hooks existants
-export { useWindowWidth } from '../../landing-page/src/breakpoints';
-export { useSmoothScroll } from '../../landing-page/src/hooks/useSmoothScroll';
-export { useForm } from '../../landing-page/src/hooks/useForm';
+export { useWindowWidth } from '../src/breakpoints';
+export { useSmoothScroll } from '../src/hooks/useSmoothScroll';
+export { useForm } from '../src/hooks/useForm';
 
 // dashboard/src/services/index.ts
 // Réutiliser les services existants
-export { logger } from '../../landing-page/src/services/logger';
-export { apiClient } from '../../landing-page/src/services/api';
+export { logger } from '../src/services/logger';
+export { apiClient } from '../src/services/api';
 ```
 
 ### **Phase 2 : Développement Composant par Composant**
