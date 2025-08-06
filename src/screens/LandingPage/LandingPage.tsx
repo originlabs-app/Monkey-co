@@ -545,22 +545,25 @@ export const LandingPage = (): JSX.Element => {
         style={{
           alignSelf: "stretch",
           width: "100%",
+          padding: isMobile(screenWidth) ? `${SPACING.xl}px` : isDesktop(screenWidth) ? `${SPACING["3xl"]}px` : undefined,
         }}
       >
         <div className="div-16">
           <div
             className="frame-13"
             style={{
-              flexDirection: screenWidth < 1440 ? "column" : undefined,
+              flexDirection: isMobile(screenWidth) ? "column" : undefined,
+              gap: isMobile(screenWidth) ? `${SPACING.xl}px` : isDesktop(screenWidth) ? `${SPACING["2xl"]}px` : undefined,
             }}
           >
             <div
               className="section-11"
               style={{
-                flex: screenWidth >= 1440 ? "1" : undefined,
-                flexGrow: screenWidth >= 1440 ? "1" : undefined,
-                height: screenWidth < 1440 ? "213px" : undefined,
-                width: screenWidth < 1440 ? "100%" : undefined,
+                flex: isDesktop(screenWidth) ? "1" : undefined,
+                flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+                height: isMobile(screenWidth) ? "213px" : undefined,
+                width: isMobile(screenWidth) ? "100%" : undefined,
+                padding: isMobile(screenWidth) ? `${SPACING.lg}px` : isDesktop(screenWidth) ? `${SPACING.xl}px` : undefined,
               }}
             >
               <div className="overlap-wrapper">
@@ -647,44 +650,44 @@ export const LandingPage = (): JSX.Element => {
                 </div>
               </div>
 
-              <div
-                className="frame-14"
-                style={{
-                  alignItems:
-                    screenWidth < 1440
-                      ? "center"
-                      : screenWidth >= 1440
-                        ? "flex-start"
-                        : undefined,
-                }}
-              >
-                <div
-                  className="wrap-4"
+                              <div
+                  className="frame-14"
                   style={{
-                    alignSelf: "stretch",
-                    width:
-                      screenWidth < 1440
-                        ? "100%"
-                        : screenWidth >= 1440
-                          ? "374px"
+                    alignItems:
+                      isMobile(screenWidth)
+                        ? "center"
+                        : isDesktop(screenWidth)
+                          ? "flex-start"
                           : undefined,
                   }}
                 >
-                  <p
-                    className="title-17"
+                                  <div
+                    className="wrap-4"
                     style={{
-                      textAlign: screenWidth < 1440 ? "center" : undefined,
+                      alignSelf: "stretch",
+                      width:
+                        isMobile(screenWidth)
+                          ? "100%"
+                          : isDesktop(screenWidth)
+                            ? "374px"
+                            : undefined,
                     }}
                   >
+                                      <p
+                      className="title-17"
+                      style={{
+                        textAlign: isMobile(screenWidth) ? "center" : undefined,
+                      }}
+                    >
                     {t('projects.haveProject')}
                   </p>
 
-                  <p
-                    className="subtitle-6"
-                    style={{
-                      textAlign: screenWidth < 1440 ? "center" : undefined,
-                    }}
-                  >
+                                      <p
+                      className="subtitle-6"
+                      style={{
+                        textAlign: isMobile(screenWidth) ? "center" : undefined,
+                      }}
+                    >
                     {t('projects.getFinancing')}
                   </p>
                 </div>
@@ -704,60 +707,61 @@ export const LandingPage = (): JSX.Element => {
             <div
               className="section-12"
               style={{
-                flex: screenWidth >= 1440 ? "1" : undefined,
-                flexGrow: screenWidth >= 1440 ? "1" : undefined,
-                height: screenWidth < 1440 ? "213px" : undefined,
-                width: screenWidth < 1440 ? "100%" : undefined,
+                flex: isDesktop(screenWidth) ? "1" : undefined,
+                flexGrow: isDesktop(screenWidth) ? "1" : undefined,
+                height: isMobile(screenWidth) ? "213px" : undefined,
+                width: isMobile(screenWidth) ? "100%" : undefined,
+                padding: isMobile(screenWidth) ? `${SPACING.lg}px` : isDesktop(screenWidth) ? `${SPACING.xl}px` : undefined,
               }}
             >
-              <div
-                className="frame-15"
-                style={{
-                  alignItems:
-                    screenWidth < 1440
-                      ? "center"
-                      : screenWidth >= 1440
-                        ? "flex-end"
-                        : undefined,
-                }}
-              >
-                {screenWidth < 1440 && (
-                  <div className="wrap-5">
-                    <p className="title-18">
-                      {t('projects.knowProject')}
-                    </p>
+                              <div
+                  className="frame-15"
+                  style={{
+                    alignItems:
+                      isMobile(screenWidth)
+                        ? "center"
+                        : isDesktop(screenWidth)
+                          ? "flex-end"
+                          : undefined,
+                  }}
+                                >
+                  {isMobile(screenWidth) && (
+                    <div className="wrap-5">
+                      <p className="title-18">
+                        {t('projects.knowProject')}
+                      </p>
 
-                    <p className="subtitle-7">
-                      {t('projects.recommendProject')}
-                    </p>
+                      <p className="subtitle-7">
+                        {t('projects.recommendProject')}
+                      </p>
+                    </div>
+                  )}
+
+                                    {isDesktop(screenWidth) && (
+                    <div className="wrap-6">
+                      <p className="title-19">
+                        {t('projects.knowProject')}
+                      </p>
+
+                      <p className="subtitle-8">
+                        {t('projects.recommendProject')}
+                      </p>
+                    </div>
+                  )}
+
+                  <div 
+                    className="button-7"
+                    onClick={() => window.location.href = `mailto:${EXTERNAL_LINKS.EMAIL}?subject=${i18n.language === 'fr' ? 'Devenir apporteur d\'affaires' : 'Become a business introducer'}`}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <div className="text-wrapper-15">
+                      {t('projects.becomeIntroducer')}
+                    </div>
+
+                    <ArrowLeft8 className="arrow-left" />
                   </div>
-                )}
 
-                {screenWidth >= 1440 && (
-                  <div className="wrap-6">
-                    <p className="title-19">
-                      {t('projects.knowProject')}
-                    </p>
-
-                    <p className="subtitle-8">
-                      {t('projects.recommendProject')}
-                    </p>
-                  </div>
-                )}
-
-                <div 
-                  className="button-7"
-                  onClick={() => window.location.href = `mailto:${EXTERNAL_LINKS.EMAIL}?subject=${i18n.language === 'fr' ? 'Devenir apporteur d\'affaires' : 'Become a business introducer'}`}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <div className="text-wrapper-15">
-                    {t('projects.becomeIntroducer')}
-                  </div>
-
-                  <ArrowLeft8 className="arrow-left" />
-                </div>
-
-                {screenWidth >= 1440 && (
+                  {isDesktop(screenWidth) && (
                   <div className="group-3">
                     <div className="overlap">
                       <DisplayCard

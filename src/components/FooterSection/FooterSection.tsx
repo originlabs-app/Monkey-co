@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { LeafAnimation } from "@/components/LeafAnimation";
 import { EXTERNAL_LINKS } from "@/constants/links";
-import { SPACING } from "@/constants/theme";
+import { SPACING, isMobile, isDesktop } from "@/constants/theme";
 
 interface FooterSectionProps {
   screenWidth: number;
