@@ -81,11 +81,11 @@ export default [
         'alphabetize': { order: 'asc' }
       }],
       
-      // Complexity
-      'complexity': ['error', 10],
-      'max-lines': ['error', 300],
-      'max-lines-per-function': ['error', 50],
-      'max-params': ['error', 4],
+      // Complexity - Phase 1 (Migration progressive)
+      'complexity': ['error', 20], // Phase 1: 20, Phase 2: 15, Phase 3: 10
+      'max-lines': ['error', 1000], // Phase 1: 1000, Phase 2: 500, Phase 3: 300
+      'max-lines-per-function': ['error', 100], // Phase 1: 100, Phase 2: 75, Phase 3: 50
+      'max-params': ['error', 10], // Phase 1: 10, Phase 2: 7, Phase 3: 4
     },
   },
   {

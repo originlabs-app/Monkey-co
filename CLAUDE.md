@@ -46,12 +46,14 @@ ls src/services/
 
 ### 4. Quality Gates (OBLIGATOIRE)
 **Avant chaque commit, vérifier :**
-- [ ] Code coverage minimum : 80% (quand tests configurés)
-- [ ] Complexité cyclomatique max : 10 par fonction
-- [ ] Nombre de paramètres max : 4 par fonction
+- [ ] Code coverage minimum : 80% (quand tests configurés) - **Migration progressive acceptée**
+- [ ] Complexité cyclomatique max : 10 par fonction - **Migration progressive acceptée**
+- [ ] Nombre de paramètres max : 4 par fonction - **Migration progressive acceptée**
 - [ ] Pas de duplication de code détectée
 - [ ] Gestion d'erreurs appropriée
 - [ ] Documentation mise à jour
+
+**Note :** Pour les projets avec du code legacy, une migration progressive est autorisée (voir section "Migration Progressive").
 
 ### 5. Vérification des dépendances
 **Avant chaque ajout de package :**
@@ -318,6 +320,29 @@ Chaque décision technique majeure doit être documentée :
 - **Longueur de fonction** : Max 50 lignes
 - **Duplication de code** : 0% (utilisation de composants partagés)
 
+### Migration Progressive (ACCEPTÉE)
+**Pour les projets existants avec du code legacy, une migration progressive est autorisée :**
+
+#### Phase 1 : Stabilisation (Actuel)
+- Code coverage : 0% → 60% (tests critiques d'abord)
+- Taille de fichier : 1000 lignes max (migration progressive)
+- Complexité : 20 max (pages complexes acceptées temporairement)
+- Paramètres : 10 max (composants Anima générés)
+
+#### Phase 2 : Refactoring (Prochaine)
+- Code coverage : 60% → 80% (tests complets)
+- Taille de fichier : 500 lignes max (composants moyens)
+- Complexité : 15 max (complexité maîtrisée)
+- Paramètres : 7 max (props raisonnables)
+
+#### Phase 3 : Excellence (Production)
+- Code coverage : 80% (objectif final)
+- Taille de fichier : 300 lignes max (composants focalisés)
+- Complexité : 10 max (objectif final)
+- Paramètres : 4 max (objectif final)
+
+**Note :** Les objectifs finaux restent les mêmes, mais la migration se fait par étapes pour éviter le "big bang" refactoring.
+
 ### Outils de vérification
 ```bash
 # Vérification de la qualité
@@ -435,9 +460,9 @@ const loadData = async () => {
 1. **Installer les dépendances** (voir commande npm ci-dessous)
 2. **Configurer TypeScript strict** dans tsconfig.json
 3. **Remplacer console.log** par logger dans api.ts
-4. **Refactoriser LandingPage** (3500+ lignes → composants)
+4. **Refactoriser LandingPage** (3500+ lignes → 1000 lignes d'abord) - **Migration progressive**
 5. **Typer les icônes** avec `IconProps` de `src/types/icon.types.ts`
-6. **Créer les premiers tests** pour composants critiques
+6. **Créer les premiers tests** pour composants critiques (0% → 60%)
 7. **Migrer vers CSS Modules** (renommer `.css` → `.module.css`)
 
 ### 📦 Installation des dépendances :

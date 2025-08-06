@@ -30,6 +30,7 @@ class Logger {
     // Afficher en dev seulement
     if (this.isDevelopment) {
       const style = this.getStyle(level);
+      // eslint-disable-next-line no-console -- Logger nécessite console.log natif
       console.log(
         `%c[${level.toUpperCase()}] ${entry.timestamp}`,
         style,
