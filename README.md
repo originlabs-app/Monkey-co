@@ -99,21 +99,20 @@ npm run quality  # Vérifie tous les seuils
 
 ## 🚨 Règles de Développement
 
-### SSOT (Single Source of Truth)
-- **CLAUDE.md** = Règles absolues
-- Pas de duplication de code
-- Architecture stricte respectée
+### Architecture
+- Structure modulaire
+- Composants réutilisables
+- Imports organisés
 
-### Anti-Spaghetti Code
-- Zéro `console.log`
-- Zéro `any` (sauf className)
-- Zéro imports relatifs
-- Zéro duplication
+### Qualité du Code
+- Tests unitaires
+- Documentation
+- Code review
 
-### Quality First
-- Tests avant commit
-- Documentation obligatoire
-- Code review systématique
+### Standards
+- TypeScript strict
+- ESLint + Prettier
+- Husky hooks
 
 ## 📝 Contribution
 
@@ -149,9 +148,9 @@ npm run quality  # Vérifie tous les seuils
 
 ## 📚 Documentation
 
-- **CLAUDE.md** : Règles de développement
 - **TODO.md** : Roadmap et tâches
 - **Storybook** : Documentation composants
+- **Code comments** : Documentation inline
 
 ## 🌍 Environnement
 
@@ -180,4 +179,4 @@ npm run build
 
 ---
 
-**⚠️ RAPPEL : Ce projet suit la méthodologie SSOT. Toute déviation = dette technique = INTERDIT**
+**⚠️ RAPPEL : Ce projet suit des standards de qualité élevés. Toute déviation = dette technique = INTERDIT**
