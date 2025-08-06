@@ -1,0 +1,157 @@
+.display-card {
+  align-items: center;
+  background-color: var(--primarywhite);
+  border-radius: 20px;
+  border: 2px solid #52705F;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  padding: 0px 0px 24px;
+  position: relative;
+  width: 403px;
+}
+
+.display-card .rectangle {
+  align-self: stretch;
+  height: 295px;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.display-card .details {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.display-card .content {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.display-card .wrap {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.display-card .r-novation-co {
+  color: #0b200e;
+  flex: 1;
+  font-family: var(--text-content-body-emphasis-font-family);
+  font-size: var(--text-content-body-emphasis-font-size);
+  font-style: var(--text-content-body-emphasis-font-style);
+  font-weight: var(--text-content-body-emphasis-font-weight);
+  letter-spacing: var(--text-content-body-emphasis-letter-spacing);
+  line-height: var(--text-content-body-emphasis-line-height);
+  position: relative;
+}
+
+.display-card .statuses {
+  align-items: center;
+  background-color: #fed7aa;
+  border-radius: 50px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 3px;
+  justify-content: center;
+  padding: 3px 5px;
+  position: relative;
+}
+
+.display-card .text-wrapper {
+  color: #c2410c;
+  font-family: "Inter", Helvetica;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: right;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.display-card .element-kg-CO-vit {
+  align-self: stretch;
+  color: var(--variable-collection-grey-300);
+  font-family: var(--text-content-note-regular-font-family);
+  font-size: var(--text-content-note-regular-font-size);
+  font-style: var(--text-content-note-regular-font-style);
+  font-weight: var(--text-content-note-regular-font-weight);
+  letter-spacing: var(--text-content-note-regular-letter-spacing);
+  line-height: var(--text-content-note-regular-line-height);
+  position: relative;
+}
+
+.display-card .progress-figma {
+  align-self: stretch;
+  height: 51px;
+  position: relative;
+  width: 100%;
+}
+
+.display-card .text-wrapper-2 {
+  color: var(--variable-collection-grey-300);
+  font-family: var(--text-content-note-regular-font-family);
+  font-size: var(--text-content-note-regular-font-size);
+  font-style: var(--text-content-note-regular-font-style);
+  font-weight: var(--text-content-note-regular-font-weight);
+  left: 0;
+  letter-spacing: var(--text-content-note-regular-letter-spacing);
+  line-height: var(--text-content-note-regular-line-height);
+  position: absolute;
+  top: 7px;
+  white-space: nowrap;
+  width: 90px;
+}
+
+.display-card .overlap-group {
+  background-color: var(--variable-collection-grey-100);
+  border-radius: 25px;
+  height: 8px;
+  left: 0;
+  position: absolute;
+  top: 35px;
+  width: 305px;
+}
+
+.display-card .progress-background {
+  background-color: #2d4d31;
+  border-radius: 25px;
+  height: 8px;
+  width: 249px;
+}
+
+.display-card .element {
+  color: var(--variable-collection-grey-300);
+  font-family: var(--text-content-body-strong-font-family);
+  font-size: var(--text-content-body-strong-font-size);
+  font-style: var(--text-content-body-strong-font-style);
+  font-weight: var(--text-content-body-strong-font-weight);
+  left: 317px;
+  letter-spacing: var(--text-content-body-strong-letter-spacing);
+  line-height: var(--text-content-body-strong-line-height);
+  position: absolute;
+  top: 25px;
+  white-space: nowrap;
+}

@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "problemSolution": "Problem & Solution",
+    "advantages": "Advantages",
+    "tokenomics": "Tokenomics",
+    "joinPresale": "Join presale",
+    "launchApp": "Launch app",
+    "comingSoon": "Coming soon"
+  },
+  "hero": {
+    "tagline": "Stop talking, start acting. Investing in the ecological transition has never been easier.",
+    "title1": "Make",
+    "title2": "work",
+    "title3": "your crypto",
+    "title4": "for the",
+    "title5": "planet",
+    "description": "With Monkey-co, you finance real energy transition projects while earning rewards in USDC and KEYCOIN.",
+    "joinPresale": "Join presale",
+    "limitedPlaces": "Only 100 spots left for the exclusive presale!"
+  },
+  "partners": {
+    "title": "OUR PARTNERS"
+  },
+  "problemSolution": {
+    "sectionTitle": "PROBLEM & SOLUTION",
+    "mainProblem": "Financing the energy transition is a major obstacle today.",
+    "solution": "Monkey-co is the missing bridge between Web3 investors and ecological projects.",
+    "problem1": "The State cannot finance everything",
+    "problem2": "Banks are reluctant",
+    "problem3": "No simple, fast and profitable solution for investors"
+  },
+  "greenFinance": {
+    "title": "Green finance",
+    "subtitle": "has never been so simple and accessible"
+  },
+  "tokenization": {
+    "title": "Real Estate Tokenization",
+    "subtitle": "Earn hybrid returns while saving the planet",
+    "description": "Buy your first share in green real estate in 5 minutes with Monkey-co",
+    "learnMore": "Learn more"
+  },
+  "features": {
+    "hybridYield": "Hybrid yield",
+    "hybridYieldDesc": "(USDC + CO₂-indexed KEYCOIN)",
+    "carbonImpact": "Carbon impact",
+    "carbonImpactDesc": "measurable & transparent",
+    "dashboardManagement": "Management dashboard",
+    "dashboardManagementDesc": "intuitive",
+    "decentralizedGovernance": "Decentralized governance",
+    "decentralizedGovernanceDesc": "by the community",
+    "projectSelection": "Project selection",
+    "projectSelectionDesc": "verified and sustainable"
+  },
+  "ecosystem": {
+    "title": "a global ecosystem",
+    "subtitle": "transforming green",
+    "subtitle2": "finance"
+  },
+  "whyMonkey": {
+    "title": "And why Monkey-co?",
+    "description": "Monkey-co embodies the idea that ecological transition can be simple, fun and accessible to everyone. The name evokes community (\"co\"), agility and an uncomplicated approach to green finance. Like our primate cousins who adapt to their environment, we create agile solutions for a sustainable future.",
+    "viewProjects": "View projects"
+  },
+  "footerCta": {
+    "title": "Join the green revolution today!",
+    "presaleTitle": "Join the presale waiting list",
+    "presaleDescription": "Be among the first to invest and enjoy all early bonuses.",
+    "emailPlaceholder": "Enter your email",
+    "gdprConsent": "I agree to receive updates from Monkey-co (You can unsubscribe at any time)",
+    "subscribe": "Subscribe",
+    "emailRequired": "Please enter a valid email address",
+    "consentRequired": "Please accept the terms",
+    "successMessage": "🎉 Successfully subscribed! Check your inbox.",
+    "errorMessage": "An error occurred. Please try again."
+  },
+  "footer": {
+    "logoText": "Monkey-co",
+    "allRights": "© 2024 Monkey-co. All rights reserved.",
+    "whitepaper": "Whitepaper",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "legal": "Legal Notice"
+  },
+  "tokenomics": {
+    "howPresaleWorks": "How does the presale work?",
+    "discoverFundsDistribution": "Discover how the collected funds are distributed and how the KEYCOIN token works to ensure transparency, security and real impact with every investment.",
+    "tokenDistribution": "Token distribution",
+    "supplyLimited": "*Supply limited to 360 million Keycoins",
+    "regulatedEmission": "*Regulated emission based on ecological impact", 
+    "transparencyReserves": "*Transparency of reserves and emission",
+    "team": "Team",
+    "reserve": "Reserve",
+    "initialLiquidity": "Initial liquidity",
+    "community": "(Community)",
+    "presaleICO": "Presale & ICO",
+    "stakingUSDC": "Staking USDC",
+    "stakingKEYCOIN": "Staking KEYCOIN",
+    "whitepaperFR": "Whitepaper (FR)",
+    "whitepaperEN": "Whitepaper (EN)"
+  },
+  "whyMonkeyCo": {
+    "title": "And why Monkey-co?",
+    "moneyContraction": "Monkey-co is a contraction of \"Money\".",
+    "keyPower": "It's therefore the key to regain control over your money and build a better world together.",
+    "community": "Community, you choose the projects to finance.",
+    "monkeyEvolution": "The monkey reminds us of evolution, adaptability and collective intelligence. Just like the monkey, finance must evolve."
+  },
+  "joinCommunity": {
+    "title": "Join an engaged community",
+    "subtitle": "Follow us on our networks and ask all your questions: our team will respond quickly and you can exchange with the community.",
+    "discord": "Join us on Discord.",
+    "discordDescription": "Close to the community.",
+    "twitter": "Follow us on X (Twitter).",
+    "twitterDescription": "Follow the adventure daily.",
+    "talkAbout": "Talk about Monkey-co.",
+    "growCommunity": "Let's grow the community together.",
+    "shareIdea": "Have an idea to share?",
+    "listenToProposals": "We listen to your proposals"
+  },
+  "projects": {
+    "solarPanelsNantes": "Solar Panels Residence Nantes",
+    "ecoDistrictLyon": "Eco-District Renovation Lyon",
+    "socialHousingMarseille": "Social Housing Insulation Marseille",
+    "inProgress": "In progress",
+    "completed": "Completed",
+    "co2Avoided": "kg CO₂ avoided",
+    "progression": "Progression",
+    "haveProject": "Do you have a project for the ecological transition?",
+    "getFinancing": "Call on Monkey-co to obtain suitable financing and realize your sustainable initiative!",
+    "requestFinancing": "Request financing",
+    "knowProject": "Do you know a project to finance?",
+    "recommendProject": "Recommend it to Monkey-co and receive a reward by becoming a business introducer!",
+    "becomeIntroducer": "Become a business introducer"
+  },
+  "waitingList": {
+    "joinEarly": "Join the early builders and enjoy exclusive benefits",
+    "readyToInvest": "Ready to invest in tomorrow's world?",
+    "registerNow": "Register now",
+    "comingSoon": "Coming soon",
+    "tagline": "Together, we finance a better world!",
+    "investCrypto": "Invest your crypto for the planet."
+  },
+  "stats": {
+    "greenBondsAmount": "+$530 Bn",
+    "greenBondsDescription": "Green Bonds market in permanent growth",
+    "co2Reduction": "100 Tons CO2+",
+    "co2ReductionDescription": "CO2 reduction target from the first year",
+    "dualRewards": "KEYCOIN + USDC",
+    "dualRewardsDescription": "Double rewards with two income sources",
+    "stakingBonus": "30%+",
+    "stakingBonusDescription": "Yield bonus for long-term staking"
+  },
+  "footerNav": {
+    "home": "Home",
+    "problemSolution": "Problem & Solution",
+    "advantages": "Advantages",
+    "tokenomics": "Tokenomics",
+    "community": "Community",
+    "legal": "Legal",
+    "legalNotice": "Legal Notice",
+    "privacyPolicy": "Privacy Policy",
+    "joinPresale": "Join presale",
+    "launchApp": "Launch app"
+  },
+  "whyInvest": {
+    "title": "Why invest with Monkey-co?"
+  },
+  "modal": {
+    "joinPresaleTitle": "Join the exclusive presale",
+    "joinPresaleSubtitle": "Be among the first to invest and enjoy exclusive bonuses reserved for early builders."
+  }
+}

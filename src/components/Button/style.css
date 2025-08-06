@@ -1,0 +1,133 @@
+.button {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.button .class {
+  height: 20px !important;
+  margin-bottom: -2.00px !important;
+  margin-top: -2.00px !important;
+  position: relative !important;
+  width: 20px !important;
+}
+
+.button .class-2 {
+  height: 16px !important;
+  position: relative !important;
+  width: 16px !important;
+}
+
+.button .div {
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.button.md {
+  border-radius: 8px;
+  gap: 8px;
+  height: 40px;
+  max-height: 40px;
+  padding: 12px;
+}
+
+.button.danger {
+  background-color: #dc2626;
+  border-color: #fecaca;
+}
+
+.button.sm {
+  border-radius: 6px;
+  box-shadow: var(--shadow-xs);
+  gap: 4px;
+  height: 32px;
+  padding: 8px;
+}
+
+.button.default {
+  border: 1px solid;
+}
+
+.button.primary {
+  background-color: #0b200e;
+  border-color: #2d4d31;
+}
+
+.button.disabled {
+  background-color: #d1d5db;
+  border-color: #9ca3af;
+}
+
+.button.lg {
+  border-radius: 12px;
+  gap: 8px;
+  max-height: 48px;
+  min-height: 48px;
+  padding: 16px;
+}
+
+.button.secondary {
+  box-shadow: var(--shadow-xs);
+}
+
+.button.default.secondary {
+  background-color: var(--variable-collection-background-white);
+  border-color: var(--variable-collection-grey-200);
+}
+
+.button.md .div {
+  font-family: var(--text-content-note-accent-font-family);
+  font-size: var(--text-content-note-accent-font-size);
+  font-style: var(--text-content-note-accent-font-style);
+  font-weight: var(--text-content-note-accent-font-weight);
+  letter-spacing: var(--text-content-note-accent-letter-spacing);
+  line-height: var(--text-content-note-accent-line-height);
+  margin-bottom: -1.00px;
+  margin-top: -3.00px;
+}
+
+.button.danger .div {
+  color: #ffffff;
+}
+
+.button.sm .div {
+  font-family: var(--text-content-note-accent-font-family);
+  font-size: var(--text-content-note-accent-font-size);
+  font-style: var(--text-content-note-accent-font-style);
+  font-weight: var(--text-content-note-accent-font-weight);
+  letter-spacing: var(--text-content-note-accent-letter-spacing);
+  line-height: var(--text-content-note-accent-line-height);
+  margin-bottom: -1.00px;
+  margin-top: -3.00px;
+}
+
+.button.primary .div {
+  color: var(--variable-collection-background-white);
+}
+
+.button.disabled .div {
+  color: #ffffff;
+}
+
+.button.lg .div {
+  font-family: var(--text-content-body-accent-font-family);
+  font-size: var(--text-content-body-accent-font-size);
+  font-style: var(--text-content-body-accent-font-style);
+  font-weight: var(--text-content-body-accent-font-weight);
+  letter-spacing: var(--text-content-body-accent-letter-spacing);
+  line-height: var(--text-content-body-accent-line-height);
+  margin-bottom: -3.00px;
+  margin-top: -5.00px;
+}
+
+.button.default.secondary .div {
+  color: #0b200e;
+}
+
+.button.fantome.secondary .div {
+  color: #1f2937;
+}
