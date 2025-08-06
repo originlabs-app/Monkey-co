@@ -9,7 +9,7 @@ Ce fichier est la **RÉFÉRENCE ABSOLUE** pour le développement de ce projet. *
 
 #### Hiérarchie des sources de vérité :
 1. **CLAUDE.md** (ce fichier) - Règles et principes absolus
-2. **TODO.md** - État actuel des tâches et priorités
+2. **SPRINT.md** - État actuel des tâches et priorités
 3. **package.json** - Dépendances et scripts autorisés
 4. **Code existant** - Patterns à suivre/améliorer
 
@@ -47,17 +47,32 @@ AnimaPackage-React/
 │   │   └── [Component]/   # TOUJOURS un dossier par composant
 │   │       ├── index.ts   # Export propre
 │   │       ├── [Component].tsx
-│   │       ├── style.css  # Styles isolés
+│   │       ├── style.css  # Styles isolés (→ .module.css)
 │   │       └── [Component].stories.ts  # Storybook
 │   ├── screens/          # Pages complètes
 │   ├── icons/            # Icônes SVG en composants React
-│   ├── hooks/            # Hooks personnalisés
-│   ├── services/         # Couche API
+│   ├── hooks/            # Hooks personnalisés ✅
+│   │   ├── useForm.ts    # Gestion formulaires
+│   │   ├── useScrollAnimation.ts
+│   │   └── useSmoothScroll.ts
+│   ├── services/         # Couche API ✅
+│   │   ├── api.ts
+│   │   └── logger.ts     # Logger custom
+│   ├── contexts/         # State management ✅
+│   │   └── AppContext.tsx
+│   ├── types/            # Types partagés ✅
+│   │   └── icon.types.ts
+│   ├── tests/            # Configuration tests ✅
+│   │   └── setup.ts
 │   ├── constants/        # Constantes globales
 │   ├── i18n/            # Internationalisation
 │   └── animations/       # Fichiers Lottie JSON
 ├── static/              # Assets statiques (images, PDFs)
 ├── public/              # Fichiers publics Netlify
+├── .eslintrc.json       # ✅ Config ESLint stricte
+├── .prettierrc.json     # ✅ Config Prettier
+├── vitest.config.ts     # ✅ Config tests
+├── vite.config.ts       # ✅ Config Vite + imports absolus
 └── TODO.md              # Roadmap et tâches
 ```
 
@@ -265,7 +280,10 @@ const [phone, setPhone] = useState("");
 // ... 17 autres
 
 // ✅ OBLIGATOIRE - useReducer ou custom hook
-const { formState, updateField, submitForm } = useContactForm();
+const { values, errors, handleSubmit } = useForm({
+  email: { initialValue: '', validators: [validators.email()] },
+  consent: { initialValue: false, validators: [validators.required()] }
+});
 ```
 
 ### 3. Le "Copy-Paste Driven Development"
@@ -350,12 +368,44 @@ Configuration active dans `vite.config.ts` avec :
 
 ## 🚀 PROCHAINES ÉTAPES CRITIQUES
 
-1. **Implémenter le logger** pour remplacer tous les console.log
-2. **Configurer ESLint** avec les règles strictes
-3. **Configurer les imports absolus** dans Vite
+### ✅ FAIT :
+1. ✅ **Logger implémenté** (`src/services/logger.ts`)
+2. ✅ **ESLint configuré** avec règles ultra-strictes
+3. ✅ **Imports absolus** configurés dans Vite
+4. ✅ **Vitest + RTL** configuré pour les tests
+5. ✅ **Context API** pour state management
+6. ✅ **Hook useForm** pour les formulaires
+
+### ⏳ À FAIRE (par priorité) :
+1. **Installer les dépendances** (voir commande npm ci-dessous)
+2. **Configurer TypeScript strict** dans tsconfig.json
+3. **Remplacer console.log** par logger dans api.ts
 4. **Refactoriser LandingPage** (3500+ lignes → composants)
-5. **Typer tous les `any`** dans les icônes
-6. **Créer les tests** pour les composants critiques
+5. **Typer les icônes** avec `IconProps` de `src/types/icon.types.ts`
+6. **Créer les premiers tests** pour composants critiques
+7. **Migrer vers CSS Modules** (renommer `.css` → `.module.css`)
+
+### 📦 Installation des dépendances :
+```bash
+npm install --save-dev \
+  @typescript-eslint/eslint-plugin \
+  @typescript-eslint/parser \
+  eslint \
+  eslint-plugin-react \
+  eslint-plugin-react-hooks \
+  eslint-plugin-jsx-a11y \
+  eslint-plugin-import \
+  eslint-import-resolver-typescript \
+  prettier \
+  vitest \
+  @testing-library/react \
+  @testing-library/jest-dom \
+  @testing-library/user-event \
+  @vitest/ui \
+  @vitest/coverage-v8 \
+  jsdom \
+  @types/node
+```
 
 ---
 

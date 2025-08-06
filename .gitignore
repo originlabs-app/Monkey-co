@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Propriété intellectuelle - Ne jamais commiter
+CLAUDE.md
+CLAUDE_SSOT.md
