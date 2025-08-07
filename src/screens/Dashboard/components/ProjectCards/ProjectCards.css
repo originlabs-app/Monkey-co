@@ -1,155 +1,98 @@
-/**
- * ProjectCards Styles
- * Réutilise les patterns de design de la landing page
- * SSOT : Couleurs depuis constants
- */
-
-/* Container */
-.project-cards-container {
-  margin-top: 32px;
-  width: 100%;
-}
-
-/* Grid Layout */
-.project-cards-grid {
+/* Call to Action Section - Même style que Documentation */
+.cta-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
-}
-
-/* Card Style */
-.project-card {
-  border-radius: 24px;
-  padding: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 250px;
-  overflow: hidden;
-  position: relative;
-  color: white;
-}
-
-/* Content */
-.project-card-content {
-  flex: 1;
-  max-width: 50%;
-  z-index: 2;
-  position: relative;
-}
-
-.project-card-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0 0 16px 0;
-  color: white;
-  line-height: 1.3;
-}
-
-.project-card-description {
-  font-size: 16px;
-  margin: 0 0 24px 0;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.6;
-}
-
-/* Button Override pour cards colorées */
-.project-card-button {
-  background: white !important;
-  color: #52705F !important;
-  border: 2px solid white !important;
-  font-weight: 600;
-}
-
-.project-card-button:hover {
-  background: rgba(255, 255, 255, 0.9) !important;
-  transform: translateY(-2px);
-}
-
-/* Visual Section */
-.project-card-visual {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40%;
-  height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.project-images {
-  position: relative;
   width: 100%;
-  height: 100%;
+  margin-top: 32px;
 }
 
-.project-image {
-  position: absolute;
-  max-width: 200px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+.cta-card {
+  background: linear-gradient(135deg, #CE7011 0%, #E89C5C 100%);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
 }
 
-.project-image-left {
-  top: 0;
-  left: 0;
-  z-index: 1;
+.cta-card.cta-investor {
+  background: linear-gradient(135deg, #52705F 0%, #6B8E7D 100%);
 }
 
-.project-image-right {
-  bottom: 0;
-  right: 0;
+.cta-content {
+  flex: 1;
   z-index: 2;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .project-cards-grid {
+.cta-title {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 12px 0;
+}
+
+.cta-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 20px 0;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: white;
+  color: #CE7011;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button-light {
+  color: #52705F;
+}
+
+.cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .cta-section {
     grid-template-columns: 1fr;
   }
-  
-  .project-card {
-    padding: 32px;
-  }
-  
-  .project-card-content {
-    max-width: 60%;
-  }
 }
 
+/* Responsive - Mobile */
 @media (max-width: 768px) {
-  .project-card {
-    flex-direction: column;
+  .cta-section {
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .cta-card {
     padding: 24px;
-    text-align: center;
+    min-height: auto;
   }
-  
-  .project-card-content {
-    max-width: 100%;
+
+  .cta-title {
+    font-size: 18px;
   }
-  
-  .project-card-visual {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-    height: 150px;
-    margin-top: 20px;
-  }
-  
-  .project-image {
-    max-width: 120px;
-  }
-  
-  .project-card-title {
-    font-size: 20px;
-  }
-  
-  .project-card-description {
-    font-size: 14px;
+
+  .cta-description {
+    font-size: 13px;
   }
 }

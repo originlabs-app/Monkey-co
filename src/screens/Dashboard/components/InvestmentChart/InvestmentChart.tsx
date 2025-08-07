@@ -48,7 +48,7 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload, label })
 export const InvestmentChart: React.FC = () => {
   const { t } = useTranslation();
 
-  // Formateur pour l'axe Y (milliers)
+  // Formateur pour l'axe Y (milliers) avec font Lexend Deca
   const formatYAxis = (value: number) => `$${value / 1000}k`;
 
   return (
@@ -88,7 +88,7 @@ export const InvestmentChart: React.FC = () => {
             <XAxis 
               dataKey="month" 
               stroke="#718096"
-              tick={{ fill: '#718096', fontSize: 12 }}
+              tick={{ fill: '#718096', fontSize: 12, fontFamily: 'Inter, sans-serif' }}
               tickLine={false}
               axisLine={{ stroke: '#e2e8f0' }}
             />
@@ -96,7 +96,7 @@ export const InvestmentChart: React.FC = () => {
             {/* Axe Y */}
             <YAxis 
               stroke="#718096"
-              tick={{ fill: '#718096', fontSize: 12 }}
+              tick={{ fill: '#718096', fontSize: 12, fontFamily: 'Inter, sans-serif' }}
               tickLine={false}
               axisLine={{ stroke: '#e2e8f0' }}
               tickFormatter={formatYAxis}

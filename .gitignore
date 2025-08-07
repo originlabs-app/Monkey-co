@@ -29,3 +29,5 @@ storybook-static/
 
 # Propriété intellectuelle - Ne jamais commiter
 SPRINT.md
+# Local Netlify folder
+.netlify

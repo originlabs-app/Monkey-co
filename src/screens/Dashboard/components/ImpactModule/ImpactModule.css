@@ -8,6 +8,7 @@
   border-radius: 16px;
   border: 1px solid #E5E7EB;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  height: 100%;
 }
 
 /* Header avec total */
@@ -31,8 +32,8 @@
 .impact-total-value {
   color: #333333;
   font-family: var(--text-heading-display-font-family, 'Lexend Deca');
-  font-size: 48px;
-  font-weight: 800;
+  font-size: 36px;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -41,7 +42,9 @@
 .impact-sections {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 28px;
+  flex: 1;
+  padding-bottom: 20px;
 }
 
 /* Individual Section - Layout horizontal propre */
@@ -52,7 +55,7 @@
   gap: 16px;
   padding: 0;
   background: transparent;
-  min-height: 64px;
+  min-height: 56px;
   position: relative;
 }
 
@@ -66,8 +69,8 @@
 
 /* Icons avec couleurs dans cercles */
 .section-icon {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -91,8 +94,8 @@
 }
 
 .section-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Content section */
@@ -117,7 +120,7 @@
 .section-value {
   color: #333333;
   font-family: var(--text-heading-display-font-family, 'Lexend Deca');
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;

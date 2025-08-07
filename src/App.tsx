@@ -4,6 +4,8 @@ import { LandingPage } from "./screens/LandingPage";
 import { Dashboard } from "./screens/Dashboard";
 import { StakingPage } from "./screens/StakingPage";
 import { DAOPage } from "./screens/DAOPage";
+import { ProjectsPage } from "./screens/ProjectsPage";
+import { Documentation } from "./screens/Documentation";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
   {
     path: "/dao",
     element: <DAOPage />,
+  },
+  {
+    path: "/projects",
+    element: <ProjectsPage />,
+  },
+  {
+    path: "/documentation",
+    element: <Documentation />,
   },
   {
     path: "/landing-page",
