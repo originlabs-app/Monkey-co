@@ -1,0 +1,451 @@
+/* DAO Governance Page Styles */
+.dao-container {
+  padding: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.dao-header {
+  background: linear-gradient(135deg, #3B5E3A 0%, #52705F 100%);
+  border-radius: 20px;
+  padding: 48px;
+  margin-bottom: 32px;
+  color: white;
+}
+
+.dao-header-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.dao-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dao-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #F9ECDE;
+  margin: 0;
+}
+
+.dao-title {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.dao-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.dao-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Benefits Cards */
+.dao-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  color: #F9ECDE;
+  margin-bottom: 16px;
+}
+
+.benefit-card h3 {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: white;
+}
+
+.benefit-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Stats Cards */
+.dao-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-icon {
+  width: 24px;
+  height: 24px;
+  color: #52705F;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.stat-value {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #1F2937;
+}
+
+/* Proposals List - Grid 2 colonnes */
+.dao-proposals {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.proposal-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.proposal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.proposal-title-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.proposal-title {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1F2937;
+  margin: 0;
+}
+
+.proposal-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.proposal-status.status-completed {
+  background: #E5E7EB;
+  color: #6B7280;
+}
+
+.proposal-tag {
+  padding: 6px 16px;
+  background: #FFF3E0;
+  color: #E89C5C;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.proposal-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6B7280;
+  margin: 0 0 24px 0;
+}
+
+.proposal-info {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 24px;
+}
+
+.proposal-budget,
+.proposal-deadline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.info-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.info-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1F2937;
+}
+
+/* Vote Section */
+.proposal-votes {
+  padding-top: 24px;
+  border-top: 1px solid #E5E7EB;
+}
+
+.vote-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.vote-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vote-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.vote-progress {
+  margin-bottom: 24px;
+}
+
+.vote-bar {
+  height: 8px;
+  background: #E5E7EB;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.vote-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.vote-bar-for {
+  background: linear-gradient(90deg, #52705F 0%, #6B8E7D 100%);
+}
+
+.vote-percentages {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #6B7280;
+}
+
+/* Vote Actions */
+.vote-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.vote-btn {
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.vote-approve {
+  background: #6B8E7D;
+  color: white;
+}
+
+.vote-approve:hover {
+  background: #5A7D6C;
+  transform: translateY(-1px);
+}
+
+.vote-approve.active {
+  background: #5A7D6C;
+  box-shadow: 0 4px 12px rgba(107, 142, 125, 0.25);
+}
+
+.vote-reject {
+  background: #D4A574;
+  color: white;
+}
+
+.vote-reject:hover {
+  background: #C49665;
+  transform: translateY(-1px);
+}
+
+.vote-reject.active {
+  background: #C49665;
+  box-shadow: 0 4px 12px rgba(212, 165, 116, 0.25);
+}
+
+/* Vote Result */
+.vote-result {
+  display: flex;
+  justify-content: center;
+}
+
+.result-btn {
+  padding: 12px 32px;
+  border-radius: 12px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: default;
+  text-transform: uppercase;
+}
+
+.result-approved {
+  background: #E6F0EA;
+  color: #52705F;
+}
+
+.result-rejected {
+  background: #FFF3E0;
+  color: #E89C5C;
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .dao-container {
+    padding: 24px;
+  }
+
+  .dao-header {
+    padding: 32px;
+  }
+
+  .dao-header-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .dao-title {
+    font-size: 32px;
+  }
+
+  .dao-benefits {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dao-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  
+  .dao-proposals {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-value {
+    font-size: 28px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .dao-container {
+    padding: 16px;
+  }
+
+  .dao-header {
+    padding: 24px;
+  }
+
+  .dao-title {
+    font-size: 24px;
+  }
+
+  .dao-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .dao-proposals {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .proposal-card {
+    padding: 20px;
+  }
+
+  .proposal-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .proposal-info {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .vote-actions {
+    flex-direction: column;
+  }
+
+  .vote-stats {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

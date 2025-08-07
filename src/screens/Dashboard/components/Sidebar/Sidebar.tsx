@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   LayoutGrid, 
   Coins, 
@@ -22,32 +23,52 @@ export const Sidebar: React.FC<SidebarProps> = ({
   currentPage = 'dashboard' 
 }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Déterminer la page active basée sur l'URL
+  const getActivePage = () => {
+    const path = location.pathname;
+    if (path === '/dashboard') return 'dashboard';
+    if (path === '/staking') return 'staking';
+    if (path === '/dao') return 'dao';
+    if (path === '/projects') return 'projects';
+    if (path === '/documentation') return 'documentation';
+    return currentPage;
+  };
+
+  const activePage = getActivePage();
 
   const menuItems = [
     { 
       id: 'dashboard', 
       label: t('dashboard.sidebar.dashboard'),
-      icon: <LayoutGrid size={20} />
+      icon: <LayoutGrid size={20} />,
+      path: '/dashboard'
     },
     { 
       id: 'staking', 
       label: t('dashboard.sidebar.staking'),
-      icon: <Coins size={20} />
+      icon: <Coins size={20} />,
+      path: '/staking'
     },
     { 
       id: 'dao', 
       label: t('dashboard.sidebar.governance'),
-      icon: <Users size={20} />
+      icon: <Users size={20} />,
+      path: '/dao'
     },
     { 
       id: 'projects', 
       label: t('dashboard.sidebar.projects'),
-      icon: <FolderOpen size={20} />
+      icon: <FolderOpen size={20} />,
+      path: '/projects'
     },
     { 
       id: 'documentation', 
       label: t('dashboard.sidebar.help'),
-      icon: <BookOpen size={20} />
+      icon: <BookOpen size={20} />,
+      path: '/documentation'
     },
   ];
 
@@ -75,8 +96,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {menuItems.map(item => (
           <a
             key={item.id}
-            href={`#${item.id}`}
-            className={`sidebar-item ${currentPage === item.id ? 'active' : ''}`}
+            href={item.path}
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(item.path);
+            }}
+            className={`sidebar-item ${activePage === item.id ? 'active' : ''}`}
           >
             <span className="sidebar-icon">
               {item.icon}
@@ -92,7 +117,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {!isCollapsed && (
         <div className="sidebar-impact">
           <div className="impact-card">
-            <h4 className="impact-title">{t('dashboard.community.title')}</h4>
+            <h4 className="impact-title">Impact communautaire</h4>
             <div className="impact-stats">
               <div className="stat-item">
                 <span className="stat-label">Projets financés</span>

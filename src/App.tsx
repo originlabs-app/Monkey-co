@@ -2,6 +2,8 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { LandingPage } from "./screens/LandingPage";
 import { Dashboard } from "./screens/Dashboard";
+import { StakingPage } from "./screens/StakingPage";
+import { DAOPage } from "./screens/DAOPage";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +13,14 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/staking",
+    element: <StakingPage />,
+  },
+  {
+    path: "/dao",
+    element: <DAOPage />,
   },
   {
     path: "/landing-page",

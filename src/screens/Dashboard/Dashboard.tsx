@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { logger } from '@/services/logger';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
@@ -14,6 +15,7 @@ import './animations.css';
 
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   // Mock data - TODO: remplacer par API calls
@@ -59,8 +61,8 @@ export const Dashboard: React.FC = () => {
             <div className="dashboard-left">
               <ImpactModule 
                 data={impactData}
-                onStakeUSDC={() => logger.info('Stake USDC action triggered')}
-                onStakeKeycoin={() => logger.info('Stake Keycoin action triggered')}
+                onStakeUSDC={() => navigate('/staking')}
+                onStakeKeycoin={() => navigate('/staking?token=KEYCOIN')}
               />
             </div>
             
