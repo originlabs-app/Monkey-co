@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { logger } from '@/services/logger';
 import { Button } from '@/components/Button';
 import { PROJECT_CARDS } from '../../constants/dashboard.constants';
 import type { ProjectCard } from '../../types/dashboard.types';
@@ -15,7 +16,7 @@ export const ProjectCards: React.FC = () => {
 
   const handleProjectAction = (projectId: string) => {
     // TODO: Implémenter la navigation vers les formulaires
-    console.log(`Action for project: ${projectId}`);
+    logger.info('Project action triggered', { projectId });
   };
 
   return (

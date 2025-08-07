@@ -1,116 +1,194 @@
-/* Header Container */
+/* Dashboard Header - Utilise variables globales SSOT */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 24px;
-  background: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-2xl, 24px) var(--spacing-3xl, 32px);
+  background: var(--primarywhite);
+  border-bottom: 1px solid var(--variable-collection-gray-100, rgba(31, 31, 35, 0.1));
+  min-height: 100px;
+  animation: fadeInDown 0.5s ease-out;
 }
 
-/* Left Section */
+/* Section Gauche - Titre et Description */
 .header-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm, 8px);
   flex: 1;
 }
 
+/* Titre principal avec style LP */
 .header-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #1a202c;
   margin: 0;
+  color: var(--variable-collection-background-dark, #1F1F23);
+  font-family: var(--text-heading-large-font-family, "Lexend Deca", Helvetica);
+  font-size: var(--text-heading-large-font-size, 30px);
+  font-weight: var(--text-heading-large-font-weight, 700);
+  letter-spacing: var(--text-heading-large-letter-spacing, -1px);
+  line-height: var(--text-heading-large-line-height, 40px);
 }
 
+/* Sous-titre */
 .header-subtitle {
-  font-size: 14px;
-  color: #718096;
-  margin: 4px 0 0 0;
+  margin: 0;
+  color: var(--variable-collection-text-secondary, #718096);
+  font-family: var(--text-content-body-regular-font-family, "Lexend Deca", Helvetica);
+  font-size: var(--text-content-body-regular-font-size, 16px);
+  font-weight: var(--text-content-body-regular-font-weight, 400);
+  line-height: var(--text-content-body-regular-line-height, 24px);
 }
 
-/* Right Section */
+/* Section Droite - Informations Financières */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: var(--spacing-2xl, 24px);
 }
 
-/* Wallet Info */
-.wallet-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 8px 16px;
-  background: #f7fafc;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-}
-
-.wallet-balance {
+/* Wallet Items */
+.wallet-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: var(--spacing-xs, 4px);
+  animation: fadeIn 0.8s ease-out;
 }
 
-.balance-label {
-  font-size: 10px;
-  color: #718096;
+/* Label des valeurs */
+.wallet-label {
+  color: var(--variable-collection-gray-400, #a0aec0);
+  font-family: var(--text-content-caption-regular-font-family, "Inter", Helvetica);
+  font-size: var(--text-content-caption-regular-font-size, 12px);
+  font-weight: var(--text-content-caption-regular-font-weight, 400);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.balance-value {
-  font-size: 16px;
-  font-weight: bold;
-  color: #1a202c;
+/* Valeurs financières */
+.wallet-value {
+  color: var(--variable-collection-background-dark, #1F1F23);
+  font-family: var(--text-content-feature-strong-font-family, "Lexend Deca", Helvetica);
+  font-size: var(--text-content-feature-strong-font-size, 20px);
+  font-weight: var(--text-content-feature-strong-font-weight, 700);
+  line-height: var(--text-content-feature-strong-line-height, 28px);
 }
 
-.wallet-address {
-  padding: 8px 12px;
-  background: #E67E22;
-  color: white;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
+/* Keycoin en doré/orange */
+.wallet-value-keycoin {
+  color: var(--variable-collection-secondary-200, #E67E22);
 }
 
-/* User Profile */
-.user-profile {
-  display: flex;
-  align-items: center;
-}
-
-.user-avatar {
-  width: 40px;
+/* Séparateur vertical */
+.wallet-separator {
+  width: 1px;
   height: 40px;
-  background: #52705F;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  background: var(--variable-collection-gray-200, #e2e8f0);
+  opacity: 0.5;
 }
 
-.user-avatar:hover {
-  transform: scale(1.05);
+/* Adresse du portefeuille */
+.wallet-address {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm, 8px) var(--spacing-lg, 16px);
+  background: transparent;
+  border: 1px solid var(--variable-collection-secondary-200, #E67E22);
+  border-radius: var(--border-radius-full, 9999px);
+  transition: all var(--animation-normal, 0.3s) ease;
+  cursor: pointer;
+  animation: slideInRight 0.6s ease-out;
+}
+
+.wallet-address:hover {
+  background: var(--variable-collection-secondary-200, #E67E22);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.wallet-address:hover .address-text {
+  color: var(--primarywhite);
+}
+
+/* Texte de l'adresse */
+.address-text {
+  color: var(--variable-collection-secondary-200, #E67E22);
+  font-family: var(--text-content-caption-accent-font-family, "Inter", Helvetica);
+  font-size: var(--text-content-caption-accent-font-size, 12px);
+  font-weight: var(--text-content-caption-accent-font-weight, 500);
+  letter-spacing: 0.5px;
+  transition: color var(--animation-normal, 0.3s) ease;
+}
+
+/* Animations depuis animations.css */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .dashboard-header {
     flex-direction: column;
-    gap: 16px;
     align-items: flex-start;
+    gap: var(--spacing-xl, 20px);
   }
-  
+
   .header-right {
     width: 100%;
     justify-content: space-between;
   }
-  
-  .wallet-info {
-    flex: 1;
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: var(--spacing-lg, 16px);
+  }
+
+  .header-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .header-subtitle {
+    font-size: 14px;
+  }
+
+  .wallet-value {
+    font-size: 16px;
+  }
+
+  .header-right {
+    flex-wrap: wrap;
+    gap: var(--spacing-lg, 16px);
+  }
+
+  .wallet-separator {
+    display: none;
   }
 }

@@ -1,0 +1,1 @@
+export { VotingModule } from './VotingModule';

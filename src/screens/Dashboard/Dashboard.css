@@ -1,4 +1,4 @@
-/* Dashboard Container - Utilise les couleurs LP */
+/* Dashboard Container - Utilise variables globales */
 .dashboard-container {
   display: flex;
   min-height: 100vh;
@@ -10,15 +10,15 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-left: var(--sidebar-width, 240px);
-  transition: margin-left 0.3s ease;
+  margin-left: var(--sidebar-width, 260px);
+  transition: margin-left var(--animation-normal, 0.3s) ease;
 }
 
 .dashboard-main.sidebar-collapsed {
-  margin-left: 60px;
+  margin-left: 70px;
 }
 
-/* Content Padding - Utilise SPACING unifié */
+/* Content Padding - Utilise SPACING du theme */
 .dashboard-content {
   flex: 1;
   padding: var(--spacing-2xl, 24px);
@@ -39,10 +39,16 @@
 .dashboard-right {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: var(--spacing-2xl, 24px);
 }
 
-/* Responsive */
+/* Responsive - Utilise BREAKPOINTS */
+@media (max-width: 1440px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
@@ -50,11 +56,15 @@
 }
 
 @media (max-width: 768px) {
+  .dashboard-content {
+    padding: var(--spacing-lg, 16px);
+  }
+  
   .dashboard-main {
     margin-left: 0;
   }
   
-  .dashboard-content {
-    padding: 16px;
+  .dashboard-grid {
+    gap: var(--spacing-lg, 16px);
   }
 }

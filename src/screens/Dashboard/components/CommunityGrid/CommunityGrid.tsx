@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { logger } from '@/services/logger';
 import { COMMUNITY_CARDS } from '../../constants/dashboard.constants';
 import { EXTERNAL_LINKS } from '@/constants/links';
 import './CommunityGrid.css';
@@ -22,7 +23,7 @@ export const CommunityGrid: React.FC = () => {
         break;
       case 'share':
         // TODO: Implémenter logique de partage
-        console.log('Share functionality');
+        logger.info('Share functionality triggered');
         break;
       case 'idea':
         window.location.href = `mailto:${EXTERNAL_LINKS.EMAIL}?subject=Une idée pour Monkey-co`;

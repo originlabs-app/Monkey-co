@@ -1,65 +1,86 @@
-/**
- * InvestmentChart Styles
- * SSOT : Couleurs depuis dashboard.constants.ts
- */
-
-/* Container */
+/* Investment Chart Container */
 .investment-chart-container {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
+  background: var(--variable-collection-background-beige);
+  padding: var(--spacing-2xl, 24px);
+  border-radius: var(--border-radius-large, 20px);
+  animation: fadeInUp 0.6s ease-out;
 }
 
-/* Header */
-.chart-header {
-  margin-bottom: 20px;
-}
-
+/* Titre du graphique */
 .chart-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1a202c;
-  margin: 0;
+  color: var(--variable-collection-background-dark);
+  font-family: var(--text-heading-small-font-family);
+  font-size: var(--text-heading-small-font-size, 20px);
+  font-weight: var(--text-heading-small-font-weight, 600);
+  margin: 0 0 var(--spacing-xl, 20px) 0;
 }
 
-/* Chart Wrapper */
+/* Wrapper du graphique */
 .chart-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  margin: var(--spacing-xl, 20px) 0;
+  position: relative;
 }
 
-.investment-chart {
-  min-width: 500px;
-  display: block;
+/* Tooltip personnalisé */
+.chart-tooltip {
+  background: var(--primarywhite);
+  border: 1px solid var(--variable-collection-gray-200);
+  border-radius: var(--border-radius-small, 8px);
+  padding: var(--spacing-md, 12px);
+  box-shadow: var(--shadow-md);
+  animation: fadeIn 0.2s ease-out;
 }
 
-/* Legend */
+.tooltip-label {
+  margin: 0 0 var(--spacing-sm, 8px) 0;
+  font-family: var(--text-content-caption-accent-font-family);
+  font-size: var(--text-content-caption-accent-font-size, 12px);
+  font-weight: var(--text-content-caption-accent-font-weight, 600);
+  color: var(--variable-collection-text-secondary);
+}
+
+.tooltip-value {
+  margin: var(--spacing-xs, 4px) 0;
+  font-family: var(--text-content-note-regular-font-family);
+  font-size: var(--text-content-note-regular-font-size, 14px);
+  font-weight: var(--text-content-note-regular-font-weight, 500);
+}
+
+/* Légende */
 .chart-legend {
   display: flex;
-  gap: 24px;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid #e2e8f0;
+  justify-content: center;
+  gap: var(--spacing-2xl, 24px);
+  margin-top: var(--spacing-xl, 20px);
+  padding-top: var(--spacing-lg, 16px);
+  border-top: 1px solid var(--variable-collection-gray-100);
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-sm, 8px);
 }
 
-.legend-color {
+.legend-dot {
   width: 12px;
   height: 12px;
-  border-radius: 2px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot.legend-orange {
+  background: var(--variable-collection-secondary-200);
+}
+
+.legend-dot.legend-green {
+  background: var(--variable-collection-primary-200);
 }
 
 .legend-label {
-  font-size: 14px;
-  color: #718096;
+  font-family: var(--text-content-caption-regular-font-family);
+  font-size: var(--text-content-caption-regular-font-size, 13px);
+  color: var(--variable-collection-text-secondary);
 }
 
 /* Responsive */

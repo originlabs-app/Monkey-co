@@ -1,15 +1,15 @@
-/* Stats Grid Container */
+/* Stats Grid Container - Utilise SPACING du theme */
 .stats-grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: var(--spacing-xl, 20px);
 }
 
 /* Stats Cards - Style unifié avec LP */
 .stats-card {
   background: var(--primarywhite);
-  border-radius: 20px;
-  border: 2px solid #52705F;
+  border-radius: var(--border-radius-large, 20px);
+  border: 2px solid var(--variable-collection-primary-200);
   padding: var(--spacing-2xl, 24px);
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
 }
 
 .stats-card-large {
-  background: var(--gradient-primary, linear-gradient(132deg, rgba(144, 169, 154, 1) 0%, rgba(82, 112, 95, 1) 100%));
+  background: var(--gradient-primary);
   color: var(--primarywhite);
   border: none;
   box-shadow: var(--shadow-lg);
@@ -34,7 +34,7 @@
 .stats-card-header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-sm, 8px);
 }
 
 .stats-icon {
@@ -43,7 +43,7 @@
 
 .stats-label {
   font-size: 14px;
-  color: #718096;
+  color: var(--variable-collection-text-secondary, #718096);
   font-weight: 500;
 }
 
@@ -52,83 +52,50 @@
   font-size: 16px;
 }
 
-/* Values */
+/* Values - Utilise la typographie globale */
 .stats-value {
-  font-size: 28px;
-  font-weight: bold;
-  color: #1a202c;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--variable-collection-text-primary, #2d3748);
 }
 
 .stats-value-primary {
   font-size: 36px;
-  font-weight: bold;
-  color: white;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
-.stats-value-keycoin {
-  color: #E67E22;
+.stats-value-small {
+  font-size: 18px;
+  font-weight: 600;
 }
 
-/* Badges - Style LP avec gradients */
+/* Badge - Utilise les couleurs du theme */
 .stats-badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs, 6px);
-  padding: 8px 16px;
-  border-radius: 50px;
+  gap: var(--spacing-xs, 4px);
+  padding: var(--spacing-sm, 8px) var(--spacing-md, 12px);
+  border-radius: var(--border-radius-medium, 8px);
   font-size: 12px;
   font-weight: 600;
-  width: fit-content;
-  background: var(--gradient-primary);
-  color: var(--primarywhite);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--animation-normal, 0.3s) ease;
-}
-
-.stats-badge:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
-.stats-badge-success {
-  background: linear-gradient(135deg, rgba(144, 169, 154, 1) 0%, rgba(82, 112, 95, 1) 100%);
   color: var(--primarywhite);
 }
 
-.stats-badge-info {
-  background: var(--gradient-hero);
-  color: var(--primarywhite);
+/* Boutons - Réutilise le composant Button existant */
+.stats-actions {
+  display: flex;
+  gap: var(--spacing-md, 12px);
+  margin-top: var(--spacing-lg, 16px);
 }
 
-.stats-badge-warning {
-  background: var(--gradient-secondary);
-  color: var(--variable-collection-tertiary-300, rgba(164, 136, 49, 1));
-}
-
-.trend-icon {
-  font-size: 14px;
-}
-
-/* Button */
-.stats-button {
-  margin-top: auto;
-  width: 100%;
-  justify-content: center;
-}
-
-/* Responsive */
-@media (min-width: 768px) {
-  .stats-grid-container {
-    grid-template-columns: repeat(2, 1fr);
+/* Responsive - Utilise les breakpoints du theme */
+@media (max-width: 768px) {
+  .stats-value-primary {
+    font-size: 28px;
   }
   
-  .stats-card-large {
-    grid-column: span 2;
-  }
-}
-
-@media (min-width: 1024px) {
-  .stats-grid-container {
-    grid-template-columns: repeat(2, 1fr);
+  .stats-value {
+    font-size: 20px;
   }
 }

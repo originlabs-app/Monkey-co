@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { logger } from '@/services/logger';
 import { Sidebar } from './components/Sidebar';
 import { Header } from './components/Header';
-import { StatsGrid } from './components/StatsGrid';
+import { ImpactModule } from './components/ImpactModule';
 import { InvestmentChart } from './components/InvestmentChart';
-import { VotingSection } from './components/VotingSection';
+import { VotingModule } from './components/VotingModule';
 import { CommunityGrid } from './components/CommunityGrid';
 import { ProjectCards } from './components/ProjectCards';
 import type { DashboardStats, WalletInfo } from './types/dashboard.types';
@@ -16,12 +17,24 @@ export const Dashboard: React.FC = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   // Mock data - TODO: remplacer par API calls
-  const stats: DashboardStats = {
-    ecologicalImpact: 5785.32,
-    totalInvested: 4999.94,
-    revenue: 350.40,
-    keycoinReceived: 3450,
-    co2Avoided: 1247,
+  const impactData = {
+    totalValue: 5785.32,
+    invested: {
+      value: 4999.94,
+      trend: 12
+    },
+    revenue: {
+      value: 350.40,
+      trend: 8.2
+    },
+    keycoin: {
+      value: 3450,
+      trend: 1420
+    },
+    co2: {
+      value: 1247,
+      trend: 10
+    }
   };
 
   const walletInfo: WalletInfo = {
@@ -42,15 +55,19 @@ export const Dashboard: React.FC = () => {
         
         <div className="dashboard-content">
           <div className="dashboard-grid">
-            {/* Colonne gauche - Stats */}
+            {/* Colonne gauche - Impact Module */}
             <div className="dashboard-left">
-              <StatsGrid stats={stats} />
+              <ImpactModule 
+                data={impactData}
+                onStakeUSDC={() => logger.info('Stake USDC action triggered')}
+                onStakeKeycoin={() => logger.info('Stake Keycoin action triggered')}
+              />
             </div>
             
             {/* Colonne droite - Graphique et Votes */}
             <div className="dashboard-right">
               <InvestmentChart />
-              <VotingSection />
+              <VotingModule />
             </div>
           </div>
           
